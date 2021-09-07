@@ -5,6 +5,8 @@ import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+
+import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import org.hibernate.annotations.GenericGenerator;
@@ -16,28 +18,16 @@ public class Partido implements Serializable {
     @GeneratedValue(generator = "uuid")
     @GenericGenerator(name = "uuid", strategy = "uuid")
     private String id;
-    
-    @Temporal(TemporalType.TIMESTAMP)
-    private Date FechaHora;
-
-    public Date getFechaHora() {
-        return FechaHora;
-    }
-
-    public void setFechaHora(Date FechaHora) {
-        this.FechaHora = FechaHora;
-    }
     private String equipoLocal;
     private String equipoVisitante;
     private String arbitro;
-    private String estadio;
+    @OneToOne
+    private Estadio estadio;
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date FechaHora;
 
     public String getId() {
         return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
     }
 
     public String getEquipoLocal() {
@@ -64,11 +54,23 @@ public class Partido implements Serializable {
         this.arbitro = arbitro;
     }
 
-    public String getEstadio() {
+    public Estadio getEstadio() {
         return estadio;
     }
 
-    public void setEstadio(String estadio) {
+    public void setEstadio(Estadio estadio) {
         this.estadio = estadio;
     }
+
+    public Date getFechaHora() {
+        return FechaHora;
+    }
+
+    public void setFechaHora(Date FechaHora) {
+        this.FechaHora = FechaHora;
+    }
+    
+    
+
+    
 }
