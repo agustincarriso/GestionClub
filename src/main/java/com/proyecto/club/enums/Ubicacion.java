@@ -1,5 +1,5 @@
 
-package com.proyecto.club.emuns;
+package com.proyecto.club.enums;
 
 
 public enum Ubicacion {

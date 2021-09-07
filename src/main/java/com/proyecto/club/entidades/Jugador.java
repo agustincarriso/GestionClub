@@ -1,11 +1,12 @@
 package com.proyecto.club.entidades;
 
-import com.proyecto.club.emuns.PosicionJugador;
+import com.proyecto.club.enums.PosicionJugador;
 import java.io.Serializable;
 import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import org.hibernate.annotations.GenericGenerator;
@@ -20,8 +21,8 @@ public class Jugador implements Serializable {
     private String nacionalidad;
     private String nombreCompleto;
     private PosicionJugador posicion;
-    //aca hay que agregar relaciones con equipo
-    
+    @ManyToOne
+    private Equipo equipo;
     @Temporal(TemporalType.DATE)
     private Date fechaNacimiento;
     private Double peso;
@@ -29,10 +30,6 @@ public class Jugador implements Serializable {
 
     public String getId() {
         return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
     }
 
     public String getNacionalidad() {
@@ -49,6 +46,22 @@ public class Jugador implements Serializable {
 
     public void setNombreCompleto(String nombreCompleto) {
         this.nombreCompleto = nombreCompleto;
+    }
+
+    public PosicionJugador getPosicion() {
+        return posicion;
+    }
+
+    public void setPosicion(PosicionJugador posicion) {
+        this.posicion = posicion;
+    }
+
+    public Equipo getEquipo() {
+        return equipo;
+    }
+
+    public void setEquipo(Equipo equipo) {
+        this.equipo = equipo;
     }
 
     public Date getFechaNacimiento() {
@@ -74,5 +87,6 @@ public class Jugador implements Serializable {
     public void setAltura(Double altura) {
         this.altura = altura;
     }
+
 
 }

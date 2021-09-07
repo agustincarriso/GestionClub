@@ -1,6 +1,6 @@
 package com.proyecto.club.entidades;
 
-import com.proyecto.club.emuns.CuerpoTec;
+import com.proyecto.club.enums.CuerpoTec;
 import java.io.Serializable;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -15,7 +15,7 @@ public class CuerpoTecnico implements Serializable {
     private String id;
     private String nombreCompleto;
     private String nacionalidad;
-    private String edad;
+    private int edad;
     private CuerpoTec puesto;
 
     public String getId() {
@@ -42,11 +42,11 @@ public class CuerpoTecnico implements Serializable {
         this.nacionalidad = nacionalidad;
     }
 
-    public String getEdad() {
+    public int getEdad() {
         return edad;
     }
 
-    public void setEdad(String edad) {
+    public void setEdad(int edad) {
         this.edad = edad;
     }
 
