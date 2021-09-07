@@ -35,12 +35,12 @@ public class Jugador implements Serializable {
         this.id = id;
     }
 
-    public String getPais() {
+    public String getNacionalidad() {
         return nacionalidad;
     }
 
-    public void setPais(String pais) {
-        this.nacionalidad = pais;
+    public void setNacionalidad(String nacionalidad) {
+        this.nacionalidad = nacionalidad;
     }
 
     public String getNombreCompleto() {
