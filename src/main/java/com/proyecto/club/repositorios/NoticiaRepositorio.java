@@ -5,6 +5,8 @@
  */
 package com.proyecto.club.repositorios;
 
+import java.util.List;
+
 import com.proyecto.club.entidades.Noticia;
 import org.springframework.data.jpa.repository.JpaRepository;
 
@@ -12,8 +14,10 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 /**
  *
- * @author W7
+ * @author Javi
  */
 public interface NoticiaRepositorio extends JpaRepository<Noticia, String>{
     
+    List<Noticia>findByTituloContainingOrDescripcionContaining(String titulo, String descripcion);
+
 }
