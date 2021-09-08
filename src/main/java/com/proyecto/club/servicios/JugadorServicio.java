@@ -8,7 +8,6 @@ package com.proyecto.club.servicios;
 import com.proyecto.club.entidades.Jugador;
 import com.proyecto.club.excepciones.WebException;
 import com.proyecto.club.repositorios.JugadorRepositorio;
-import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 import javax.transaction.Transactional;

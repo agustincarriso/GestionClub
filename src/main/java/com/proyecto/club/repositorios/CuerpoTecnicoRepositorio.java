@@ -5,15 +5,20 @@
  */
 package com.proyecto.club.repositorios;
 
+import java.util.List;
+
 import com.proyecto.club.entidades.CuerpoTecnico;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
 
 
 /**
  *
- * @author W7
+ * @author Javi
  */
+@Repository
 public interface CuerpoTecnicoRepositorio extends JpaRepository<CuerpoTecnico, String> {
-    
+    List<CuerpoTecnico> findByNombrecompletoContainingOrNacionalidadContainingOrPuestoContaining(String
+    nombre, String nacionalidad, String puesto);
 }
