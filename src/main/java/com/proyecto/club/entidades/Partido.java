@@ -18,8 +18,8 @@ public class Partido implements Serializable {
     @GeneratedValue(generator = "uuid")
     @GenericGenerator(name = "uuid", strategy = "uuid2")
     private String id;
-    private String equipoLocal;
-    private String equipoVisitante;
+    private Equipo equipoLocal;
+    private Equipo equipoVisitante;
     private String arbitro;
     @OneToOne
     private Estadio estadio;
@@ -30,19 +30,19 @@ public class Partido implements Serializable {
         return id;
     }
 
-    public String getEquipoLocal() {
+    public Equipo getEquipoLocal() {
         return equipoLocal;
     }
 
-    public void setEquipoLocal(String equipoLocal) {
+    public void setEquipoLocal(Equipo equipoLocal) {
         this.equipoLocal = equipoLocal;
     }
 
-    public String getEquipoVisitante() {
+    public Equipo getEquipoVisitante() {
         return equipoVisitante;
     }
 
-    public void setEquipoVisitante(String equipoVisitante) {
+    public void setEquipoVisitante(Equipo equipoVisitante) {
         this.equipoVisitante = equipoVisitante;
     }
 
