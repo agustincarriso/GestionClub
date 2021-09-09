@@ -12,7 +12,7 @@ import org.springframework.data.annotation.Id;
 public class Producto {
     @Id
     @GeneratedValue(generator = "uuid")
-    @GenericGenerator(name = "uuid", strategy = "uuid")
+    @GenericGenerator(name = "uuid", strategy = "uuid2")
     private String id;
     private double precio;
     private Talle talle;

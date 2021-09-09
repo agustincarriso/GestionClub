@@ -11,7 +11,7 @@ public class Ubicacion {
     
     @Id
     @GeneratedValue(generator = "uuid")
-    @GenericGenerator(name = "uuid", strategy = "uuid")
+    @GenericGenerator(name = "uuid", strategy = "uuid2")
     private String id;
     private String ciudad;
     private String provincia;
