@@ -1,19 +1,18 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.proyecto.club.repositorios;
+
+import java.util.List;
 
 import com.proyecto.club.entidades.Partido;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
 
 
 /**
  *
- * @author W7
+ * @author Javi
  */
+@Repository
 public interface PartidoRepositorio extends JpaRepository<Partido, String> {
-    
+    List<Partido> findByArbitroContainingOrEquipolocalNombreContainingOrEquipovisitanteNombreContainingOrEstadioNombreContaining(String a, String b, String c, String d);
 }
