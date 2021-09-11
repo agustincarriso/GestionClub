@@ -19,6 +19,6 @@ import org.springframework.stereotype.Repository;
  */
 @Repository
 public interface CuerpoTecnicoRepositorio extends JpaRepository<CuerpoTecnico, String> {
-    List<CuerpoTecnico> findByNombrecompletoContainingOrNacionalidadContainingOrPuestoContaining(String
+    List<CuerpoTecnico> findByNombreCompletoContainingOrNacionalidadContainingOrPuestoContaining(String
     nombre, String nacionalidad, String puesto);
 }

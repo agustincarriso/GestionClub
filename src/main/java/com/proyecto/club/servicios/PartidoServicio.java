@@ -75,9 +75,9 @@ public class PartidoServicio {
         return partidoRepositorio.findAll();
     }
 
-    public List<Partido> listByQ(String q) {
-        return partidoRepositorio.findByArbitroContainingOrEquipolocalNombreContainingOrEquipovisitanteNombreContainingOrEstadioNombreContaining(q, q, q, q);
-    }
+//    public List<Partido> listByQ(String q) {
+//        return partidoRepositorio.findByArbitroContainingOrEquipoLocalNombreContainingOrEquipoVisitanteNombreContainingOrEstadioNombreContaining(q, q, q, q);
+//    }
 
     public Partido findById(String id) {
         return partidoRepositorio.findById(id).get();

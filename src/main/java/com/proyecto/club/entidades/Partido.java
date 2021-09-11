@@ -5,8 +5,7 @@ import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-
-import javax.persistence.OneToOne;
+import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import org.hibernate.annotations.GenericGenerator;
@@ -21,7 +20,7 @@ public class Partido implements Serializable {
     private Equipo equipoLocal;
     private Equipo equipoVisitante;
     private String arbitro;
-    @OneToOne
+    @ManyToOne
     private Estadio estadio;
     @Temporal(TemporalType.TIMESTAMP)
     private Date FechaHora;

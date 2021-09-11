@@ -6,7 +6,7 @@ import javax.persistence.GeneratedValue;
 import com.proyecto.club.enums.Talle;
 
 import org.hibernate.annotations.GenericGenerator;
-import org.springframework.data.annotation.Id;
+import javax.persistence.Id;
 
 @Entity
 public class Producto {
