@@ -67,7 +67,7 @@ public class CuerpoTecnicoServicio {
     }
 
     public List<CuerpoTecnico> listByQ(String q){
-        return cuerpoTecnicoRepositorio.findByNombrecompletoContainingOrNacionalidadContainingOrPuestoContaining(q, q, q);
+        return cuerpoTecnicoRepositorio.findByNombreCompletoContainingOrNacionalidadContainingOrPuestoContaining(q, q, q);
     }
 
     public CuerpoTecnico findById(String id){

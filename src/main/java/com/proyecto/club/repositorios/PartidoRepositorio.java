@@ -14,5 +14,5 @@ import org.springframework.stereotype.Repository;
  */
 @Repository
 public interface PartidoRepositorio extends JpaRepository<Partido, String> {
-    List<Partido> findByArbitroContainingOrEquipolocalNombreContainingOrEquipovisitanteNombreContainingOrEstadioNombreContaining(String a, String b, String c, String d);
+ //   List<Partido> findByArbitroContainingOrEquipoLocalNombreContainingOrEquipoVisitanteNombreContainingOrEstadioNombreContaining(String a, String b, String c, String d);
 }
