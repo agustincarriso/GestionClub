@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="es-AR" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Hammersmith+One&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="assets/escudo.png" type="image/x-icon">
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <title>Club Talleres</title>
+</head>
+
+<!-- <head th:replace="/fragments/head :: head"></head> -->
+
+<body>
+    <!-- hero no lleva un container en el bloque ya que como vamos a utilizar un slider
+    queremos que el mismo abarque el 100% del ancho de la pantalla -->
+    <header class="hero">
+        <nav class="nav">
+            <div class="logo">
+                <img src="assets/escudo.png" class="imagen__logo">
+                <h2 class="logo__name">Club Atletico Talleres<span class="point">.</span></h2>
+            </div>
+
+            <a href="/registro" class="nav__items--cta">Registrarme</a>
+            <a href="login" class="nav__items">Iniciar Sesión</a>
+            <a href="#" class="nav__items">Quienes Somos</a>
+        </nav>
+        <br>
+        <div class="hero__slider">
+            <ul class="slider">
+                <li id="slide3" class="slider slider3">
+                    <img src="assets/img-slider/img-slider.jpg" />
+                </li>
+                <li id="slide2">
+                    <img src="assets/img-slider/camisetas-givova-talleres-cordoba-2021-4.jpg" />
+                </li>
+                <li id="slide1">
+                    <video src="assets/slider-video/Azul y Blanco y VOS.mp4" muted autoplay controls=""></video>
+                </li>
+
+                <div class="menu">
+                    <span class="menu__icons">
+                        <a class="menu__icons--button" href="#slide1"></a>
+                    </span>
+                    <span class="menu__icons">
+                        <a class="menu__icons--button" href="#slide2"></a>
+                    </span>
+                    <span class="menu__icons">
+                        <a class="menu__icons--button" href="#slide3"></a>
+                    </span>
+                </div>
+        </div>
+
+        <!-- <div class="container"> -->
+        <!-- seccion es un elemento de hero creado para manejar imagenes, textos, etc-->
+        <!-- <section class="hero__container"> -->
+        <!-- creamos un contenedor para manejar los textos -->
+        <!-- <div class="hero__texts">
+                    <h1 class="hero__title">textos del slider</h1>
+                    <h2 class="hero__title--h2">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quae, tempore.
+                    </h2>
+                    <a href="#" class="hero__cta">Contenido Exclusivo</a>
+                </div>
+            </section> -->
+
+        <!-- </div> -->
+
+
+
+    </header>
+
+    <main>
+        <!-- seccion noticias -->
+        <section class="noticias">
+            <div class="container">
+                <h2 class="noticias__title">NOTICIAS</h2>
+                <p class="noticias__subtitle">En esta sección encontraras las ultimas novedades de nuestro equipo
+                    favorito</p>
+
+                <article class="container__cards">
+                    <div class="card">
+                        <img src="assets/img-noticias/beltramone_862x485.jpg" class="card__img">
+                        <div class="cards_text">
+                            <p class="card_list">Exequiel Beltramone
+                                continuará jugando a préstamo</p>
+                            <p class="card__copy">La Comisión Directiva del Club informa que Exequiel Beltramone
+                                continuará jugando a préstamo sin cargo y con opción de compra hasta junio de 2022 en el
+                                Tlaxcala de México. Exequiel, oriundo de... </p>
+                            <a href="#" class="card__button">LEER MÁS..</a>
+                            <P class="fecha__noticia">02 DE SEPTIEMBRE, 2021</P>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <img src="assets/img-noticias/JMV_7807-1536x1024.jpg" class="card__img">
+                        <div class="cards_text">
+                            <p class="card_list">Este sábado nuestros Juveniles Albiazules juegan ante
+                                Independiente</p>
+                            <p class="card__copy">Este sábado continuará la acción para nuestros Juveniles Albiazules
+                                que enfrentaran a Independiente por la octava fecha del Torneo Inicial de la Liga
+                                Profesional 2021. Las categorías de Cuarta...</p>
+                            <a href="#" class="card__button">LEER MÁS...</a>
+                            <P class="fecha__noticia">31 DE AGOSTO, 2021</P>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <img src="assets/img-noticias/Fut-Fem.jpg" class="card__img">
+                        <div class="cards_text">
+                            <p class="card_list">El Fútbol Femenino de Talleres Te convoca </p><br>
+                            <p class="card__copy">El Club Talleres informa que se realizarán pruebas de jugadoras de
+                                Fútbol Femenino para divisiones inferiores para niñas nacidas entre el año 2005 a 2008
+                                inclusive. La convocatoria será...</p>
+                            <a href="#" class="card__button">LEER MÁS...</a>
+                            <P class="fecha__noticia">28 DE AGOSTO, 2021</P>
+                        </div>
+                    </div>
+
+                    <!-- TABLA DE POSICIONES -->
+                    <div class="tabla__posiciones">
+                        <div class="elementor-column elementor-col-50 elementor-inner-column elementor-element elementor-element-9856091 elementor-hidden-tablet elementor-hidden-phone"
+                            data-id="9856091" data-element_type="column">
+                            <div class="elementor-column-wrap elementor-element-populated">
+                                <div class="elementor-widget-wrap">
+                                    <div class="elementor-element elementor-element-80a9221 elementor-widget elementor-widget-heading"
+                                        data-id="80a9221" data-element_type="widget" data-widget_type="heading.default">
+                                        <div class="elementor-widget-container">
+                                            <h1 class="elementor-heading-title elementor-size-default">POSICIONES</h1>
+                                        </div>
+                                    </div>
+                                    <div class="elementor-element elementor-element-27b4553 elementor-widget elementor-widget-cat-positions"
+                                        data-id="27b4553" data-element_type="widget"
+                                        data-widget_type="cat-positions.default">
+                                        <div class="elementor-widget-container">
+
+
+                                            <iframe class="positions-widget"
+                                                src="https://dfcenter.clubtalleres.com.ar/v3/minapp/page/page.html?channel=deportes.futbol.primeraa&amp;lang=es_LA&amp;page=posiciones"
+                                                width="100%" height="600" scrolling="auto"
+                                                style="width: 100%; background: white; border-radius: 8px;"></iframe>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+            </div>
+            <!-- efecto wave superior -->
+            <div class="noticias__wave--superior" style="overflow: hidden;"><svg viewBox="0 0 500 150"
+                    preserveAspectRatio="none" style="height: 100%; width: 100%;">
+                    <path d="M-3.10,26.14 C232.78,77.45 213.60,-29.11 505.92,53.78 L500.00,0.00 L0.00,0.00 Z"
+                        style="stroke: none; fill: #fff;"></path>
+                </svg></div>
+            <!-- efecto wave inferior -->
+            <div class="noticias__wave--inferior" style="overflow: hidden;"><svg viewBox="0 0 500 150"
+                    preserveAspectRatio="none" style="height: 100%; width: 100%;">
+                    <path d="M-1.41,71.53 C235.04,215.63 283.57,6.42 503.10,87.33 L500.00,150.00 L0.00,150.00 Z"
+                        style="stroke: none; fill: #fff"></path>
+                </svg></div>
+
+        </section>
+
+        <!-- seccion tienda productos -->
+        <section class="tienda">
+            <div class="container">
+                <h2 class="tienda__title">NUESTROS PRODUCTOS</h2>
+                <div class="galery__port">
+
+                    <div class="producto__tienda">
+                        <div class="galery__port--img">
+                            <img src="assets/img-1.jpg" alt="">
+                            <div class="descripcion">
+                                <p class="descripcion__produc">Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                                    Velit, numquam.</p>
+                                <p class="cuotas">12 x <span class="signo_peso">$</span> 179.17
+                                    <span>Sin interes</span></p>
+                            </div>
+
+                            <a href="#" class="boton__comprar">
+                                <p class="carrito__text">Añadir al Carrito</p>
+                                <img class="carrito__icon" src="/assets/carrito_Mesa.png" alt="">
+                            </a>
+
+                        </div>
+                    </div>
+
+                    <div class="producto__tienda">
+                        <div class="galery__port--img">
+                            <img src="assets/img-2.jpg" alt="">
+                            <div class="descripcion">
+                                <p class="descripcion__produc">Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                                    Velit, numquam.</p>
+                                <p class="cuotas">12 x <span class="signo_peso">$</span> 179.17
+                                    <span>Sin interes</span></p>
+                            </div>
+
+                            <a href="#" class="boton__comprar">
+                                <p class="carrito__text">Añadir al Carrito</p>
+                                <img class="carrito__icon" src="/assets/carrito_Mesa.png" alt="">
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="producto__tienda">
+                        <div class="galery__port--img">
+                            <img src="assets/img-3.jpg" alt="">
+                            <div class="descripcion">
+                                <p class="descripcion__produc">Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                                    Velit, numquam.</p>
+                                <p class="cuotas">12 x <span class="signo_peso">$</span> 179.17
+                                    <span>Sin interes</span></p>
+                            </div>
+                            <a href="#" class="boton__comprar">
+                                <p class="carrito__text">Añadir al Carrito</p>
+                                <img class="carrito__icon" src="/assets/carrito_Mesa.png" alt="">
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="producto__tienda">
+                        <div class="galery__port--img">
+                            <img src="assets/img-4.jpg" alt="">
+                            <div class="descripcion">
+                                <p class="descripcion__produc">Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                                    Velit, numquam.</p>
+                                <p class="cuotas">12 x <span class="signo_peso">$</span> 179.17
+                                    <span>Sin interes</span></p>
+                            </div>
+                            <a href="#" class="boton__comprar">
+                                <p class="carrito__text">Añadir al Carrito</p>
+                                <img class="carrito__icon" src="/assets/carrito_Mesa.png" alt="">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECCION PATROCINADORES -->
+        <section class="patrocinadores">
+            <div class="container">
+                <h2 class="patrocinadores__title">NUESTROS PATROCINADORES</h2>
+                <div class="patrocinadores__grid">
+
+                    <article class="patrocinador__items">
+                        <a href="https://www.quilmes.com.ar/" target="_blank">
+                            <!-- efecto que se mostrara cuando pasemos el mouse por arriba -->
+                            <object class="patrocinador__logo" data="assets/img-sponsor/img1.svg" type="image/svg+xml">
+                                <!-- imagen alternativa por si el SVG no carga -->
+                                <img src="assets/img-sponsor/marcas/PNG/web_c3.png" alt="Imagen PNG alternativa">
+                            </object>
+                            <div class="patrocinador__hover">
+                                <h2 class="patrocinador__subtitle">Visitar Web</h2>
+                                <!-- agregamos un icono -->
+                                <i class="far fa-hand-pointer patrocinador__icon"></i>
+                            </div>
+                        </a>
+                    </article>
+
+                    <article class="patrocinador__items">
+                        <a href="https://www.quilmes.com.ar/" target="_blank">
+                            <object class="patrocinador__logo" data="assets/img-sponsor/img2.svg" type="image/svg+xml">
+                                <!-- imagen alternativa por si el SVG no carga -->
+                                <img src="assets/img-sponsor/marcas/PNG/img2.png" alt="Imagen PNG alternativa">
+                            </object>
+
+                            <!-- efecto que se mostrara cuando pasemos el mouse por arriba -->
+                            <div class="patrocinador__hover">
+                                <h2 class="patrocinador__subtitle">Visitar Web</h2>
+                                <!-- agregamos un icono -->
+                                <i class="far fa-hand-pointer patrocinador__icon"></i>
+                            </div>
+                        </a>
+                    </article>
+
+                    <article class="patrocinador__items">
+                        <a href="https://www.quilmes.com.ar/" target="_blank">
+
+                            <object class="patrocinador__logo" data="assets/img-sponsor/img3.svg" type="image/svg+xml">
+                                <!-- imagen alternativa por si el SVG no carga -->
+                                <img src="assets/img-sponsor/marcas/PNG/img3.png" alt="Imagen PNG alternativa">
+                            </object>
+
+                            <!-- efecto que se mostrara cuando pasemos el mouse por arriba -->
+                            <div class="patrocinador__hover">
+                                <h2 class="patrocinador__subtitle">Visitar Web</h2>
+                                <!-- agregamos un icono -->
+                                <i class="far fa-hand-pointer patrocinador__icon"></i>
+                            </div>
+                        </a>
+                    </article>
+
+                    <article class="patrocinador__items">
+                        <a href="https://www.quilmes.com.ar/" target="_blank">
+                            <object class="patrocinador__logo" data="assets/img-sponsor/img4.svg" type="image/svg+xml">
+                                <!-- imagen alternativa por si el SVG no carga -->
+                                <img src="assets/img-sponsor/marcas/PNG/img4.png" alt="Imagen PNG alternativa">
+                            </object>
+
+                            <!-- efecto que se mostrara cuando pasemos el mouse por arriba -->
+                            <div class="patrocinador__hover">
+                                <h2 class="patrocinador__subtitle">Visitar Web</h2>
+                                <!-- agregamos un icono -->
+                                <i class="far fa-hand-pointer patrocinador__icon"></i>
+                            </div>
+                        </a>
+                    </article>
+
+                    <article class="patrocinador__items">
+                        <a href="https://www.quilmes.com.ar/" target="_blank">
+                            <object class="patrocinador__logo" data="assets/img-sponsor/img5.svg" type="image/svg+xml">
+                                <!-- imagen alternativa por si el SVG no carga -->
+                                <img src="assets/img-sponsor/marcas/PNG/img5.png" alt="Imagen PNG alternativa">
+                            </object>
+
+                            <!-- efecto que se mostrara cuando pasemos el mouse por arriba -->
+                            <div class="patrocinador__hover">
+                                <h2 class="patrocinador__subtitle">Visitar Web</h2>
+                                <!-- agregamos un icono -->
+                                <i class="far fa-hand-pointer patrocinador__icon"></i>
+                            </div>
+                        </a>
+                    </article>
+
+                    <article class="patrocinador__items">
+                        <a href="https://www.quilmes.com.ar/" target="_blank">
+                            <!-- <img src="/assets/img-sponsor/Marcas/img6.svg" class="patrocinador__logo"> -->
+                            <object class="patrocinador__logo" data="assets/img-sponsor/img6.svg" type="image/svg+xml">
+                                <!-- imagen alternativa por si el SVG no carga -->
+                                <img src="assets/img-sponsor/marcas/PNG/img6.png" alt="Imagen PNG alternativa">
+                            </object>
+
+                            <!-- efecto que se mostrara cuando pasemos el mouse por arriba -->
+                            <div class="patrocinador__hover">
+                                <h2 class="patrocinador__subtitle">Visitar Web</h2>
+                                <!-- agregamos un icono -->
+                                <i class="far fa-hand-pointer patrocinador__icon"></i>
+                            </div>
+                        </a>
+                    </article>
+
+                    <article class="patrocinador__items">
+                        <a href="https://www.quilmes.com.ar/" target="_blank">
+                            <object class="patrocinador__logo" data="assets/img-sponsor/img7.svg" type="image/svg+xml">
+                                <!-- imagen alternativa por si el SVG no carga -->
+                                <img src="assets/img-sponsor/marcas/PNG/img7.png" alt="Imagen PNG alternativa">
+                            </object>
+
+                            <!-- efecto que se mostrara cuando pasemos el mouse por arriba -->
+                            <div class="patrocinador__hover">
+                                <h2 class="patrocinador__subtitle">Visitar Web</h2>
+                                <!-- agregamos un icono -->
+                                <i class="far fa-hand-pointer patrocinador__icon"></i>
+                            </div>
+                        </a>
+                    </article>
+
+                    <article class="patrocinador__items">
+                        <a href="https://www.quilmes.com.ar/" target="_blank">
+                            <object class="patrocinador__logo" data="assets/img-sponsor/img8.svg" type="image/svg+xml">
+                                <!-- imagen alternativa por si el SVG no carga -->
+                                <img src="assets/img-sponsor/marcas/PNG/img8.png" alt="Imagen PNG alternativa">
+                            </object>
+
+                            <!-- efecto que se mostrara cuando pasemos el mouse por arriba -->
+                            <div class="patrocinador__hover">
+                                <h2 class="patrocinador__subtitle">Visitar Web</h2>
+                                <!-- agregamos un icono -->
+                                <i class="far fa-hand-pointer patrocinador__icon"></i>
+                            </div>
+                        </a>
+                    </article>
+
+                    <article class="patrocinador__items">
+                        <a href="https://www.quilmes.com.ar/" target="_blank">
+                            <object class="patrocinador__logo" data="assets/img-sponsor/img9.svg" type="image/svg+xml">
+                                <!-- imagen alternativa por si el SVG no carga -->
+                                <img src="assets/img-sponsor/marcas/PNG/img9.png" alt="Imagen PNG alternativa">
+                            </object>
+
+                            <!-- efecto que se mostrara cuando pasemos el mouse por arriba -->
+                            <div class="patrocinador__hover">
+                                <h2 class="patrocinador__subtitle">Visitar Web</h2>
+                                <!-- agregamos un icono -->
+                                <i class="far fa-hand-pointer patrocinador__icon"></i>
+                            </div>
+                        </a>
+                    </article>
+
+                    <article class="patrocinador__items">
+                        <a href="https://www.quilmes.com.ar/" target="_blank">
+                            <object class="patrocinador__logo" data="assets/img-sponsor/img10.svg" type="image/svg+xml">
+                                <!-- imagen alternativa por si el SVG no carga -->
+                                <img src="assets/img-sponsor/marcas/PNG/img10.png" alt="Imagen PNG alternativa">
+                            </object>
+
+                            <!-- efecto que se mostrara cuando pasemos el mouse por arriba -->
+                            <div class="patrocinador__hover">
+                                <h2 class="patrocinador__subtitle">Visitar Web</h2>
+                                <!-- agregamos un icono -->
+                                <i class="far fa-hand-pointer patrocinador__icon"></i>
+                            </div>
+                        </a>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="footer">
+        <div class="footer__suscripcion">
+            <section class="download__section">
+                <h3 class="title__footer">Descarga nuestra App</h3>
+
+                <div class="download__app">
+
+                    <a href="https://apps.apple.com/ar/app/club-atl%C3%A9tico-talleres/id1473006513"
+                        class="download__item" target="_blank">
+                        <i class="fab fa-apple download__logo"></i>
+                        <h4 class="download__title">App Store</h4>
+                    </a>
+                    <a href="">
+                        <a href="https://play.google.com/store/apps/details?id=com.talleres_mobile&hl=es_AR&gl=US"
+                            class="download__item" target="_blank">
+                            <i class="fab fa-google-play download__logo--play"></i>
+                            <h4 class="download__title">Play Store</h4>
+                        </a>
+                </div>
+                <div class="footer__copy">
+                    <p class="copyright">EQUIPO DE DESARROLLO &copy; 2021 Todos los derechos reservados</p>
+                    <a href="#" class="politica__privacidad politica__privacidad--margin">Politica de privacidad</a>
+                    <a href="#" class="politica__privacidad">Terminos y condiciones</a>
+                </div>
+            </section>
+            <section class="get-email">
+                <h3 class="title__footer">Para contenido exclusivo!</h3>
+                <form class="newsletter newsletter--modifier">
+                    <input type="text" class="newsletter__input" placeholder="ingresa tu email">
+                    <input type="submit" class="newsletter__submit" value="Suscribirse">
+                </form>
+                <div class="socialmedia">
+                    <p class="socialmedia__legend">Siguenos en:</p>
+                    <i class="fab fa-facebook-f socialmedia__icon"></i>
+                    <i class="fab fa-twitter socialmedia__icon"></i>
+                    <i class="fab fa-instagram socialmedia__icon"></i>
+                    <i class="fab fa-tiktok socialmedia__icon"></i>
+                </div>
+            </section>
+        </div>
+        <div class="contact">
+            <div class="item__contact">
+                <i class='bx bx-copyright contact__icon'></i>
+                <h3 class="contact__title">Copyright © 2021 | Desarrollado por (link foto de todo el equipo)</h3>
+            </div>
+            <div class="item__contact--now">
+                <i class='bx bx-send contact__icon--gold'></i>
+                <h3 class="contact__title">Contáctanos ahora</h3>
+            </div>
+        </div>
+    </footer>
+
+    <!-- 
+    <footer class="footer">
+        <div class="footer__grid">
+            <nav class="nav nav--footer">
+                <a class="nav__items nav__items--footer" href="">Ir Arriba</a>
+                <a class="nav__items nav__items--footer" href="">Nuestra Institucion</a>
+                <a class="nav__items nav__items--footer" href="">Trabaja con nosotros</a>
+                <a class="nav__items nav__items--footer" href="">????????</a>
+            </nav>
+            <section class="footer__contact">
+                <h3 class="footer__title">Nuestras Redes Sociales</h3>
+                <div class="footer__icons">
+
+                    <span class="footer__container-icons">
+                        <a class="fab fa-whatsapp footer__icon" href="https://wa.me/5493585131021" target="_blank"></a>
+                    </span>
+
+                    <span class="footer__container-icons">
+                        <a class="fab fa-github footer__icon" href="https://github.com/JonathanBolatti"
+                            target="_blank"></a>
+                    </span>
+
+                    <span class="footer__container-icons">
+                        <a class="fab fa-instagram footer__icon"
+                            href="https://www.instagram.com/jonathan.bolatti/?hl=es" target="_blank"></a>
+                    </span>
+
+                    <span class="footer__container-icons">
+                        <a class="fab fa-facebook-square footer__icon" href="https://www.facebook.com/jonathan.bolatti/"
+                            target="_blank"></a>
+                    </span>
+                </div>
+            </section>
+        </div>
+    </footer> -->
+
+    <script src="https://kit.fontawesome.com/5208273844.js" crossorigin="anonymous"></script>
+
+</body>
+
+</html>
