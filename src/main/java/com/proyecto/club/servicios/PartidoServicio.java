@@ -32,10 +32,10 @@ public class PartidoServicio {
         if (x.getArbitro()==null || x.getArbitro().isEmpty()) {
             throw new WebException("Falta el Árbitro");
         }
-        if (x.getEquipoLocal()==null) {
+        if (x.getLocal()==null) {
             throw new WebException("Falta el Equipo Local");
         }
-        if (x.getEquipoVisitante()==null) {
+        if (x.getVisitante()==null) {
             throw new WebException("Falta el Equipo Visitante");
         }
         if (x.getEstadio()==null) {
@@ -64,8 +64,8 @@ public class PartidoServicio {
     public Partido modify(String id, String arbitro, Equipo equipoLocal, Equipo equipoVisitante, Estadio estadio, Date FechaHora) {
         Partido x = partidoRepositorio.getById(id);
         x.setArbitro(arbitro);
-        x.setEquipoLocal(equipoLocal);
-        x.setEquipoVisitante(equipoVisitante);
+        x.setLocal(equipoLocal);
+        x.setVisitante(equipoVisitante);
         x.setEstadio(estadio);
         x.setFechaHora(FechaHora);
         return partidoRepositorio.save(x);
@@ -75,9 +75,9 @@ public class PartidoServicio {
         return partidoRepositorio.findAll();
     }
 
-//    public List<Partido> listByQ(String q) {
-//        return partidoRepositorio.findByArbitroContainingOrEquipoLocalNombreContainingOrEquipoVisitanteNombreContainingOrEstadioNombreContaining(q, q, q, q);
-//    }
+   public List<Partido> listByQ(String q) {
+       return partidoRepositorio.findAllByQ(q);
+   }
 
     public Partido findById(String id) {
         return partidoRepositorio.findById(id).get();

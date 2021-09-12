@@ -17,8 +17,8 @@ public class Partido implements Serializable {
     @GeneratedValue(generator = "uuid")
     @GenericGenerator(name = "uuid", strategy = "uuid2")
     private String id;
-    private Equipo equipoLocal;
-    private Equipo equipoVisitante;
+    private Equipo local;
+    private Equipo visitante;
     private String arbitro;
     @ManyToOne
     private Estadio estadio;
@@ -26,27 +26,31 @@ public class Partido implements Serializable {
     private Date FechaHora;
 
     public String getId() {
-        return id;
+        return this.id;
     }
 
-    public Equipo getEquipoLocal() {
-        return equipoLocal;
+    public void setId(String id) {
+        this.id = id;
     }
 
-    public void setEquipoLocal(Equipo equipoLocal) {
-        this.equipoLocal = equipoLocal;
+    public Equipo getLocal() {
+        return this.local;
     }
 
-    public Equipo getEquipoVisitante() {
-        return equipoVisitante;
+    public void setLocal(Equipo local) {
+        this.local = local;
     }
 
-    public void setEquipoVisitante(Equipo equipoVisitante) {
-        this.equipoVisitante = equipoVisitante;
+    public Equipo getVisitante() {
+        return this.visitante;
+    }
+
+    public void setVisitante(Equipo visitante) {
+        this.visitante = visitante;
     }
 
     public String getArbitro() {
-        return arbitro;
+        return this.arbitro;
     }
 
     public void setArbitro(String arbitro) {
@@ -54,7 +58,7 @@ public class Partido implements Serializable {
     }
 
     public Estadio getEstadio() {
-        return estadio;
+        return this.estadio;
     }
 
     public void setEstadio(Estadio estadio) {
@@ -62,12 +66,14 @@ public class Partido implements Serializable {
     }
 
     public Date getFechaHora() {
-        return FechaHora;
+        return this.FechaHora;
     }
 
     public void setFechaHora(Date FechaHora) {
         this.FechaHora = FechaHora;
     }
+
+   
     
     
 
