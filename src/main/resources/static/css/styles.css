@@ -74,6 +74,7 @@ body {
     display: flex;
     align-items: center;
     width: 100%;
+    text-decoration: none;
 }
 
 .imagen__logo {
@@ -143,12 +144,6 @@ ul.slider li:first-child {
 
 ul.slider li:target {
     opacity: 1;
-}
-
-ul.slider .slider3 {
-    margin-right: px;
-
-
 }
 
 .menu {
