@@ -34,7 +34,7 @@ body {
 }
 
 .form-register {
-    height: 700px;
+    height: 600px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -44,7 +44,7 @@ body {
     width: 100px;
     height: 100px;
     position: absolute;
-    bottom: 550px;
+    bottom: 473px;
     left: calc(50% - 30px);
 }
 
@@ -61,13 +61,13 @@ h1{
 
 .form {
     width: 100%;
+    height: 420px;
     margin: auto 20px;
 }
 
 .form .grupo {
     position: relative;
     margin: 45px;
-
 }
 
 .input{
