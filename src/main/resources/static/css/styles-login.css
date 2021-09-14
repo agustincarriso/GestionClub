@@ -34,11 +34,18 @@ body {
 }
 
 .form-register {
-    height: 900px;
+    height: 700px;
     display: flex;
     justify-content: center;
     align-items: center;
     color: var(--black2);
+}
+.logo__club{
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    bottom: 550px;
+    left: calc(50% - 30px);
 }
 
 h1{
@@ -130,7 +137,7 @@ input:valid~label{
     border: none;
     display: block;
     width: 80%;
-    margin: 10px auto;
+    margin: 40px auto;
     color: #ffff;
     height: 40px;
     font-size: 18px;
@@ -142,3 +149,12 @@ input:valid~label{
     margin-top: 22px;
 }
 
+.contraseña__olvidada{
+    font-family: 'Hammersmith One', sans-serif;
+    display: block;
+    text-decoration: none;
+    text-align: center;
+    font-size: 12px;
+    margin: 10px auto;
+
+}
