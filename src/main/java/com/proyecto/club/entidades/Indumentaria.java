@@ -1,7 +1,6 @@
 
 package com.proyecto.club.entidades;
 
-import java.io.Serializable;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -14,7 +13,7 @@ import org.hibernate.annotations.GenericGenerator;
  */
 
 @Entity
-public class Indumentaria extends Producto implements Serializable{
+public class Indumentaria extends Producto{
    
     @Id
     @GeneratedValue(generator = "uuid")

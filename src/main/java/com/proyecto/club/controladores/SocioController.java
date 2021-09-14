@@ -3,9 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.proyecto.club.Controladores;
+package com.proyecto.club.controladores;
 
-import com.proyecto.club.Excepciones.WebException;
+import com.proyecto.club.excepciones.WebException;
 import com.proyecto.club.entidades.Socio;
 import com.proyecto.club.servicios.SocioService;
 import java.util.Optional;

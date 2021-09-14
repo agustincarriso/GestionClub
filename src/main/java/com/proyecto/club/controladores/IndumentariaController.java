@@ -1,6 +1,6 @@
-package com.proyecto.club.Controladores;
+package com.proyecto.club.controladores;
 
-import com.proyecto.club.Excepciones.WebException;
+import com.proyecto.club.excepciones.WebException;
 import com.proyecto.club.entidades.Indumentaria;
 import com.proyecto.club.servicios.IndumentariaService;
 import org.springframework.beans.factory.annotation.Autowired;

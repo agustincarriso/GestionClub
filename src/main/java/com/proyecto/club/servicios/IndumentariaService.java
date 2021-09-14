@@ -1,6 +1,6 @@
 package com.proyecto.club.servicios;
 
-import com.proyecto.club.Excepciones.WebException;
+import com.proyecto.club.excepciones.WebException;
 import com.proyecto.club.entidades.Indumentaria;
 import com.proyecto.club.repositorios.IndumentariaRepository;
 import java.util.List;

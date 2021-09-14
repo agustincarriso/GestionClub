@@ -1,7 +1,7 @@
 
 package com.proyecto.club.servicios;
 
-import com.proyecto.club.Excepciones.WebException;
+import com.proyecto.club.excepciones.WebException;
 import com.proyecto.club.entidades.Socio;
 import com.proyecto.club.repositorios.SocioRepository;
 import java.util.List;

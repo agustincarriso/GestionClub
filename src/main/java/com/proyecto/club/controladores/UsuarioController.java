@@ -1,7 +1,7 @@
 
-package com.proyecto.club.Controladores;
+package com.proyecto.club.controladores;
 
-import com.proyecto.club.Excepciones.WebException;
+import com.proyecto.club.excepciones.WebException;
 import com.proyecto.club.entidades.Usuario;
 import com.proyecto.club.servicios.UsuarioService;
 import java.util.Optional;
