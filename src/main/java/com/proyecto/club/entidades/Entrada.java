@@ -11,7 +11,7 @@ import org.hibernate.annotations.GenericGenerator;
 public class Entrada implements Serializable {
     @Id
     @GeneratedValue(generator = "uuid")
-    @GenericGenerator(name = "uuid", strategy = "uuid" )
+    @GenericGenerator(name = "uuid", strategy = "uuid2" )
      private String id;
      private Ubicacion ubicacion;
      private Double precio;

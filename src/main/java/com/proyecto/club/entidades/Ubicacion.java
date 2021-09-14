@@ -4,14 +4,14 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 
 import org.hibernate.annotations.GenericGenerator;
-import org.springframework.data.annotation.Id;
+import javax.persistence.Id;
 
 @Entity
 public class Ubicacion {
     
     @Id
     @GeneratedValue(generator = "uuid")
-    @GenericGenerator(name = "uuid", strategy = "uuid")
+    @GenericGenerator(name = "uuid", strategy = "uuid2")
     private String id;
     private String ciudad;
     private String provincia;
