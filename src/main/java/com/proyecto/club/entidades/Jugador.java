@@ -1,35 +1,47 @@
 package com.proyecto.club.entidades;
 
-import com.proyecto.club.enums.PosicionJugador;
 import java.io.Serializable;
 import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
 import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import org.hibernate.annotations.GenericGenerator;
+import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
+@Inheritance(strategy = InheritanceType.JOINED)
 public class Jugador implements Serializable {
 
     @Id
     @GeneratedValue(generator = "uuid")
-    @GenericGenerator(name = "uuid", strategy = "uuid")
+    @GenericGenerator(name = "uuid", strategy = "uuid2")
     private String id;
+    
     private String nacionalidad;
     private String nombreCompleto;
-    private PosicionJugador posicion;
+    
     @ManyToOne
-    private Equipo equipo;
+    private Posicion posicion;
+ 
+    @DateTimeFormat(pattern="yyyy-MM-dd")
     @Temporal(TemporalType.DATE)
     private Date fechaNacimiento;
+    
     private Double peso;
     private Double altura;
 
+    
     public String getId() {
         return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getNacionalidad() {
@@ -48,20 +60,12 @@ public class Jugador implements Serializable {
         this.nombreCompleto = nombreCompleto;
     }
 
-    public PosicionJugador getPosicion() {
+    public Posicion getPosicion() {
         return posicion;
     }
 
-    public void setPosicion(PosicionJugador posicion) {
+    public void setPosicion(Posicion posicion) {
         this.posicion = posicion;
-    }
-
-    public Equipo getEquipo() {
-        return equipo;
-    }
-
-    public void setEquipo(Equipo equipo) {
-        this.equipo = equipo;
     }
 
     public Date getFechaNacimiento() {

@@ -1,47 +1,52 @@
+
 package com.proyecto.club.entidades;
 
+import java.io.Serializable;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
-
-import com.proyecto.club.enums.Talle;
-
+import javax.persistence.Id;
 import org.hibernate.annotations.GenericGenerator;
-import org.springframework.data.annotation.Id;
+
+/**
+ * @author S
+ */
 
 @Entity
-public class Producto {
-    @Id
-    @GeneratedValue(generator = "uuid")
-    @GenericGenerator(name = "uuid", strategy = "uuid")
-    private String id;
-    private double precio;
-    private Talle talle;
-    private String nombre;
-    private String descripcion;
-    private int stock;
+public class Producto implements Serializable {
 
-    public String getId() {
-        return this.id;
+
+@Id
+@GeneratedValue(generator = "uuid")
+@GenericGenerator(name = "uuid",strategy = "uuid2")
+private String id;
+private String nombre;
+private String descripcion;
+private Integer stock;
+private Double precio;
+
+/* protected imagen(veo como se hace y lo agrego)*/
+
+    public Producto() {
     }
 
-    public double getPrecio() {
-        return this.precio;
-    }
-
-    public void setPrecio(double precio) {
+    public Producto(String id, String nombre, String descripcion, Integer stock, Double precio) {
+        this.id = id;
+        this.nombre = nombre;
+        this.descripcion = descripcion;
+        this.stock = stock;
         this.precio = precio;
     }
 
-    public Talle getTalle() {
-        return this.talle;
+    public String getId() {
+        return id;
     }
 
-    public void setTalle(Talle talle) {
-        this.talle = talle;
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getNombre() {
-        return this.nombre;
+        return nombre;
     }
 
     public void setNombre(String nombre) {
@@ -49,20 +54,28 @@ public class Producto {
     }
 
     public String getDescripcion() {
-        return this.descripcion;
+        return descripcion;
     }
 
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
     }
 
-    public int getStock() {
-        return this.stock;
+    public Integer getStock() {
+        return stock;
     }
 
-    public void setStock(int stock) {
+    public void setStock(Integer stock) {
         this.stock = stock;
     }
 
 
+    public Double getPrecio() {
+        return precio;
+    }
+
+    public void setPrecio(Double precio) {
+        this.precio = precio;
+    }
+   
 }

@@ -1,11 +1,11 @@
 
-package com.proyecto.club.excepciones;
+package com.proyecto.club.Excepciones;
 
-
-public class WebException extends Exception {
+public class WebException extends Exception{
 
     public WebException(String string) {
         super(string);
     }
+    
     
 }

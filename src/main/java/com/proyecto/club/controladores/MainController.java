@@ -1,14 +1,56 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-package com.proyecto.club.controladores;
+
+package com.proyecto.club.Controladores;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
  *
- * @author W7
+ * @author S
  */
+
+@Controller
+@RequestMapping("/")
 public class MainController {
     
+    @GetMapping("/")
+    public String inicio(){
+    return "index.html";
+    }
+    
+    @GetMapping("/indumentaria")
+    public String indumentaria(){
+    return "indumentaria.html";
+    }
+    
+    @GetMapping("/productos")
+    public String productos(){
+    return "productos.html";
+    }
+    
+    @GetMapping("/usuario")
+    public String usuarios(){
+    return "usuario.html";
+    }
+    
+    @GetMapping("/posicion")
+    public String posicion(){
+    return "posicion.html";
+    }
+    
+    @GetMapping("/jugador")
+    public String jugador(){
+    return "jugador.html";
+    }
+    
+    @GetMapping("/cuerpotecnico")
+    public String cuerpotecnico(){
+    return "cuerpotecnico.html";
+    }
+    
+     @GetMapping("/puestoct")
+    public String puesto(){
+    return "puestoct.html";
+    }
 }

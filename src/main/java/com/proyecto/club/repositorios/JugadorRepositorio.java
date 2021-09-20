@@ -14,8 +14,11 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface JugadorRepositorio extends JpaRepository<Jugador, String> {
-
-    @Query("select p from Persona p where p.nombre LIKE :q or p.apellido LIKE :q"
-            + " or p.edad LIKE :q or p.ciudad.nombre LIKE :q")
+    
+    @Query("select j from Jugador j where j.nacionalidad LIKE :q or j.nombreCompleto LIKE :q or j.posicion.nombre LIKE :q or j.fechaNacimiento LIKE :q or j.peso LIKE :q or j.altura LIKE :q")
     List<Jugador> findAllByQ(@Param("q") String q);
+
+    @Query("select j from Jugador j where j.posicion.nombre = :q")
+    List<Jugador> findAllByPosicion(@Param("q") String q);
+
 }

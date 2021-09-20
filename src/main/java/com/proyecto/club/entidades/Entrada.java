@@ -1,6 +1,6 @@
 package com.proyecto.club.entidades;
 
-import com.proyecto.club.enums.Ubicacion;
+
 import java.io.Serializable;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -11,9 +11,9 @@ import org.hibernate.annotations.GenericGenerator;
 public class Entrada implements Serializable {
     @Id
     @GeneratedValue(generator = "uuid")
-    @GenericGenerator(name = "uuid", strategy = "uuid" )
+    @GenericGenerator(name = "uuid", strategy = "uuid2" )
      private String id;
-     private Ubicacion ubicacion;
+     //private Ubicacion ubicacion;
      private Double precio;
 
     public String getId() {
@@ -24,13 +24,7 @@ public class Entrada implements Serializable {
         this.id = id;
     }
 
-    public Ubicacion getUbicacion() {
-        return ubicacion;
-    }
-
-    public void setUbicacion(Ubicacion ubicacion) {
-        this.ubicacion = ubicacion;
-    }
+  
 
     public Double getPrecio() {
         return precio;

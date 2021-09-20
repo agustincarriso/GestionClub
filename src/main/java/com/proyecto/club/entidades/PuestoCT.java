@@ -1,28 +1,30 @@
 package com.proyecto.club.entidades;
 
-import java.io.Serializable;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
-
-import org.hibernate.annotations.GenericGenerator;
 import javax.persistence.Id;
+import org.hibernate.annotations.GenericGenerator;
 
 @Entity
-public class Estadio implements Serializable {
+public class PuestoCT implements Comparable {
     
     @Id
     @GeneratedValue(generator = "uuid")
     @GenericGenerator(name = "uuid", strategy = "uuid2")
     private String id;
+    
     private String nombre;
 
-    
     public String getId() {
-        return this.id;
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getNombre() {
-        return this.nombre;
+        return nombre;
     }
 
     public void setNombre(String nombre) {
@@ -30,4 +32,10 @@ public class Estadio implements Serializable {
     }
 
     
+    
+    @Override
+    public int compareTo(Object t) {
+         PuestoCT puesto = (PuestoCT) t;
+        return this.nombre.compareTo(puesto.getNombre());
+    }
 }

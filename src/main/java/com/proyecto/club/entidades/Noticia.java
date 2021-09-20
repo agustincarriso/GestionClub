@@ -14,8 +14,9 @@ public class Noticia implements Serializable {
     
     @Id
     @GeneratedValue(generator = "uuid")
-    @GenericGenerator(name = "uuid", strategy = "uuid")
+    @GenericGenerator(name = "uuid", strategy = "uuid2")
     private String id;
+    
     @Temporal(TemporalType.TIMESTAMP)
     private Date FechaHora;
     private String titulo;
