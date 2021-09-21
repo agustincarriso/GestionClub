@@ -5,6 +5,8 @@ import java.io.Serializable;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
 import org.hibernate.annotations.GenericGenerator;
 
 /*
@@ -12,6 +14,8 @@ import org.hibernate.annotations.GenericGenerator;
  */
 
 @Entity
+
+@Inheritance(strategy = InheritanceType.JOINED)
 public class Usuario implements Serializable {
     
     @Id

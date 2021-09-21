@@ -1,5 +1,4 @@
 package com.proyecto.club.servicios;
-
 import com.proyecto.club.Excepciones.WebException;
 import com.proyecto.club.entidades.CuerpoTecnico;
 import com.proyecto.club.entidades.PuestoCT;
@@ -91,4 +90,5 @@ public class CuerpoTecnicoServicio {
         }
 
     }
+
 }

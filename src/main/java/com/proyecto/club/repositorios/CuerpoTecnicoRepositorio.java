@@ -1,5 +1,4 @@
 package com.proyecto.club.repositorios;
-
 import com.proyecto.club.entidades.CuerpoTecnico;
 import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -16,4 +15,5 @@ public interface CuerpoTecnicoRepositorio extends JpaRepository<CuerpoTecnico, S
     
     @Query("select c from CuerpoTecnico c where c.puesto.nombre = :q")
     List<CuerpoTecnico> findAllByPuesto(@Param("q") String q);
+
 }

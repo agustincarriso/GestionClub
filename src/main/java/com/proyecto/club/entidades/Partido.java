@@ -5,8 +5,7 @@ import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-
-import javax.persistence.OneToOne;
+import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import org.hibernate.annotations.GenericGenerator;
@@ -18,36 +17,40 @@ public class Partido implements Serializable {
     @GeneratedValue(generator = "uuid")
     @GenericGenerator(name = "uuid", strategy = "uuid2")
     private String id;
-    private String equipoLocal;
-    private String equipoVisitante;
+    private Equipo local;
+    private Equipo visitante;
     private String arbitro;
-    @OneToOne
+    @ManyToOne
     private Estadio estadio;
     @Temporal(TemporalType.TIMESTAMP)
     private Date FechaHora;
 
     public String getId() {
-        return id;
+        return this.id;
     }
 
-    public String getEquipoLocal() {
-        return equipoLocal;
+    public void setId(String id) {
+        this.id = id;
     }
 
-    public void setEquipoLocal(String equipoLocal) {
-        this.equipoLocal = equipoLocal;
+    public Equipo getLocal() {
+        return this.local;
     }
 
-    public String getEquipoVisitante() {
-        return equipoVisitante;
+    public void setLocal(Equipo local) {
+        this.local = local;
     }
 
-    public void setEquipoVisitante(String equipoVisitante) {
-        this.equipoVisitante = equipoVisitante;
+    public Equipo getVisitante() {
+        return this.visitante;
+    }
+
+    public void setVisitante(Equipo visitante) {
+        this.visitante = visitante;
     }
 
     public String getArbitro() {
-        return arbitro;
+        return this.arbitro;
     }
 
     public void setArbitro(String arbitro) {
@@ -55,7 +58,7 @@ public class Partido implements Serializable {
     }
 
     public Estadio getEstadio() {
-        return estadio;
+        return this.estadio;
     }
 
     public void setEstadio(Estadio estadio) {
@@ -63,12 +66,14 @@ public class Partido implements Serializable {
     }
 
     public Date getFechaHora() {
-        return FechaHora;
+        return this.FechaHora;
     }
 
     public void setFechaHora(Date FechaHora) {
         this.FechaHora = FechaHora;
     }
+
+   
     
     
 
