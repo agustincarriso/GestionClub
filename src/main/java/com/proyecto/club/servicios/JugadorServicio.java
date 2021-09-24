@@ -1,10 +1,8 @@
 package com.proyecto.club.servicios;
-
 import com.proyecto.club.entidades.Jugador;
 import com.proyecto.club.entidades.Posicion;
-import com.proyecto.club.Excepciones.WebException;
+import com.proyecto.club.excepciones.WebException;
 import com.proyecto.club.repositorios.JugadorRepositorio;
-import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 import java.util.Optional;
@@ -20,7 +18,8 @@ public class JugadorServicio {
     
     @Autowired
     private PosicionServicio posicionServicio;
-
+    
+    
     public Jugador save(Jugador jugador) throws WebException{
         if (jugador.getNacionalidad() == null) {
              throw new WebException("Debe ingresar la nacionalidad");

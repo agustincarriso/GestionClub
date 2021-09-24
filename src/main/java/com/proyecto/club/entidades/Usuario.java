@@ -1,4 +1,4 @@
-
+ 
 package com.proyecto.club.entidades;
 
 import java.io.Serializable;
@@ -7,6 +7,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
+import javax.persistence.OneToOne;
 import org.hibernate.annotations.GenericGenerator;
 
 /*
@@ -14,8 +15,7 @@ import org.hibernate.annotations.GenericGenerator;
  */
 
 @Entity
-
-@Inheritance(strategy = InheritanceType.JOINED)
+@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 public class Usuario implements Serializable {
     
     @Id
@@ -30,11 +30,15 @@ public class Usuario implements Serializable {
     protected String password; // Rodri no pongo password 2 porque nos vamos a complicar al pedo, validemos con este y va a estar bien :3
     protected String dni; // No lo pongo como int/Integer porque no lo vamos a usar para hacer calculos
     protected String telefono; // idem
-
+    
+    @OneToOne
+    protected Foto foto;
+    
     public Usuario() {
     }
 
-    public Usuario(String nombre, String apellido, String domicilio, String email, String password, String dni, String telefono) {
+    public Usuario(String id, String nombre, String apellido, String domicilio, String email, String password, String dni, String telefono, Foto foto) {
+        this.id = id;
         this.nombre = nombre;
         this.apellido = apellido;
         this.domicilio = domicilio;
@@ -42,13 +46,15 @@ public class Usuario implements Serializable {
         this.password = password;
         this.dni = dni;
         this.telefono = telefono;
+        this.foto= foto;
     }
 
-   
-
-  
     
-
+    
+    public void setId(String id) {
+        this.id = id;
+    }
+    
     public String getId() {
         return id;
     }
@@ -108,6 +114,14 @@ public class Usuario implements Serializable {
 
     public void setTelefono(String telefono) {
         this.telefono = telefono;
+    }
+
+    public Foto getFoto() {
+        return foto;
+    }
+
+    public void setFoto(Foto foto) {
+        this.foto = foto;
     }
 
    

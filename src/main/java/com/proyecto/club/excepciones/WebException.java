@@ -1,4 +1,4 @@
-package com.proyecto.club.Excepciones;
+package com.proyecto.club.excepciones;
 
 public class WebException extends Exception{
 

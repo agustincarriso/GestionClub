@@ -1,7 +1,6 @@
 package com.proyecto.club.servicios;
-
 import com.proyecto.club.entidades.Posicion;
-import com.proyecto.club.Excepciones.WebException;
+import com.proyecto.club.excepciones.WebException;
 import com.proyecto.club.repositorios.PosicionRepositorio;
 import java.util.List;
 import java.util.Optional;

@@ -1,7 +1,6 @@
 package com.proyecto.club.controladores;
-
 import com.proyecto.club.entidades.CuerpoTecnico;
-import com.proyecto.club.Excepciones.WebException;
+import com.proyecto.club.excepciones.WebException;
 import com.proyecto.club.servicios.CuerpoTecnicoServicio;
 import com.proyecto.club.servicios.PuestoCTServicio;
 import java.util.Optional;

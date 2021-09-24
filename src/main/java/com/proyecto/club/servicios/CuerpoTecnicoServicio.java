@@ -1,5 +1,5 @@
 package com.proyecto.club.servicios;
-import com.proyecto.club.Excepciones.WebException;
+import com.proyecto.club.excepciones.WebException;
 import com.proyecto.club.entidades.CuerpoTecnico;
 import com.proyecto.club.entidades.PuestoCT;
 import com.proyecto.club.repositorios.CuerpoTecnicoRepositorio;

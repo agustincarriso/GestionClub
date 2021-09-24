@@ -1,25 +1,31 @@
+
 package com.proyecto.club.entidades;
 
-import java.io.Serializable;
-import java.util.List;
+import javax.persistence.Basic;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
+import javax.persistence.Lob;
 import org.hibernate.annotations.GenericGenerator;
 
+/**
+ * @author S
+ */
+
 @Entity
-public class Equipo implements Serializable {
+public class Foto {
+    
     @Id
     @GeneratedValue(generator = "uuid")
     @GenericGenerator(name = "uuid", strategy = "uuid2")
     private String id;
+    
     private String nombre;
-    @OneToMany
-    private List<Jugador> jugadores;
-    @OneToMany
-    private List<CuerpoTecnico> cuerpoTecnico;
+    private String mime;
+    
+    @Lob @Basic(fetch = FetchType.LAZY)
+    private byte[] contenido;
 
     public String getId() {
         return id;
@@ -37,20 +43,20 @@ public class Equipo implements Serializable {
         this.nombre = nombre;
     }
 
-    public List<Jugador> getJugadores() {
-        return jugadores;
+    public String getMime() {
+        return mime;
     }
 
-    public void setJugadores(List<Jugador> jugadores) {
-        this.jugadores = jugadores;
+    public void setMime(String mime) {
+        this.mime = mime;
     }
 
-    public List<CuerpoTecnico> getCuerpoTecnico() {
-        return cuerpoTecnico;
+    public byte[] getContenido() {
+        return contenido;
     }
 
-    public void setCuerpoTecnico(List<CuerpoTecnico> cuerpoTecnico) {
-        this.cuerpoTecnico = cuerpoTecnico;
+    public void setContenido(byte[] contenido) {
+        this.contenido = contenido;
     }
     
 }

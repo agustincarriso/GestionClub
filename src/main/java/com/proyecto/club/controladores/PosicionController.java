@@ -1,7 +1,6 @@
 package com.proyecto.club.controladores;
-
 import com.proyecto.club.entidades.Posicion;
-import com.proyecto.club.Excepciones.WebException;
+import com.proyecto.club.excepciones.WebException;
 import com.proyecto.club.servicios.PosicionServicio;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;

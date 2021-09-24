@@ -1,7 +1,6 @@
 package com.proyecto.club.controladores;
-
 import com.proyecto.club.entidades.Jugador;
-import com.proyecto.club.Excepciones.WebException;
+import com.proyecto.club.excepciones.WebException;
 import com.proyecto.club.servicios.JugadorServicio;
 import com.proyecto.club.servicios.PosicionServicio;
 import java.util.Optional;
@@ -54,7 +53,6 @@ public class JugadorController {
 
     @PostMapping("/save")
     public String guardarJugador(Model model,RedirectAttributes redirectAttributes,Jugador jugador) {
-        System.out.println("-.-prueba controlador post");
         try {
             jugadorServicio.save(jugador);
             //redirectAttributes.addFlashAttribute("error", "Primer paso completado exitosamente");  

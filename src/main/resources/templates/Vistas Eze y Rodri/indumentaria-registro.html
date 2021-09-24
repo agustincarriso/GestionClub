@@ -59,27 +59,29 @@
 </main>
 <section>
     <div class="mt-4">
-        <form action="/indumentaria/registrado" method="POST" >
+        <form action="/indumentaria/registrado" method="POST" th:object="${indumentaria}">
+            
+        <input hidden th:field="*{id}">    
         
         <label for="nombre" class="form-label mt-2">Nombre</label>
-        <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Ingrese el Nombre">
+        <input type="text" class="form-control" th:field="*{nombre}" placeholder="Ingrese el Nombre">
 
         <label for="descripcion" class="form-label mt-2">Descripcion</label>
-        <input type="text" class="form-control" id="descripcion" name="descripcion" placeholder="Ingrese la Descripcion">
+        <input type="text" class="form-control" th:field="*{descripcion}" placeholder="Ingrese la Descripcion">
 
         <label for="precio" class="form-label mt-2">Precio</label>
-        <input type="number" class="form-control" id="precio" name="precio" placeholder="Ingrese el Precio">
+        <input type="number" class="form-control" th:field="*{precio}" placeholder="Ingrese el Precio">
 
         <label for="stock" class="form-label mt-2">Stock</label>
-        <input type="number" class="form-control" id="stock" name="stock" placeholder="Ingrese el Stock">
+        <input type="number" class="form-control" th:field="*{stock}" placeholder="Ingrese el Stock">
         
         <label for="color" class="form-label mt-2">Color</label>
-        <input type="text" class="form-control" id="color" name="color" placeholder="Ingrese el Color">
+        <input type="text" class="form-control" th:field="*{color}" placeholder="Ingrese el Color">
         
         <label for="talle" class="form-label mt-2">Talle</label>
-        <input type="text" class="form-control" id="talle" name="talle" placeholder="Ingrese el talle">
+        <input type="text" class="form-control" th:field="*{talle}" placeholder="Ingrese el talle">
 
-        
+              
         <input type="submit" class="form-control" id="enviar">
         </form>
     </div>

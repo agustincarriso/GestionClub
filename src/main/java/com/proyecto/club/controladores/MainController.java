@@ -57,6 +57,6 @@ public class MainController {
     public String personal(){
     return "personal.html";
     }
-    
+
 
 }
