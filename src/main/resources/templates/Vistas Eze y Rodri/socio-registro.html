@@ -12,7 +12,7 @@
 <body class="body-socio"> 
     <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
         <div class="container-fluid">
-          <a class="navbar-brand" href="#">Indumentaria</a>
+          <a class="navbar-brand" href="#">Socios</a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -57,7 +57,7 @@
 </main>
 <section>
     <div class="mt-4">
-       <form action="/socio/registrado" method="POST" th:object="${socio}" >
+        <form action="/socio/registrado" method="POST" th:object="${socio}" enctype="multipart/form-data" >
             
               
                 <div th:if="${error != null}" th:text="${error}" class="alert alert-warning alert-dismissible fade show" role="alert" >
@@ -68,6 +68,7 @@
                 </div>
           
         <input hidden th:field="*{id}">   
+        
         <label for="nombre" class="form-label mt-2">Nombre</label>
         <input type="text" class="form-control" id="nombre" th:field="*{nombre}" placeholder="Ingrese el Nombre">
 
@@ -81,7 +82,7 @@
         <input type="email" class="form-control" id="email" th:field="*{email}" placeholder="Ingrese el email">
         
         <label for="password" class="form-label mt-2">Password</label>
-        <input type="text" class="form-control" id="stock" th:field="*{password}" placeholder="Ingrese el Password">
+        <input type="password" class="form-control" id="stock" th:field="*{password}" placeholder="Ingrese el Password">
         
         <label for="DNI" class="form-label mt-2">DNI</label>
         <input type="number" class="form-control" id="stock" th:field="*{dni}" placeholder="Ingrese el DNI">
@@ -89,31 +90,32 @@
         <label for="telefono" class="form-label mt-2">Telefono</label>
         <input type="number" class="form-control" id="stock" th:field="*{telefono}" placeholder="Ingrese el telefono">
         
-        <label for="telefono" class="form-label mt-2">N° de Socio</label>
+        <label for="numeroSocio" class="form-label mt-2">N° de Socio</label>
         <input type="number" class="form-control" id="stock" th:field="*{numeroSocio}" placeholder="Ingrese el numero de socio">
         
         <label for="acceso" class="form-label mt-2">Acceso</label>
-        <input type="number" class="form-control" id="stock" th:field="*{acceso}" placeholder="Ingrese el tipo de acceso">
+        <input type="text" class="form-control" id="stock" th:field="*{acceso}" placeholder="Ingrese el tipo de acceso">
         
         <label for="valorCuota" class="form-label mt-2">Valor cuota</label>
         <input type="number" class="form-control" id="valorCuota" th:field="*{valorCuota}" placeholder="Ingrese el valor de la cuota">
         
-        <label for="fechaInicio" pattern="dd-MM-yyyy" class="form-label mt-2">Fecha de alta</label>
-        <input type="date" pattern="dd-MM-yyyy" class="form-control" id="fechaInicio" th:field="*{fechaInicio}" placeholder="Ingrese la fecha de alta">
+        <label for="fechaInicio" pattern="yyyy-MM-dd" class="form-label mt-2">Fecha de alta</label>
+        <input type="date" pattern="yyyy-MM-dd" class="form-control" id="fechaInicio" th:field="*{fechaInicio}" placeholder="Ingrese la fecha de alta">
         
-        <label for="fechaBaja" pattern="dd-MM-yyyy" class="form-label mt-2">Fecha de baja</label>
-        <input type="date" pattern="dd-MM-yyyy" class="form-control" id="fechaBaja" th:field="*{fechaBaja}" placeholder="Ingrese la fecha de baja">
+        <label for="fechaBaja" pattern="yyyy-MM-dd" class="form-label mt-2">Fecha de baja</label>
+        <input type="date" pattern="yyyy-MM-dd" class="form-control" id="fechaBaja" th:field="*{fechaBaja}" placeholder="Ingrese la fecha de baja">
         
+        <label for="imagen" pattern="yyyy-MM-dd" class="form-label mt-2">Adjuntar imagen</label>
+        <input type="file" pattern="yyyy-MM-dd" class="form-control" id="fechaBaja" name="imagen" placeholder="Ingrese la fecha de baja">
+        
+               
         <input type="submit" class="form-control" id="enviar">
         </form>
                 
     </div>
    
 </section>
-
-
-
-
+   
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js" integrity="sha384-eMNCOe7tC1doHpGoWe/6oMVemdAVTMs2xqW4mwXrXsW0L84Iytr2wi5v2QjrP/xp" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.min.js" integrity="sha384-cn7l7gDp0eyniUwwAZgrzD06kc/tftFf19TOAs2zVinnD/C7E91j9yyk5//jjpt/" crossorigin="anonymous"></script>
 </body>

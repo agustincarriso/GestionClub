@@ -1,10 +1,12 @@
 
 package com.proyecto.club.entidades;
 
+import java.io.Serializable;
 import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import org.hibernate.annotations.GenericGenerator;
@@ -15,29 +17,33 @@ import org.springframework.format.annotation.DateTimeFormat;
  */
 
 @Entity
-public class Socio extends Usuario {
+public class Socio extends Usuario implements Serializable {
     
     @Id
     @GeneratedValue(generator = "uuid")
     @GenericGenerator(name = "uuid", strategy = "uuid2")
-    private String id;
-    private String numeroSocio; // String porque no lo usamos para calculos
-    private String acceso; //poner enum popular,platea cubierta,platea descubierta (le podemos poner tipoSocio mepa)
+    private String id;   
+   
+    private String numeroSocio; 
+    private String acceso; 
     private Double valorCuota;
 
     @Temporal(TemporalType.DATE)
-    @DateTimeFormat(pattern = "yyyy-MM-dddd")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date fechaInicio;
 
     @Temporal(TemporalType.DATE)
-    @DateTimeFormat(pattern = "yyyy-MM-dddd")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date fechaBaja;
+    
+    @OneToOne
+    private Foto foto;
 
     public Socio() {
     }
     
-    public Socio(String numeroSocio, String acceso, Double valorCuota, Date fechaInicio, Date fechaBaja, String nombre, String apellido, String domicilio, String email, String password, String dni, String telefono) {
-        super(nombre, apellido, domicilio, email, password, dni, telefono);
+    public Socio(String id, String nombre, String apellido, String domicilio, String email, String password, String dni, String telefono, String numeroSocio, String acceso, Double valorCuota, Date fechaInicio, Date fechaBaja, Foto foto) {
+        super(id,nombre, apellido, domicilio, email, password, dni, telefono, foto);
         this.numeroSocio = numeroSocio;
         this.acceso = acceso;
         this.valorCuota = valorCuota;
@@ -45,12 +51,28 @@ public class Socio extends Usuario {
         this.fechaBaja = fechaBaja;
     }
 
-    
+    @Override
+    public String getId() {
+        return id;
+    }
 
+    @Override
     public void setId(String id) {
         this.id = id;
     }
 
+    public Foto getFoto() {
+        return foto;
+    }
+
+    public void setFoto(Foto foto) {
+        this.foto = foto;
+    }
+
+    
+    
+    
+    
     public String getNumeroSocio() {
         return numeroSocio;
     }
@@ -91,6 +113,5 @@ public class Socio extends Usuario {
         this.fechaBaja = fechaBaja;
     }
 
-   
 
 }

@@ -2,6 +2,7 @@ package com.proyecto.club.servicios;
 
 import com.proyecto.club.excepciones.WebException;
 import com.proyecto.club.entidades.Indumentaria;
+import com.proyecto.club.entidades.Indumentaria;
 import com.proyecto.club.repositorios.IndumentariaRepository;
 import java.util.List;
 import java.util.Optional;
@@ -21,12 +22,7 @@ public class IndumentariaService {
     @Transactional
     public Indumentaria save(Indumentaria indumentaria) throws WebException {
         
-       /*                            
-        if (indumentaria.getId().isEmpty() || indumentaria.getId() == null) {
-
-            throw new WebException("El id no puede ser nulo");
-
-        }
+      
 
         if (indumentaria.getNombre().isEmpty() || indumentaria.getNombre() == null) {
 
@@ -63,17 +59,8 @@ public class IndumentariaService {
             throw new WebException("Debe indicar el color");
 
         }
-        */
-       
-        Indumentaria aux = new Indumentaria();
-        aux.setNombre(indumentaria.getNombre());
-        aux.setDescripcion(indumentaria.getDescripcion());
-        aux.setPrecio(indumentaria.getPrecio());
-        aux.setStock(indumentaria.getStock());
-        aux.setColor(indumentaria.getColor());
-        aux.setTalle(indumentaria.getTalle());
-        
-        return indumentariaRepository.save(aux);
+      
+        return indumentariaRepository.save(indumentaria);
 
     }
 
@@ -92,18 +79,32 @@ public class IndumentariaService {
         return indumentariaRepository.save(indumentaria);
         
     }*/  
-    public List<Indumentaria> listAll() {
+    
+    
+     public List<Indumentaria> listAll() {
         List<Indumentaria> lista = indumentariaRepository.findAll();
         return lista;
     }
-
+    
+       public List<Indumentaria> findByQuery(String query) {
+        List<Indumentaria> lista = indumentariaRepository.findByQuery(query);
+        return lista;
+    }
+       
+       
+    public Optional<Indumentaria> findById(String id) {
+                
+        return  indumentariaRepository.findById(id);
+    }
+    
+    
     @Transactional
     public void deleteById(String id) throws WebException {
         Optional<Indumentaria> optional = indumentariaRepository.findById(id);
         if (optional.isPresent()) {
             indumentariaRepository.delete(optional.get());
 
-        }else {
+        } else {
             throw new WebException("No se encontra la indumentaria seleccionada");
         }
 
