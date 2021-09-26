@@ -127,7 +127,7 @@ ul.slider li img {
     height: inherit;
     object-fit: cover;
     overflow: hidden;
-    object-position: top;
+    /* object-position: top; */
 }
 
 ul.slider li:first-child {
@@ -313,6 +313,11 @@ ul.slider li:target {
 
 /* SECCION TIENDA PRODUCTOS */
 
+.tienda__title {
+    font-size: 42px;
+    color: var(--black1);
+}
+
 .projects {
     background: var(--color-secondary);
     background-image: url(../assets/background_talleres/bgn-tienda.png);
@@ -477,101 +482,11 @@ ul.slider li:target {
     }
 
 
-/* SECCION TIENDA */
-
-.tienda {
-    background-color: #fff;
-}
-
-.tienda__title {
-    font-size: 42px;
-    margin: 10px;
-    padding: 5px 0px;
-    color: var(--black1);
-    /* text-shadow: 5px 10px 20px; */
-
-}
-
-.galery__port {
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-
-}
-
-.producto__tienda {
-    width: 23%;
-    height: 500px;
-    margin-left: 5px;
-    background: #fff;
-    border-radius: 20px;
-    position: relative;
-    border: 1px solid var(--color-secondary);
-    box-shadow: 0px 0px 12px 4px var(--color-secondary);
-}
-
-.galery__port--img {
-    margin: 10px;
-
-}
-
-.descripcion__produc {
-    text-align: center;
-}
-
-.cuotas {
-    border: 2px solid var(--color-primary);
-    border-radius: 8px;
-    padding: 10px;
-    text-align: center;
-
-}
-
-.signo_peso {
-    font-size: 25px;
-    color: var(--color-primary);
-    font-weight: 700;
-}
-
-.boton__comprar {
-    display: flex;
-    padding: 5px;
-    margin-top: 20px;
-    border: 1px solid var(--color-secondary);
-    border-radius: 30px;
-    text-decoration: none;
-    background-color: var(--color-primary);
-    color: #fff;
-
-}
-
-.carrito__text {
-    display: flex;
-    padding: 3%;
-    margin-left: 35px;
-    margin-top: 10px;
-}
-
-.carrito__icon {
-    width: 20%;
-    border-radius: 50%;
-}
-
-.tienda__productos{
-    font-family: 'Hammersmith One', sans-serif;
-    display: block;
-    text-decoration: none;  
-    text-align: center;
-    margin: 10px auto;
-    color: var(--black2);
-    text-shadow: 0px 1px 1px;
-  
-}
 
 /* PATROCINADORES */
 
-.patrocinadores {
-    background: rgba(213, 211, 211, 0.268);
+.patrocinadores{
+background-color: rgba(243, 244, 247, 0.994);
 }
 
 .patrocinadores__title {
