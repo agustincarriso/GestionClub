@@ -34,13 +34,13 @@ public class ProductosController {
         if (id != null) {
             Optional<Producto> optional = productoService.findById(id);
 
-            if (optional.isPresent()) {
-                model.addAttribute("productos", optional.get());
-            } else {
-                return "redirect:/productos/list";
-            }
-        } else {
-            model.addAttribute("productos", new Producto());
+              if (optional.isPresent()) {
+                  model.addAttribute("productos", optional.get());
+                } else {
+                     return "redirect:/productos/list";
+                  }
+         } else {
+             model.addAttribute("productos", new Producto());
         }
 
         return "productos-registro.html";

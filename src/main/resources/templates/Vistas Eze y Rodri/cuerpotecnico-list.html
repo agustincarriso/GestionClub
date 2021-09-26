@@ -5,14 +5,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
-    <link href="/css/styles.css" rel="stylesheet">
+    <link href="css/styles.css" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <title>Usuario</title>
+    <title>Indumentaria</title>
 </head>
 <body class="body-usuario"> 
     <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
         <div class="container-fluid">
-          <a class="navbar-brand" href="#">Indumentaria</a>
+          <a class="navbar-brand" href="#">Cuerpo Tecnico</a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -38,7 +38,7 @@
               </li>
             
             </ul>
-            <form class="d-flex">
+            <form class="d-flex" th:action="@{/cuerpotecnico/list}" method="GET">
               <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
               <button class="btn btn-outline-success" type="submit">Search</button>
             </form>
@@ -50,59 +50,46 @@
         <div class="row justify-content-center">
             <div class="col-auto text-center">
                 <div class="display-4 mt-lg-5 text-success">
-                    Formulario Usuario
+                    Lista Indumentaria
                 </div>
             </div>
                       
         </div>
     </div>
 </main>
-<section>
-    <div class="mt-4">
-       <form action="/usuario/registrado" method="POST" th:object="${usuario}" >
-            
-              
-                <div th:if="${error != null}" th:text="${error}" class="alert alert-warning alert-dismissible fade show" role="alert" >
-                    <p>Ocurrio un error</p>
-                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                        <span aria-hidden="true">&error;</span>
-                    </button> 
-                </div>
-          
-        <input hidden th:field="*{id}">   
-        <label for="nombre" class="form-label mt-2">Nombre</label>
-        <input type="text" class="form-control" id="nombre" th:field="*{nombre}" placeholder="Ingrese el Nombre">
+<section class="mt-5">
+    <table class="table table-success table-striped table-hover">
+      <thead>
+        <tr>
+            <th>Nº</th>
+            <th>Nombre</th>
+            <th>Nacionalidad</th>
+            <th>Edad</th>
+            <th>Puesto</th>
+            <th>Acciones</th>
 
-        <label for="apellido" class="form-label mt-2">Apellido</label>
-        <input type="text" class="form-control" id="descripcion" th:field="*{apellido}" placeholder="Ingrese el apellido">
-
-        <label for="domicilio" class="form-label mt-2">Domicilio</label>
-        <input type="text" class="form-control" id="precio" th:field="*{domicilio}" placeholder="Ingrese el domicilio">
-
-        <label for="email" class="form-label mt-2">Email</label>
-        <input type="email" class="form-control" id="email" th:field="*{email}" placeholder="Ingrese el email">
-        
-        <label for="password" class="form-label mt-2">Password</label>
-        <input type="text" class="form-control" id="stock" th:field="*{password}" placeholder="Ingrese el Password">
-        
-        <label for="DNI" class="form-label mt-2">DNI</label>
-        <input type="number" class="form-control" id="stock" th:field="*{dni}" placeholder="Ingrese el DNI">
-        
-        <label for="telefono" class="form-label mt-2">Telefono</label>
-        <input type="number" class="form-control" id="stock" th:field="*{telefono}" placeholder="Ingrese el telefono">
-              
-        <input type="submit" class="form-control" id="enviar">
-        </form>
-                
-    </div>
-    
-   
+        </tr>
+      </thead>
+ 
+      <tbody>
+        <tr th:each='cuerpotecnico,iterator : ${cuerpotecnicolista}'>
+            <td th:text="${iterator.index+1}"></td>
+            <td th:text="${cuerpotecnico.nombreCompleto}"></td>
+            <td th:text="${cuerpotecnico.nacionalidad}"></td>
+            <td th:text="${#dates.format(cuerpotecnico.edad, 'dd/MM/yyyy')}"></td>
+            <td th:text="${cuerpotecnico.puesto} == null ? 'no tiene' : ${cuerpotecnico.puesto.nombre}"></td>
+            <td>
+                <button class="btn-dark"><a th:href="@{/cuerpotecnico/delete}+'?id='+${cuerpotecnico.id}" class="px-5 py-2" >Eliminar</a></button>
+                <button class="btn-dark"><a th:href="@{/cuerpotecnico/form}+'?id='+${cuerpotecnico.id}" class="px-5 py-2" >Editar</a></button>
+            </td>
+        </tr>
+      </tbody>
+    </table>
 </section>
-
-
-
 
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js" integrity="sha384-eMNCOe7tC1doHpGoWe/6oMVemdAVTMs2xqW4mwXrXsW0L84Iytr2wi5v2QjrP/xp" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.min.js" integrity="sha384-cn7l7gDp0eyniUwwAZgrzD06kc/tftFf19TOAs2zVinnD/C7E91j9yyk5//jjpt/" crossorigin="anonymous"></script>
 </body>
 </html>
+
+

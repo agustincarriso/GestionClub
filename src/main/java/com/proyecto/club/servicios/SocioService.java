@@ -1,14 +1,17 @@
 
 package com.proyecto.club.servicios;
 
+import com.proyecto.club.entidades.Foto;
 import com.proyecto.club.excepciones.WebException;
 import com.proyecto.club.entidades.Socio;
 import com.proyecto.club.repositorios.SocioRepository;
+import java.io.IOException;
 import java.util.List;
 import java.util.Optional;
 import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
 /**
  * @author S
@@ -17,55 +20,54 @@ import org.springframework.stereotype.Service;
 @Service
 public class SocioService {
     
-     @Autowired
+    @Autowired
     public SocioRepository socioRepository;
+    
+    @Autowired
+    public FotoService fotoService;
 
     @Transactional
-    public Socio save(Socio socio) throws WebException {
+    public Socio save(Socio socio, MultipartFile archivo) throws WebException, IOException {
         
-        System.out.println("Estoy en servicio aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
-        System.out.println(socio.getFechaInicio());
-       
-        
-//        if (socio.getId().isEmpty() || socio.getId() == null) {
-//
-//            throw new WebException("El id no puede ser nulo");}
+              
+        if (socio.getNombre().isEmpty() || socio.getNombre() == null) {
 
-//        if (socio.getNombre().isEmpty() || socio.getNombre() == null) {
-//
-//            throw new WebException("El nombre no puede estar vacio");
-//        }
-//
-//        if (socio.getApellido().isEmpty() || socio.getApellido()== null) {
-//
-//            throw new WebException("El apellido no puede estar vacio");
-//        }
-//
-//        if (socio.getDomicilio().isEmpty() || socio.getDomicilio()== null) {
-//
-//            throw new WebException("El domicilio no puede estar vacio");
-//        }
-//
-//        if (socio.getEmail().isEmpty() || socio.getEmail()== null) {
-//
-//            throw new WebException("El email no puede estar vacio");
-//        }
-//
-//         if (socio.getPassword().isEmpty() || socio.getPassword()== null) {
-//
-//            throw new WebException("El password no puede estar vacio");
-//        }
-//         
-//          if (socio.getDni().isEmpty() || socio.getDni()== null) {
-//
-//            throw new WebException("El password no puede estar vacio");
-//        }
-//          
-//            if (socio.getTelefono().isEmpty() || socio.getTelefono()== null) {
-//
-//            throw new WebException("El password no puede estar vacio");
-//        }
+            throw new WebException("El nombre no puede estar vacio");
+        }
 
+        if (socio.getApellido().isEmpty() || socio.getApellido()== null) {
+
+            throw new WebException("El apellido no puede estar vacio");
+        }
+
+        if (socio.getDomicilio().isEmpty() || socio.getDomicilio()== null) {
+
+            throw new WebException("El domicilio no puede estar vacio");
+        }
+
+        if (socio.getEmail().isEmpty() || socio.getEmail()== null) {
+
+            throw new WebException("El email no puede estar vacio");
+        }
+
+         if (socio.getPassword().isEmpty() || socio.getPassword()== null) {
+
+            throw new WebException("El password no puede estar vacio");
+        }
+         
+          if (socio.getDni().isEmpty() || socio.getDni()== null) {
+
+            throw new WebException("El password no puede estar vacio");
+        }
+          
+            if (socio.getTelefono().isEmpty() || socio.getTelefono()== null) {
+
+            throw new WebException("El password no puede estar vacio");
+        }
+
+            Foto img = fotoService.guardarFoto(archivo);
+            socio.setFoto(img);
+            
             return socioRepository.save(socio);
 
     }
@@ -74,6 +76,12 @@ public class SocioService {
         List<Socio> lista = socioRepository.findAll();
         return lista;
     }
+    
+    public List<Socio> findByQuery(String query) {
+        List<Socio> lista = socioRepository.findByQuery(query);
+        return lista;
+    }
+    
     public Optional<Socio> findById(String id) {
                 
         return  socioRepository.findById(id);

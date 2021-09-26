@@ -1,21 +1,14 @@
-
 package com.proyecto.club.servicios;
-
 import com.proyecto.club.repositorios.NoticiaRepositorio;
-
 import java.util.List;
 import java.util.Optional;
-
 import com.proyecto.club.entidades.Noticia;
 import com.proyecto.club.excepciones.WebException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-/**
- *
- * @author Javi
- */
+
 @Service
 public class NoticiaServicio {
     @Autowired

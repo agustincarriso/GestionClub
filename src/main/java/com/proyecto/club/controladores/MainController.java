@@ -1,14 +1,8 @@
-
-package com.proyecto.club.controladores;
-
+package com.proyecto.club.Controladores;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-/**
- *
- * @author S
- */
 
 @Controller
 @RequestMapping("/")
@@ -33,6 +27,27 @@ public class MainController {
     public String usuarios(){
     return "usuario.html";
     }
+    
+    @GetMapping("/posicion")
+    public String posicion(){
+    return "posicion.html";
+    }
+    
+    @GetMapping("/jugador")
+    public String jugador(){
+    return "jugador.html";
+    }
+    
+    @GetMapping("/cuerpotecnico")
+    public String cuerpotecnico(){
+    return "cuerpotecnico.html";
+    }
+    
+     @GetMapping("/puestoct")
+    public String puesto(){
+    return "puestoct.html";
+    }
+
     @GetMapping("/socio")
     public String socios(){
     return "socio.html";
@@ -42,5 +57,6 @@ public class MainController {
     public String personal(){
     return "personal.html";
     }
-    
+
+
 }

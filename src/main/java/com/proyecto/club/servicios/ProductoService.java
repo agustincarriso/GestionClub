@@ -50,6 +50,13 @@ public class ProductoService {
         List<Producto> lista = productoRepository.findAll();
         return lista;
     }
+    
+       public List<Producto> findByQuery(String query) {
+        List<Producto> lista = productoRepository.findByQuery(query);
+        return lista;
+    }
+       
+       
     public Optional<Producto> findById(String id) {
                 
         return  productoRepository.findById(id);
