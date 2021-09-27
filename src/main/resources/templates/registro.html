@@ -21,35 +21,45 @@
                 <div class="form">
                     <img class="logo__club" src="assets/escudo.png" alt="logo de talleres">
                     <h1>Registro</h1>
+                    
+                    <input hidden th:field="*{id}">
+
                     <div class="grupo">
-                        <input class="input" type="text" name="" id="name" required><span class="barra"></span>
-                        <label class="label" for="">Nombre</label>
+                        <input class="input" type="text" name="" id="nombre" required th:field="*{nombre}"><span class="barra"></span>
+                        <label class="label" for="nombre">Nombre</label>
                     </div>
                     <div class="grupo">
-                        <input class="input" type="text" name="" id="name" required><span class="barra"></span>
-                        <label class="label" for="">Apellido</label>
+                        <input class="input" type="text" name="" id="name" required th:field="*{apellido}"><span class="barra"></span>
+                        <label class="label" for="apellido">Apellido</label>
                     </div>
                     <div class="grupo">
-                        <input class="input" type="text" name="" id="name" required><span class="barra"></span>
-                        <label class="label" for="">DNI</label>
+                        <input class="input" type="number" name="" id="name" required th:field="*{dni}"><span class="barra"></span>
+                        <label class="label" for="DNI">DNI</label>
                     </div>
                     <div class="grupo">
 
-                        <input class="input" type="email" name="" id="mail" required><span class="barra"></span>
-                        <label class="label" for="">Email</label>
+                        <input class="input" type="email" name="" id="mail" required th:field="*{email}"><span class="barra"></span>
+                        <label class="label" for="email">Email</label>
                     </div>
                     <div class="grupo">
-                        <input class="input" type="text" name="" id="name" required><span class="barra"></span>
-                        <label class="label" for="">Nombre de usuario</label>
-                    </div>
-                    <div class="grupo">
-                        <input class="input" type="password" name="" id="name" required><span class="barra"></span>
+                        <input class="input" type="password" name="" id="name" required th:field="*{password}" ><span class="barra"></span>
                         <label class="label" for="">Contraseña</label>
                     </div>
                     <div class="grupo">
-                        <input class="input" type="password" name="" id="name" required><span class="barra"></span>
+                        <input class="input" type="file" name="" id="img" placeholder="Seleccionar foto" required><span class="barra"></span>
+                        <label class="label" for="Imagen">Seleccionar</label>
+                    </div>
+
+                    <div class="grupo">
+                        <input class="input" type="password" name="" id="name" required th:field="*{password}" ><span class="barra"></span>
                         <label class="label" for="">Repita contraseña</label>
                     </div>
+                    <div class="grupo">
+                        <input class="input" type="file" name="" id="img" placeholder="Seleccionar foto" required><span class="barra"></span>
+                        <label class="label" for="Imagen">Seleccionar</label>
+                    </div>
+
+
                     <button class="button" type="submit">Registrarme</button>
                     <p class="confirmacion__mail">Recibirás confirmación del registro por correo electrónico.</p>
                 </div>
