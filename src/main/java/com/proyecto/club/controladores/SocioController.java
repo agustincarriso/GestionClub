@@ -10,8 +10,6 @@ import com.proyecto.club.entidades.Socio;
 import com.proyecto.club.servicios.SocioService;
 
 import java.util.Optional;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
