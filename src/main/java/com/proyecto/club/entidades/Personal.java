@@ -1,6 +1,5 @@
 
 package com.proyecto.club.entidades;
-import java.io.Serializable;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -13,7 +12,7 @@ import org.hibernate.annotations.GenericGenerator;
  */
 
 @Entity
-public class Personal extends Usuario implements Serializable {
+public class Personal extends Usuario {
     
 
     @Id

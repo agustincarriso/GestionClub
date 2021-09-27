@@ -1,7 +1,6 @@
 
 package com.proyecto.club.entidades;
 
-import java.io.Serializable;
 import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -17,7 +16,7 @@ import org.springframework.format.annotation.DateTimeFormat;
  */
 
 @Entity
-public class Socio extends Usuario implements Serializable {
+public class Socio extends Usuario {
     
     @Id
     @GeneratedValue(generator = "uuid")
