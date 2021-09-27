@@ -34,156 +34,127 @@ body {
 
 }
 
-.projects {
-    background: var(--color-secondary);
-    background-image: url(../assets/background_talleres/bgn-tienda.png);
-    width: 100%;
-    height: 800px;
-    background-size: cover;
-    background-position: center;
+
+/* SECCION TIENDA  sin uso por el momento*/
+
+.tienda {
+    background: linear-gradient(to top, hsla(213, 44%, 29%, 0.638), #1b2f62);
+   
+}
+
+.logo__tienda {
+    margin-top: 10px;
+
+}
+
+.tienda__title-categoria {
+    width: 97%;
+    color: #fff;
+    font-size: 3rem;
+    margin: 40px auto;
+    display: block;
+    text-align: center;
+    padding: 40px auto;
+    border: 2px solid var(--color-primary);
+    background: var(--black2);
+    border-radius: 15px;
+    font-weight: 700;
+    box-shadow: 0px 0px 12px 2px;
+}
+
+.seccion__categoria {
+    margin: 90px auto;
+   
+}
+
+.galery__port {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    transition: transform 0.3s ease-in;
+}
+
+
+
+.producto__tienda {
+    width: 23%;
+    height: 500px;
+    margin-left: 5px;
+    background: #fff;
+    border-radius: 20px;
     position: relative;
-
+    border: 3px solid var(--black2);
+    box-shadow: 0px 8px 12px 8px var(--black2);
 }
 
-.grid-item {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 8px;
-
+.galery__port--img {
+    margin: 10px;
+  
 }
 
-.grid-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    grid-auto-rows: minmax(275px, auto);
-    gap: 20px;
-    padding: 30px;
-    grid-auto-flow: row;
-    justify-content: center;
-    margin-top:70px;
-}
-
-/* hacer todo de grid__item-img para el resto de las img */
-.grid__item--img1 {
-    transition: transform 0.3s ease-in-out;
-    width: 320px;
-    margin-bottom: 60px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 8px;
-}
-
-.grid__item--img2 {
-    transition: transform 0.3s ease-in-out;
-    width: 200px;
-    margin-bottom: 60px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 8px;
-    background-color: none;
-   
-}
-
-.grid__item--img3 {
-    transition: transform 0.3s ease-in-out;
-    width: 150px;
-    margin-bottom: 45px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 8px;
-    background-color: none;
-   
-}
-
-.grid__item--img4 {
-    transition: transform 0.3s ease-in-out;
-    width: 400px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 8px;
-    background-color: none;
-    
-}
-
-.grid__item--img1:hover {
-    filter: opacity(1);
-    transform: scale(1.10);
-}
-
-.grid__item--img2:hover {
-    filter: opacity(1);
-    transform: scale(1.10);
-}
-
-.grid__item--img3:hover {
-    filter: opacity(1);
-    transform: scale(1.10);
-}
-
-.grid__item--img4:hover {
-    filter: opacity(1);
-    transform: scale(1.10);
-}
-
-.buzos {
-    display: flex;
-    grid-column: span 2;
-    grid-row: span 2;
-    background-color: #fff;
-    width: 520px;
+.imagen__tienda{
+    position: relative;
+    width: 100%;
     height: 100%;
-    margin: 0px auto;
+    overflow: hidden;  
 }
 
+.imagen__tienda:hover{
+    transition: 0.4s all;
+    transform: scale(1.04);
+    cursor: pointer;
 
-.accesorios {
-    background-color: #fff;
-    background-size: cover;
-    background-position: center;
-    width: 90%;
-    height: 100%;
-    margin: 0px auto;
 }
 
-.shorts {
-    background-color: #fff;
-    grid-column-start: 3;
-    grid-row-end: 3;
-    background-size: cover;
-    background-position: center;
-    width: 90%;
-    height: 100%;
-    margin: 0px auto;
+.descripcion__produc {
+    text-align: center;
 }
 
-.camisetas {
-    background-color: #fff;
-    grid-row: span 2;
-    background-size: cover;
-    background-position: center;
-    width: 95%;
-    height: 100%;
-    margin: 0px auto;
+.cuotas {
+    border: 2px solid var(--color-primary);
+    border-radius: 8px;
+    padding: 10px;
+    text-align: center;
+
 }
 
-.cat__indumentaria{
-    display: flex;    
-    text-decoration: none;
-    padding: 10px 25px 10px 25px;
-    border:1px solid var(--color-secondary);
+.signo_peso {
+    font-size: 25px;
+    color: var(--color-primary);
+    font-weight: 700;
+}
+
+.boton__comprar {
+    display: flex;
+    padding: 5px;
+    margin-top: 20px;
+    border: 1px solid var(--color-secondary);
     border-radius: 30px;
-    color:#fff;
-    background-color: var(--black2);
-    box-shadow: 0px 0px 4px 4px var(--color-secondary);
-    }
+    text-decoration: none;
+    background-color: var(--color-primary);
+    color: #fff;
 
-    .prendas1{
-        display: block;
-        margin-top: 450px;
-        margin-right: 300px;
-    }
+}
+
+.carrito__text {
+    display: flex;
+    padding: 3%;
+    margin-left: 35px;
+    margin-top: 10px;
+}
+
+.carrito__icon {
+    width: 20%;
+    border-radius: 50%;
+}
+
+.tienda__productos {
+    font-family: 'Hammersmith One', sans-serif;
+    display: block;
+    text-decoration: none;
+    text-align: center;
+    margin: 10px auto;
+    color: var(--black2);
+    text-shadow: 0px 1px 1px;
+
+}

@@ -4,6 +4,7 @@ package com.proyecto.club.entidades;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import org.hibernate.annotations.GenericGenerator;
 
 
@@ -13,7 +14,7 @@ import org.hibernate.annotations.GenericGenerator;
  */
 
 @Entity
-public class Indumentaria extends Producto{
+public class Indumentaria extends Producto {
    
     @Id
     @GeneratedValue(generator = "uuid")
@@ -21,6 +22,9 @@ public class Indumentaria extends Producto{
     private String id;
     private String talle;
     private String color;
+    
+    @OneToOne
+    private Foto foto;
 
     /* private imagen(veo como se hace y lo agrego)*/
 
@@ -29,13 +33,25 @@ public class Indumentaria extends Producto{
 
     
     
-    public Indumentaria(String talle, String color, String id, String nombre, String descripcion, Integer stock, Double precio) {
-        super(id, nombre, descripcion, stock, precio);
+    public Indumentaria(String id, String nombre, String descripcion, Integer stock, Double precio, String color, String talle, Foto foto) {
+        super(id, nombre, descripcion, stock, precio, foto);
         this.talle = talle;
         this.color = color;
     }
 
-   
+    @Override
+    public String getId() {
+        return id;
+    }
+
+    @Override
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    
+    
+    
     public String getTalle() {
         return talle;
     }

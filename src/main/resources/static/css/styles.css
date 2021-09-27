@@ -127,7 +127,7 @@ ul.slider li img {
     height: inherit;
     object-fit: cover;
     overflow: hidden;
-    object-position: top;
+    /* object-position: top; */
 }
 
 ul.slider li:first-child {
@@ -309,101 +309,184 @@ ul.slider li:target {
 }
 
 
-/* SECCION TIENDA */
 
-.tienda {
-    background-color: #fff;
-}
+
+/* SECCION TIENDA PRODUCTOS */
 
 .tienda__title {
     font-size: 42px;
-    margin: 10px;
-    padding: 25px 0px;
     color: var(--black1);
-    /* text-shadow: 5px 10px 20px; */
-
 }
 
-.galery__port {
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-
-}
-
-.producto__tienda {
-    width: 23%;
-    height: 500px;
-    margin-left: 5px;
-    background: #fff;
-    border-radius: 20px;
+.projects {
+    background: var(--color-secondary);
+    background-image: url(../assets/background_talleres/bgn-tienda.png);
+    width: 100%;
+    height: 800px;
+    background-size: cover;
+    background-position: center;
     position: relative;
-    border: 1px solid var(--color-secondary);
-    box-shadow: 0px 0px 12px 4px var(--color-secondary);
-}
-
-.galery__port--img {
-    margin: 10px;
 
 }
 
-.descripcion__produc {
-    text-align: center;
-}
-
-.cuotas {
-    border: 2px solid var(--color-primary);
-    border-radius: 8px;
-    padding: 10px;
-    text-align: center;
-
-}
-
-.signo_peso {
-    font-size: 25px;
-    color: var(--color-primary);
-    font-weight: 700;
-}
-
-.boton__comprar {
+.grid-item {
     display: flex;
-    padding: 5px;
-    margin-top: 20px;
-    border: 1px solid var(--color-secondary);
-    border-radius: 30px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 15px;
+
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    grid-auto-rows: minmax(275px, auto);
+    gap: 40px;
+    padding: 0;
+    grid-auto-flow: row;
+    justify-content: center;
+    margin-top:35px;
+    margin-right: 25px;
+}
+
+/* hacer todo de grid__item-img para el resto de las img */
+.grid__item--img1 {
+    transition: transform 0.3s ease-in-out;
+    width: 320px;
+    margin-bottom: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 15px;
+}
+
+.grid__item--img2 {
+    transition: transform 0.3s ease-in-out;
+    width: 150px;
+    margin: 0px 0px 30px 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 15px;
+    background-color: none;
+   
+}
+
+.grid__item--img3 {
+    transition: transform 0.3s ease-in-out;
+    width: 140px;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 15px;
+    background-color: none;
+   
+}
+
+.grid__item--img4 {
+    transition: transform 0.3s ease-in-out;
+    width: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 15px;
+    background-color: none;
+    
+}
+
+.grid__item--img1:hover {
+    filter: opacity(1);
+    transform: scale(1.10);
+}
+
+.grid__item--img2:hover {
+    filter: opacity(1);
+    transform: scale(1.20);
+}
+
+.grid__item--img3:hover {
+    filter: opacity(1);
+    transform: scale(1.10);
+}
+
+.grid__item--img4:hover {
+    filter: opacity(1);
+    transform: scale(1.10);
+}
+
+.buzos {
+    display: flex;
+    grid-column: span 2;
+    grid-row: span 2;
+    background-color: #fff;
+    width: 520px;
+    height: 100%;
+    margin: 0px auto;
+}
+
+
+.accesorios {
+    background-color: #fff;
+    background-size: cover;
+    background-position: center;
+    width: 90%;
+    height: 100%;
+}
+
+.shorts {
+    background-color: #fff;
+    grid-column-start: 3;
+    grid-row-end: 3;
+    background-size: cover;
+    background-position: center;
+    width: 90%;
+    height: 100%;
+}
+
+.camisetas {
+    background-color: #fff;
+    grid-row: span 2;
+    background-size: cover;
+    background-position: center;
+    width: 95%;
+    height: 100%;
+    margin: 0px auto;
+}
+
+.boton__indumentaria{
+    display: inline-block;
     text-decoration: none;
-    background-color: var(--color-primary);
-    color: #fff;
-
-}
-
-.carrito__text {
-    display: flex;
-    padding: 3%;
-    margin-left: 35px;
-    margin-top: 10px;
-}
-
-.carrito__icon {
-    width: 20%;
-    border-radius: 50%;
-}
-
-.tienda__productos{
-    font-family: 'Hammersmith One', sans-serif;
-    display: block;
-    text-decoration: none;  
+    margin: auto;
+    padding: 10px 40px;
     text-align: center;
-    margin: 10px auto;
-    color: var(--black2);
-    text-shadow: 0px 1px 1px;
-  
-}
+    border:1px solid var(--color-secondary);
+    border-radius: 30px;
+    color:#fff;
+    background-color: var(--black2);
+    box-shadow: 0px 0px 4px 4px var(--color-secondary);
+    }
+
+    .short-boton{
+       margin:10px 0 15px 8px;
+    }
+
+    .camiseta-boton{
+      margin: 60px 0px 0px 50px;
+    }
+
+    .buzo-boton{
+     margin-left: 68px;
+     margin-bottom: 40px;
+     padding: 10px 70px;
+    }
+
+
 
 /* PATROCINADORES */
 
-.patrocinadores {
-    background: rgba(213, 211, 211, 0.268);
+.patrocinadores{
+background-color: rgba(243, 244, 247, 0.994);
 }
 
 .patrocinadores__title {
