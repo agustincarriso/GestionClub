@@ -1,0 +1,104 @@
+/* VARIABLES DEFINIDIAS */
+:root {
+    --background: linear-gradient(135deg, #667eea7e 0%, #764ba298 100%);
+    --color-primary: #1b2f62;
+    --color-secondary: #0e204e;
+    --black1: #1a1b1f;
+    --black2: #30353b;
+    --boton-padding: 20px 40px;
+}
+
+body {
+    font-family: 'Hammersmith One', sans-serif;
+    background: #1b2f62;
+    /* fallback for old browsers */
+    background: -webkit-linear-gradient(to top, hsla(213, 44%, 29%, 0.638), #1b2f62);
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to top, hsla(213, 44%, 29%, 0.638), #1b2f62);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background-repeat: no-repeat;
+    /* para que abarque el 100% del contenedor el background */
+    background-size: cover;
+    /* para fingir el efecto paralax */
+    background-attachment: fixed;
+    /* para centrar el background */
+    background-position: center;
+    /* para poder posicionar el efecto wave */
+    position: relative;
+    /* margin-bottom: 0px; */
+}
+
+.hero__sin--slider {
+    width: 100%;
+}
+
+.box-panel {
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--black2);
+}
+.logo__club{
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    left: calc(50% - 46px);
+    top: 120px;
+}
+
+h1{
+    text-align: center;
+}
+
+.panel{
+    background: #ffff;
+    padding: 40px 0;
+    box-shadow: 0 0 6px 4px rgba(255, 255, 255, 0.8);
+    border-radius: 8px;
+    width: 25%;
+    height: 100px;
+    margin: auto 20px;
+    margin-top: 100px;
+}
+
+.sector-admin {
+    width: 97%;
+    color: #fff;
+    font-size: 3rem;
+    margin-bottom: 40px;
+    display: block;
+    text-align: center;
+    padding: 40px auto;
+    border: 2px solid var(--color-primary);
+    background: var(--black2);
+    border-radius: 15px;
+    font-weight: 700;
+    box-shadow: 0px 0px 12px 2px;
+}
+
+.box-contenedor{
+    width: 100%;
+    height: 150px;
+    margin: 20px auto;
+    background-color: salmon;
+}
+
+.box-button{
+    display: inline-block;
+    align-items: center;
+    text-align: center;
+    text-decoration: none;
+    background-color: #fff;
+    border: 2px solid #fff;
+    color: var(--black2);
+    border-radius: 15px;
+    box-shadow: 0px 0px 2px 2px #fff;
+    width: 25%;
+    height: 50px;
+    margin-right: 20px;
+    margin-left: 20px;
+    padding: 30px;
+    font-size: 20px;
+
+}
