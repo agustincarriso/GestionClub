@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es-AR" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Hammersmith+One&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="/assets/escudo.png" type="image/x-icon">
+    <link rel="stylesheet" href="/css/normalize.css">
+    <link rel="stylesheet" href="/css/styles-admin.css">
+    <link rel="stylesheet" href="/css/styles.css">
+    <title>Panel-Admin</title>
+</head>
+
+<body>
+    <header th:replace="/fragments/nav-bar :: nav-bar-sin-slider"></header>
+    <main>
+        <section class="box-panel">
+            <div class="panel">
+                <img class="logo__club" src="/assets/escudo.png" alt="logo de talleres">
+                <h1>Panel de Control</h1>
+            </div>
+        </section>
+
+        <section class="container">
+            
+            <article class="box-contenedor">
+              
+                <p class="sector-admin">Administracion</p>
+                <a class="box-button" href="/">Usuarios</a>
+                <a class="box-button" href="/">Socios</a>
+                <a class="box-button" href="/">Personal</a>
+
+            </article>
+
+            <article>
+                <p class="sector-admin">Institucion</p>
+
+                <!-- <div class="box-categoria">
+                    <a class="box-button" href="/">Jugador</a>
+                    <a class="box-button" href="/">Posicion</a>
+                    <a class="box-button" href="/">Cuerpo Técnico</a>
+                    <a class="box-button" href="/">Cargo Cuerpo Técnico</a>
+                </div> -->
+            </article>
+
+            <!-- <article>
+                <p class="sector-admin">E-commerce</p>
+
+                <div class="box-categoria">
+                    <a class="box-button" href="/">Productos</a>
+                    <a class="box-button" href="/">Indumentaria</a>
+                </div>
+            </article> -->
+
+
+        </section>
+    </main>
+    <script src="/main.js"></script>
+</body>
+
+</html>
