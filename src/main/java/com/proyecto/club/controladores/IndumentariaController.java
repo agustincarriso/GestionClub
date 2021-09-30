@@ -50,6 +50,7 @@ public class IndumentariaController {
    }
    
    @PostMapping("/registrado")
+
    public String registrado(@ModelAttribute Indumentaria indumentaria, MultipartFile imagen, ModelMap modelo) throws Exception{
    try{
         indumentariaService.save(indumentaria, imagen);
@@ -57,7 +58,7 @@ public class IndumentariaController {
    }catch(Exception w){
        
        modelo.put("error", w.getMessage());
-       
+         
        return "redirect:/indumentaria/registro";
    }
        return "redirect:/indumentaria/list";

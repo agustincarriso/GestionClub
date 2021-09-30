@@ -96,5 +96,4 @@ protected Foto foto;
         this.foto = foto;
     }
 
-       
 }

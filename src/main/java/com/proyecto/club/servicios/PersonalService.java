@@ -6,12 +6,16 @@ import com.proyecto.club.excepciones.WebException;
 import com.proyecto.club.entidades.Personal;
 import com.proyecto.club.repositorios.PersonalRepository;
 import java.io.IOException;
+
+
 import java.util.List;
 import java.util.Optional;
 import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
 import org.springframework.web.multipart.MultipartFile;
+
 
 /**
  * @author S
@@ -22,6 +26,7 @@ public class PersonalService {
 
     @Autowired
     public PersonalRepository personalRepository;
+
     
     @Autowired
     public FotoService fotoService;
@@ -29,9 +34,7 @@ public class PersonalService {
     @Transactional
     public Personal save(Personal personal, MultipartFile archivo) throws WebException, IOException {
 
-        System.out.println(personal.toString());
-        
-        
+
         if (personal.getNombre().isEmpty() || personal.getNombre() == null) {
 
             throw new WebException("El nombre no puede estar vacio");
@@ -96,6 +99,7 @@ public class PersonalService {
        
        personal.setFoto(img);
        
+
        return personalRepository.save(personal);
     }
 

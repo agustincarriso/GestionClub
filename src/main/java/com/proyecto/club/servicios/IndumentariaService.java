@@ -1,5 +1,4 @@
 package com.proyecto.club.servicios;
-
 import com.proyecto.club.entidades.Foto;
 import com.proyecto.club.excepciones.WebException;
 import com.proyecto.club.entidades.Indumentaria;
@@ -15,6 +14,7 @@ import org.springframework.web.multipart.MultipartFile;
 /**
  * @author S
  */
+
 @Service
 public class IndumentariaService {
 
@@ -64,12 +64,12 @@ public class IndumentariaService {
             throw new WebException("Debe indicar el color");
 
         }
+
         
         Foto img = fotoService.guardarFoto(archivo);
         
         indumentaria.setFoto(img);
-        
-      
+       
         return indumentariaRepository.save(indumentaria);
 
     }

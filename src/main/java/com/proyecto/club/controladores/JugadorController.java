@@ -1,8 +1,8 @@
 package com.proyecto.club.controladores;
-
 import com.proyecto.club.entidades.Jugador;
 import com.proyecto.club.excepciones.WebException;
 import com.proyecto.club.servicios.JugadorServicio;
+import com.proyecto.club.servicios.PosicionServicio;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -17,11 +17,16 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 @RequestMapping("/jugador")
 public class JugadorController {
     
+    
     @Autowired
     private JugadorServicio jugadorServicio;
- 
+    
+    @Autowired
+    private PosicionServicio posicionServicio;
+
+    
     @GetMapping("/list")
-    public String listarPersonas(Model model,@RequestParam(required = false) String q) {
+    public String listarJugadors(Model model,@RequestParam(required = false) String q) {
         if (q != null) {
             model.addAttribute("jugadores", jugadorServicio.listallByQ(q));
         }else{
@@ -31,7 +36,7 @@ public class JugadorController {
     }
 
     @GetMapping("/form")
-    public String crearPersona(Model model, @RequestParam(required = false) String id) {
+    public String crearJugador(Model model, @RequestParam(required = false) String id) {
         if (id != null) {
             Optional<Jugador> optional = jugadorServicio.findById(id);
             if (optional.isPresent()) {
@@ -42,21 +47,23 @@ public class JugadorController {
         }else{
            model.addAttribute("jugador",new Jugador()); 
         }
+        model.addAttribute("posiciones", posicionServicio.listAll());
         return "jugador-form";
     }
 
     @PostMapping("/save")
-    public String guardarPersona(Model model,RedirectAttributes redirectAttributes,Jugador jugador) {
-        
+    public String guardarJugador(Model model,RedirectAttributes redirectAttributes,Jugador jugador) {
         try {
             jugadorServicio.save(jugador);
-            redirectAttributes.addFlashAttribute("error", "Primer paso completado exitosamente");  
+            //redirectAttributes.addFlashAttribute("error", "Primer paso completado exitosamente");  
         } catch (WebException ex) {
+            ex.printStackTrace();
             model.addAttribute("error", ex.getMessage());
             model.addAttribute("jugador", jugador);
+            model.addAttribute("posiciones", posicionServicio.listAll());
         return "jugador-form";
         }
-        return "redirect:/registro";
+        return "redirect:/jugador/list";
     }
 
     @GetMapping("/delete")

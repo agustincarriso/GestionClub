@@ -1,77 +1,94 @@
 package com.proyecto.club.servicios;
-
+import com.proyecto.club.excepciones.WebException;
+import com.proyecto.club.entidades.CuerpoTecnico;
+import com.proyecto.club.entidades.PuestoCT;
+import com.proyecto.club.repositorios.CuerpoTecnicoRepositorio;
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
-
-import com.proyecto.club.entidades.CuerpoTecnico;
-import com.proyecto.club.enums.CuerpoTec;
-import com.proyecto.club.excepciones.WebException;
-import com.proyecto.club.repositorios.CuerpoTecnicoRepositorio;
-
+import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
-/**
- *
- * @author Javi
- */
 @Service
 public class CuerpoTecnicoServicio {
-
+    
+    
     @Autowired
-    private CuerpoTecnicoRepositorio cuerpoTecnicoRepositorio;
+    private CuerpoTecnicoRepositorio cuerpotecnicoRepositorio;
+    
+    @Autowired
+    private CuerpoTecnicoServicio cuerpoTecnicoServicio;
 
+
+    public CuerpoTecnico save(String nombreCompleto, String nacionalidad,Date edad, PuestoCT puesto ) {
+        CuerpoTecnico cuerpoTecnico = new CuerpoTecnico();
+        
+        cuerpoTecnico.setNombreCompleto(nombreCompleto);
+        cuerpoTecnico.setNacionalidad(nacionalidad);
+        cuerpoTecnico.setEdad(edad);
+        cuerpoTecnico.setPuesto(puesto);
+        
+        return cuerpotecnicoRepositorio.save(cuerpoTecnico);
+    }
+
+    public CuerpoTecnico save2(CuerpoTecnico cuerpotecnico) throws WebException {
+        if (cuerpotecnico.getNombreCompleto().isEmpty() || cuerpotecnico.getNombreCompleto()== null) {
+            throw new WebException("Debe ingresar un nombre");
+        }
+        if (cuerpotecnico.getNacionalidad().isEmpty() || cuerpotecnico.getNacionalidad()== null) {
+            throw new WebException("Debe ingresar la nacionalidad");
+        }
+        if (cuerpotecnico.getEdad() == null) {
+            throw new WebException("Ingrese el dia de nacimiento");
+        }
+        return cuerpotecnicoRepositorio.save(cuerpotecnico);
+    }
+
+
+    public List<CuerpoTecnico> listAll() {
+         List<CuerpoTecnico> lista = cuerpotecnicoRepositorio.findAll();
+         return lista;
+    }
+
+    public List<CuerpoTecnico> listAll(String q) {
+        return cuerpotecnicoRepositorio.findAll("%" + q + "%");
+    }
+
+    public Optional<CuerpoTecnico> findById(String id) {
+        return cuerpotecnicoRepositorio.findById(id);
+    }
+
+    public CuerpoTecnico findById(CuerpoTecnico cuerpotecnico) {
+        Optional<CuerpoTecnico> optional1 = cuerpotecnicoRepositorio.findById(cuerpotecnico.getId());
+            if (optional1.isPresent()) {
+                cuerpotecnico = optional1.get();
+            }
+        return cuerpotecnico;
+    }
+    
     @Transactional
-    public CuerpoTecnico save(CuerpoTecnico x) throws WebException {
-        if (x.getNombreCompleto()==null || x.getNombreCompleto().isEmpty()) {
-            throw new WebException("Falta completar el nombre");
-        }
-        if (Integer.valueOf(x.getEdad())==null){
-            throw new WebException("Falta completar la edad");
-        }
-        if (x.getNacionalidad()==null || x.getNacionalidad().isEmpty()) {
-            throw new WebException("Falta completar la nacionalidad");
-        }
-        if (x.getPuesto()==null) {
-            throw new WebException("Falta completar el puesto");
-        }
-        return cuerpoTecnicoRepositorio.save(x);
+    public void delete(CuerpoTecnico cuerpotecnico) {
+        cuerpotecnicoRepositorio.delete(cuerpotecnico);
     }
 
     @Transactional
-    public void delete(CuerpoTecnico x) {
-        cuerpoTecnicoRepositorio.delete(x);
+    public void deleteFieldPuesto(PuestoCT puesto){
+        List<CuerpoTecnico> cuerpoTecnico = cuerpotecnicoRepositorio.findAllByPuesto(puesto.getNombre());
+        for (CuerpoTecnico cuerpoTecnico1 : cuerpoTecnico) {
+            cuerpoTecnico1.setPuesto(null);
+        }
+        cuerpotecnicoRepositorio.saveAll(cuerpoTecnico);
     }
-
+    
     @Transactional
     public void deleteById(String id) {
-        Optional<CuerpoTecnico> op = cuerpoTecnicoRepositorio.findById(id);
-        if (op.isPresent()) {
-            cuerpoTecnicoRepositorio.delete(op.get());
+        Optional<CuerpoTecnico> optional = cuerpotecnicoRepositorio.findById(id);
+        if (optional.isPresent()) {
+            CuerpoTecnico cuerpotecnico = optional.get();
+            cuerpotecnicoRepositorio.delete(cuerpotecnico);
         }
-    }
 
-    @Transactional
-    public CuerpoTecnico modify(String id, String nombreCompleto, int edad, String nacionalidad, CuerpoTec puesto){
-        CuerpoTecnico x = cuerpoTecnicoRepositorio.findById(id).get();
-        x.setEdad(edad);
-        x.setNacionalidad(nacionalidad);
-        x.setNombreCompleto(nombreCompleto);
-        x.setPuesto(puesto);
-        return cuerpoTecnicoRepositorio.save(x);
-    }
-
-    public List<CuerpoTecnico> listAll(){
-        return cuerpoTecnicoRepositorio.findAll();
-    }
-
-    public List<CuerpoTecnico> listByQ(String q){
-        return cuerpoTecnicoRepositorio.findByNombreCompletoContainingOrNacionalidadContainingOrPuestoContaining(q, q, q);
-    }
-
-    public CuerpoTecnico findById(String id){
-        return cuerpoTecnicoRepositorio.findById(id).get();
     }
 
 }
