@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
 
 /**
@@ -53,9 +54,9 @@ public class ProductosController {
    }
    
    @PostMapping("/registrado")
-   public String registrado(@ModelAttribute Producto producto, Model model, ModelMap modelo) throws Exception{
+   public String registrado(@ModelAttribute Producto producto, MultipartFile imagen, ModelMap modelo) throws Exception{
    try{
-        productoService.save(producto);
+        productoService.save(producto, imagen);
        
    }catch(Exception w){
        

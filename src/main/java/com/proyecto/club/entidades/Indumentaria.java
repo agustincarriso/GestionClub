@@ -50,8 +50,6 @@ public class Indumentaria extends Producto {
     }
 
     
-    
-    
     public String getTalle() {
         return talle;
     }
@@ -66,6 +64,14 @@ public class Indumentaria extends Producto {
 
     public void setColor(String color) {
         this.color = color;
+    }
+
+    public Foto getFoto() {
+        return foto;
+    }
+
+    public void setFoto(Foto foto) {
+        this.foto = foto;
     }
 
     

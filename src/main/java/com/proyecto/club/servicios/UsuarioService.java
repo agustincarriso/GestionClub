@@ -69,7 +69,7 @@ public class UsuarioService {
             
             usuario.setFoto(img);
             
-            System.out.println( "id: " + usuario.getId() + "     aaaaaaaaaaaaaaaaa");
+
             return usuarioRepository.save(usuario);
 
     }
