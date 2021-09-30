@@ -1,7 +1,7 @@
 
-package com.proyecto.club.Controladores;
+package com.proyecto.club.controladores;
 
-import com.proyecto.club.Excepciones.WebException;
+import com.proyecto.club.excepciones.WebException;
 import com.proyecto.club.entidades.Producto;
 import com.proyecto.club.servicios.ProductoService;
 import java.util.Optional;
@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
 
 /**
@@ -34,13 +35,13 @@ public class ProductosController {
         if (id != null) {
             Optional<Producto> optional = productoService.findById(id);
 
-            if (optional.isPresent()) {
-                model.addAttribute("productos", optional.get());
-            } else {
-                return "redirect:/productos/list";
-            }
-        } else {
-            model.addAttribute("productos", new Producto());
+              if (optional.isPresent()) {
+                  model.addAttribute("productos", optional.get());
+                } else {
+                     return "redirect:/productos/list";
+                  }
+         } else {
+             model.addAttribute("productos", new Producto());
         }
 
         return "productos-registro.html";
@@ -53,9 +54,9 @@ public class ProductosController {
    }
    
    @PostMapping("/registrado")
-   public String registrado(@ModelAttribute Producto producto, Model model, ModelMap modelo) throws Exception{
+   public String registrado(@ModelAttribute Producto producto, MultipartFile imagen, ModelMap modelo) throws Exception{
    try{
-        productoService.save(producto);
+        productoService.save(producto, imagen);
        
    }catch(Exception w){
        

@@ -1,5 +1,5 @@
 
-package com.proyecto.club.Excepciones;
+package com.proyecto.club.excepciones;
 /*
  * @author S
  */

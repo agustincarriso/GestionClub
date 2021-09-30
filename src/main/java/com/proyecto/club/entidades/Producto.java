@@ -5,6 +5,9 @@ import java.io.Serializable;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
+import javax.persistence.OneToOne;
 import org.hibernate.annotations.GenericGenerator;
 
 /**
@@ -12,30 +15,37 @@ import org.hibernate.annotations.GenericGenerator;
  */
 
 @Entity
+@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 public class Producto implements Serializable {
 
 
 @Id
 @GeneratedValue(generator = "uuid")
 @GenericGenerator(name = "uuid",strategy = "uuid2")
-private String id;
-private String nombre;
-private String descripcion;
-private Integer stock;
-private Double precio;
+protected String id;
+protected String nombre;
+protected String descripcion;
+protected Integer stock;
+protected Double precio;
+
+@OneToOne
+protected Foto foto;
 
 /* protected imagen(veo como se hace y lo agrego)*/
 
     public Producto() {
     }
 
-    public Producto(String id, String nombre, String descripcion, Integer stock, Double precio) {
+    public Producto(String id, String nombre, String descripcion, Integer stock, Double precio, Foto foto) {
         this.id = id;
         this.nombre = nombre;
         this.descripcion = descripcion;
         this.stock = stock;
         this.precio = precio;
+        this.foto = foto;
     }
+
+    
 
     public String getId() {
         return id;
@@ -77,5 +87,14 @@ private Double precio;
     public void setPrecio(Double precio) {
         this.precio = precio;
     }
-   
+
+    public Foto getFoto() {
+        return foto;
+    }
+
+    public void setFoto(Foto foto) {
+        this.foto = foto;
+    }
+
+       
 }
