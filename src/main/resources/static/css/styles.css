@@ -651,6 +651,8 @@ background-color: rgba(243, 244, 247, 0.994);
 
 .get-email {
     width: 50%;
+ 
+    
 }
 
 .newsletter {
@@ -714,6 +716,10 @@ background-color: rgba(243, 244, 247, 0.994);
     font-size: 18px;
     margin-right: 30px;
     display: inline-block;
+    text-decoration: none;
+    color:#fff;
+
+
 }
 
 .contact {
@@ -756,5 +762,6 @@ background-color: rgba(243, 244, 247, 0.994);
     background: linear-gradient(180deg, var(--black2) 0%, var(--black1));
     border: 2px solid var(--color-secondary);
     font-size: 18px;
+
 
 }
