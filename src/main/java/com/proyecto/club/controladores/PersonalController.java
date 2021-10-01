@@ -42,13 +42,13 @@ public class PersonalController {
             
         }
 
-        return "personal-registro";
+        return "/html-administracion/personal/personal-registro";
     }
 
     @GetMapping("/list")
     public String lista(Model model) {
         model.addAttribute("personal", personalService.listAll());
-        return "personal-list.html";
+        return "/html-administracion/personal/personal-list.html";
     }
 
     @PostMapping("/registrado")

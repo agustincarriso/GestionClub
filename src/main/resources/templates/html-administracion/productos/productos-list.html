@@ -76,11 +76,11 @@
                         <td th:text="${productos.precio}"></td>
                         <td th:text="${productos.stock}"></td>
                         <td>
-                            <a th:href="/@{/productos/eliminar}+'?id='+${productos.id}">
+                            <a th:href="@{/productos/eliminar}+'?id='+${productos.id}">
                                 <button class="btn btn-outline-dark" >Eliminar</button>
                             </a>
  
-                            <a th:href="/@{/productos/registro}+'?id='+${productos.id}">
+                            <a th:href="@{/productos/registro}+'?id='+${productos.id}">
                                <button class="btn btn-outline-dark" >Editar</button>
                             </a>
                         </td>

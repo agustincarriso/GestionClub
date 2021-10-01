@@ -15,6 +15,6 @@ public class SocioRegistroController {
 
 	@GetMapping("/socio-registro")
 	public String login() {
-		return "socio-registro.html";
+		return "/html-administracion/socio/socio-registro.html";
 	}
 }

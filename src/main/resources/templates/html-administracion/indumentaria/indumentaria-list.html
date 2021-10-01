@@ -82,11 +82,11 @@
             <td th:text="${indumentaria.color}"></td>
             <td th:text="${indumentaria.talle}"></td>
             <td>
-                <a th:href="/@{/indumentaria/eliminar}+'?id='+${indumentaria.id}">
+                <a th:href="@{/indumentaria/eliminar}+'?id='+${indumentaria.id}">
                     <button class="btn btn-outline-dark" >Eliminar</button>
                 </a>
 
-                <a th:href="/@{/indumentaria/registro}+'?id='+${indumentaria.id}">
+                <a th:href="@{/indumentaria/registro}+'?id='+${indumentaria.id}">
                     <button class="btn btn-outline-dark" >Editar</button>
                 </a>
             </td>

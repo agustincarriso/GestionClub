@@ -72,8 +72,8 @@
                         <td th:text="${iterator.index+1}"></td>
                         <td th:text="${puesto.nombre}"></td>   
                         <td>
-                            <button ><a th:href="/@{/puesto/delete}+'?id='+${puesto.id}" class="px-5 py-2" >Eliminar</a></button>
-                            <button ><a th:href="/@{/puesto/form}+'?id='+${puesto.id}" class="px-5 py-2" >Editar</a></button>>
+                            <button ><a th:href="@{/puesto/delete}+'?id='+${puesto.id}" class="px-5 py-2" >Eliminar</a></button>
+                            <button ><a th:href="@{/puesto/form}+'?id='+${puesto.id}" class="px-5 py-2" >Editar</a></button>>
                         </td>
                     </tr>
                 </tbody>

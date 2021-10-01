@@ -30,7 +30,7 @@ public class CuerpoTecnicoController {
         }else{
             model.addAttribute("cuerpotecnicolista", cuerpotecnicoServicio.listAll());
         }
-        return "cuerpotecnico-list";
+        return "/html-administracion/cuerpo-tecnico/cuerpotecnico-list";
     }
 
     @GetMapping("/form")
@@ -46,7 +46,7 @@ public class CuerpoTecnicoController {
            model.addAttribute("cuerpotecnico",new CuerpoTecnico()); 
         }
          model.addAttribute("puestos", puestoServicio.listAll());
-        return "cuerpotecnico-form";
+        return "/html-administracion/cuerpo-tecnico/cuerpotecnico-form";
     }
 
     @PostMapping("/save")

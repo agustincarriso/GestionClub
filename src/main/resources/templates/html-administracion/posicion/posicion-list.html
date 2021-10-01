@@ -10,41 +10,7 @@
         <title>Indumentaria</title>
     </head>
     <body class="body-usuario"> 
-        <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
-            <div class="container-fluid">
-                <a class="navbar-brand" href="/#">Jugador</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0 ">
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="/#">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/#">Libros</a>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="/#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                Entidades
-                            </a>
-                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a class="dropdown-item" href="/#">Clientes</a></li>
-                                <li><a class="dropdown-item" href="/#">Autores</a></li>
-                                <li><a class="dropdown-item" href="/#">Libros</a></li>
-                                <li><hr class="dropdown-divider"></li>
-                                <li><a class="dropdown-item" href="/#">Something else here</a></li>
-                            </ul>
-                        </li>
-
-                    </ul>
-                    <form class="d-flex" th:action="@{/persona/list}" method="GET">
-                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                        <button class="btn btn-outline-success" type="submit">Search</button>
-                    </form>
-                </div>
-            </div>
-        </nav> 
+        <header th:replace="/fragments/nav-bar :: nav-bar-sin-slider"></header>
         <main>
             <div class="container-fluid mt-3">
                 <div class="row justify-content-center">
@@ -71,11 +37,10 @@
                     <tr th:each='posicion,iterator : ${posiciones}'>
                         <td th:text="${iterator.index+1}"></td>
                         <td th:text="${posicion.nombre}"></td>   
-                        <td 
-                            <button ><a th:href="/@{/posicion/delete}+'?id='+${posicion.id}" class="px-5 py-2" >Eliminar</a></button>
-                            <button ><a th:href="/@{/posicion/form}+'?id='+${posicion.id}" class="px-5 py-2" >Editar</a></button>></td> 
-
-
+                        <td> 
+                            <button><a th:href="@{/posicion/delete}+'?id='+${posicion.id}" class="px-5 py-2" >Eliminar</a></button>
+                            <button><a th:href="@{/posicion/form}+'?id='+${posicion.id}" class="px-5 py-2" >Editar</a></button>>
+                        </td> 
                     </tr>
                 </tbody>
             </table>
