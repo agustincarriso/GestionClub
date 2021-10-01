@@ -32,7 +32,7 @@ public class JugadorController {
         }else{
             model.addAttribute("jugadores", jugadorServicio.listall());
         }
-        return "jugador-list";
+        return "/html-administracion/jugador/jugador-list";
     }
 
     @GetMapping("/form")
@@ -48,7 +48,7 @@ public class JugadorController {
            model.addAttribute("jugador",new Jugador()); 
         }
         model.addAttribute("posiciones", posicionServicio.listAll());
-        return "jugador-form";
+        return "/html-administracion/jugador/jugador-form";
     }
 
     @PostMapping("/save")

@@ -40,13 +40,13 @@ public class IndumentariaController {
         } else {
             model.addAttribute("indumentaria", new Indumentaria());
         }
-        return "indumentaria-registro.html";
+        return "/html-administracion/indumentaria/indumentaria-registro.html";
     }
 
    @GetMapping("/list")
    public String lista(Model model){
    model.addAttribute("indumentaria", indumentariaService.listAll());
-   return "indumentaria-list.html";
+   return "/html-administracion/indumentaria/indumentaria-list.html";
    }
    
    @PostMapping("/registrado")

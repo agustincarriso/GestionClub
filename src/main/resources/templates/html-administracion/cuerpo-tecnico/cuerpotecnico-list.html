@@ -79,8 +79,8 @@
             <td th:text="${#dates.format(cuerpotecnico.edad, 'dd/MM/yyyy')}"></td>
             <td th:text="${cuerpotecnico.puesto} == null ? 'no tiene' : ${cuerpotecnico.puesto.nombre}"></td>
             <td>
-                <button class="btn-dark"><a th:href="/@{/cuerpotecnico/delete}+'?id='+${cuerpotecnico.id}" class="px-5 py-2" >Eliminar</a></button>
-                <button class="btn-dark"><a th:href="/@{/cuerpotecnico/form}+'?id='+${cuerpotecnico.id}" class="px-5 py-2" >Editar</a></button>
+                <button class="btn-dark"><a th:href="@{/cuerpotecnico/delete}+'?id='+${cuerpotecnico.id}" class="px-5 py-2" >Eliminar</a></button>
+                <button class="btn-dark"><a th:href="@{/cuerpotecnico/form}+'?id='+${cuerpotecnico.id}" class="px-5 py-2" >Editar</a></button>
             </td>
         </tr>
       </tbody>

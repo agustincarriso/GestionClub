@@ -44,13 +44,13 @@ public class ProductosController {
              model.addAttribute("productos", new Producto());
         }
 
-        return "productos-registro.html";
+        return "/html-administracion/productos/productos-registro.html";
     }
 
    @GetMapping("/list")
    public String lista(Model model){
    model.addAttribute("productos", productoService.listAll());
-   return "productos-list.html";
+   return "/html-administracion/productos/productos-list.html";
    }
    
    @PostMapping("/registrado")
