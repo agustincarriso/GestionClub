@@ -69,7 +69,7 @@ body {
     width: 60%;
     text-decoration: none;
     margin-right: 180px;
-   
+
 }
 
 .imagen__logo {
@@ -363,6 +363,7 @@ ul.slider li:target {
     border-radius: 15px;
 }
 
+
 .grid__item--img2 {
     transition: transform 0.3s ease-in-out;
     width: 150px;
@@ -384,7 +385,6 @@ ul.slider li:target {
     justify-content: center;
     border-radius: 15px;
     background-color: none;
-   
 }
 
 .grid__item--img4 {
@@ -395,7 +395,11 @@ ul.slider li:target {
     justify-content: center;
     border-radius: 15px;
     background-color: none;
-    
+}
+
+.grid__item--img1:hover {
+    filter: opacity(1);
+    transform: scale(1.10);
 }
 
 .grid__item--img1:hover {
@@ -457,39 +461,39 @@ ul.slider li:target {
     margin: 0px auto;
 }
 
-.boton__indumentaria{
+.boton__indumentaria {
     display: inline-block;
     text-decoration: none;
     margin: auto;
     padding: 10px 40px;
     text-align: center;
-    border:1px solid var(--color-secondary);
+    border: 1px solid var(--color-secondary);
     border-radius: 30px;
-    color:#fff;
+    color: #fff;
     background-color: var(--black2);
     box-shadow: 0px 0px 4px 4px var(--color-secondary);
-    }
+}
 
-    .short-boton{
-       margin:10px 0 15px 8px;
-    }
+.short-boton {
+    margin: 10px 0 15px 8px;
+}
 
-    .camiseta-boton{
-      margin: 60px 0px 0px 50px;
-    }
+.camiseta-boton {
+    margin: 60px 0px 0px 50px;
+}
 
-    .buzo-boton{
-     margin-left: 68px;
-     margin-bottom: 40px;
-     padding: 10px 70px;
-    }
+.buzo-boton {
+    margin-left: 68px;
+    margin-bottom: 40px;
+    padding: 10px 70px;
+}
 
 
 
 /* PATROCINADORES */
 
-.patrocinadores{
-background-color: rgba(243, 244, 247, 0.994);
+.patrocinadores {
+    background-color: rgba(243, 244, 247, 0.994);
 }
 
 .patrocinadores__title {
@@ -732,9 +736,9 @@ background-color: rgba(243, 244, 247, 0.994);
 }
 
 .contact__title {
-    font-weight: 300; 
+    font-weight: 300;
     color: rgba(255, 255, 255, 0.679);
-    
+
 }
 
 .item__contact {
@@ -744,12 +748,12 @@ background-color: rgba(243, 244, 247, 0.994);
     border: 1px solid color #fff;
     font-weight: 300;
     font-size: 14px;
-    margin-left:0;
+    margin-left: 0;
     color: #000000;
     color: rgba(255, 255, 255, 0.679);
     background: linear-gradient(180deg, var(--black2) 0%, var(--black1));
     border: 2px solid var(--color-secondary);
-    }
+}
 
 .item__contact--now {
     width: 50%;

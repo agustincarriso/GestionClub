@@ -11,10 +11,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
  */
 @Controller
 @RequestMapping("/")
-public class RegistroController {
+public class MercadoPagoController {
 
-	@GetMapping("/registro")
-	public String registro() {
-		return "registro.html";
+	@GetMapping("/mercadopago")
+	public String login() {
+		return "mercadopago.html";
 	}
 }

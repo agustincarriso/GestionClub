@@ -59,10 +59,6 @@ public class Personal extends Usuario {
     public void setFoto(Foto foto) {
         this.foto = foto;
     }
-
-    
-    
-    
  
     public String getCargo() {
         return cargo;

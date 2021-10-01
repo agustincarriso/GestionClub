@@ -220,9 +220,8 @@ body {
 .carrito__text {
     display: flex;
     padding: 3%;
-    margin-left: 60px;
-    margin-top: 5px;
-    text-align: center;
+    margin-left: 35px;
+    margin-top: 10px;
 }
 
 .carrito__icon {

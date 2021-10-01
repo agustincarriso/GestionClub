@@ -16,6 +16,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
+
 
 @Controller
 @RequestMapping("/personal")
@@ -50,9 +52,11 @@ public class PersonalController {
     }
 
     @PostMapping("/registrado")
-    public String registrado(@ModelAttribute Personal personal, ModelMap modelo) throws Exception {
+
+    public String registrado(@ModelAttribute Personal personal,MultipartFile imagen, ModelMap modelo) throws Exception {
         try {
-            personalService.save(personal);
+            personalService.save(personal,imagen);
+
 
         } catch (Exception w) {
             

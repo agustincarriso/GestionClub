@@ -1,25 +1,31 @@
 package com.proyecto.club.servicios;
-
+import com.proyecto.club.entidades.Foto;
 import com.proyecto.club.excepciones.WebException;
 import com.proyecto.club.entidades.Indumentaria;
 import com.proyecto.club.repositorios.IndumentariaRepository;
+import java.io.IOException;
 import java.util.List;
 import java.util.Optional;
 import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
 /**
  * @author S
  */
+
 @Service
 public class IndumentariaService {
 
     @Autowired
     private IndumentariaRepository indumentariaRepository;
+    
+    @Autowired
+    private FotoService fotoService;
 
     @Transactional
-    public Indumentaria save(Indumentaria indumentaria) throws WebException {
+    public Indumentaria save(Indumentaria indumentaria, MultipartFile archivo) throws WebException, IOException {
         
       
 
@@ -58,7 +64,12 @@ public class IndumentariaService {
             throw new WebException("Debe indicar el color");
 
         }
-      
+
+        
+        Foto img = fotoService.guardarFoto(archivo);
+        
+        indumentaria.setFoto(img);
+       
         return indumentariaRepository.save(indumentaria);
 
     }

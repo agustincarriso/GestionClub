@@ -45,6 +45,8 @@ protected Foto foto;
         this.foto = foto;
     }
 
+    
+
     public String getId() {
         return id;
     }
@@ -94,7 +96,5 @@ protected Foto foto;
         this.foto = foto;
     }
    
-    
-    
     
 }
