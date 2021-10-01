@@ -95,5 +95,6 @@ protected Foto foto;
     public void setFoto(Foto foto) {
         this.foto = foto;
     }
-
+   
+    
 }

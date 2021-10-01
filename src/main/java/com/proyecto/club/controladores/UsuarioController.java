@@ -69,7 +69,7 @@ public class UsuarioController {
 
             return "redirect:/usuario/registro";
         }
-        return "redirect:/usuario/list";
+        return "redirect:/";
 
     }
 

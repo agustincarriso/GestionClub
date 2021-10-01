@@ -69,7 +69,6 @@ public class UsuarioService {
             
             usuario.setFoto(img);
             
-
             return usuarioRepository.save(usuario);
 
     }

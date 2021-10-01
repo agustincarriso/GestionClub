@@ -67,10 +67,6 @@ public class Socio extends Usuario {
     public void setFoto(Foto foto) {
         this.foto = foto;
     }
-
-    
-    
-    
     
     public String getNumeroSocio() {
         return numeroSocio;

@@ -48,7 +48,6 @@ public class Indumentaria extends Producto {
     public void setId(String id) {
         this.id = id;
     }
-
     
     public String getTalle() {
         return talle;

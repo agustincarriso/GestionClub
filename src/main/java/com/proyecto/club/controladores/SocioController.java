@@ -68,7 +68,7 @@ public class SocioController {
             //modelo.put("error", w.getMessage());
             return "socio-registro";
         }
-        return "redirect:/socio/list";
+        return "redirect:/th:field=\"*{fechaBaja}\"";
 
     }
 
