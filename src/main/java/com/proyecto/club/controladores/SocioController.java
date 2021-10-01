@@ -46,13 +46,13 @@ public class SocioController {
             model.addAttribute("socio",new Socio());
         }
 
-        return "socio-registro.html";
+        return "/html-administracion/socio/socio-registro.html";
     }
 
     @GetMapping("/list")
     public String lista(Model model) {
         model.addAttribute("socio", socioService.listAll());
-        return "socio-list.html";
+        return "/html-administracion/socio/socio-list.html";
     }
 
     @PostMapping("/registrado")

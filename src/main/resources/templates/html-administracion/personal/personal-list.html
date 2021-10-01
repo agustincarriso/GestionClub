@@ -84,11 +84,11 @@
                         <td th:text="${personal.cargo}"></td>
                         <td th:text="${personal.salario}"></td>
                         <td>
-                            <a th:href="/@{/personal/eliminar}+'?id='+${personal.id}">
+                            <a th:href="@{/personal/eliminar}+'?id='+${personal.id}">
                                 <button class="btn btn-outline-dark" >Eliminar</button>
                             </a>
 
-                            <a th:href="/@{/personal/registro}+'?id='+${personal.id}">
+                            <a th:href="@{/personal/registro}+'?id='+${personal.id}">
                                 <button class="btn btn-outline-dark" >Editar</button>
                             </a>
                         </td>

@@ -46,13 +46,13 @@ public class UsuarioController {
             model.addAttribute("usuario", new Usuario());
         }
 
-        return "usuario-registro.html";
+        return "/html-administracion/usuario/usuario-registro.html";
     }
 
     @GetMapping("/list")
     public String lista(Model model) {
         model.addAttribute("usuario", usuarioService.listAll());
-        return "usuario-list.html";
+        return "/html-administracion/usuario/usuario-list.html";
     }
 
     @PostMapping("/registrado")
