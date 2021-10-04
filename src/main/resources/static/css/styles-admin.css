@@ -51,6 +51,10 @@ body {
 }
 
 
+h1 {
+    text-align: center;
+    color: #fff;
+}
 
 
 
@@ -143,7 +147,7 @@ body {
 .other-ct {
     height: 50px;
     margin-right: 20px;
-    margin-top: -40px;
+    margin-top: -70px;
 
 }
 
@@ -168,11 +172,11 @@ body {
 }
 
 .comision{
-    margin-top: -10px;
+    margin-top: -20px;
 }
 
 .ctecnico {
-    margin-top: -50px;
+    margin-top: -80px;
 }
 
 
