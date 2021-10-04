@@ -7,26 +7,12 @@
     --black2: #30353b;
     --boton-padding: 20px 40px;
 }
-
 body {
     font-family: 'Hammersmith One', sans-serif;
-    background: #1b2f62;
-    /* fallback for old browsers */
-    background: -webkit-linear-gradient(to top, hsla(213, 44%, 29%, 0.638), #1b2f62);
-    /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to top, hsla(213, 44%, 29%, 0.638), #1b2f62);
-    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-    background-repeat: no-repeat;
-    /* para que abarque el 100% del contenedor el background */
-    background-size: cover;
-    /* para fingir el efecto paralax */
-    background-attachment: fixed;
-    /* para centrar el background */
-    background-position: center;
-    /* para poder posicionar el efecto wave */
-    position: relative;
-    /* margin-bottom: 0px; */
-
+  
+    background: #0f0c29;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #24243e, #1b2f62, #0f0c29);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #24243e, #1b2f62, #0f0c29); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
 .hero__sin--slider {
@@ -37,10 +23,10 @@ body {
 
 /* SECCION TIENDA  sin uso por el momento*/
 
-.tienda {
+/* .tienda {
     background: linear-gradient(to top, hsla(213, 44%, 29%, 0.638), #1b2f62);
-   
-}
+ 
+} */
 
 
 
