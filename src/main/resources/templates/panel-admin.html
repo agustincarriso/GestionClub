@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="es-AR" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Hammersmith+One&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="/assets/escudo.png" type="image/x-icon">
+    <link rel="stylesheet" href="/css/normalize.css">
+    <link rel="stylesheet" href="/css/styles-admin.css">
+    <link rel="stylesheet" href="/css/styles.css">
+    <title>Panel-Admin</title>
+</head>
+
+<body>
+    <header th:replace="/fragments/nav-bar :: nav-bar-sin-slider"></header>
+    <main>
+        <section class="box-panel">
+            <div class="panel">
+                <img class="logo__club" src="/assets/escudo.png" alt="logo de talleres">
+                <h1>Panel de Control</h1>
+            </div>
+        </section>
+
+        <section class="container-panel">
+            <div class="barra-titulo">
+                <p class="sector-admin">Administracion</p>
+            </div>
+
+
+            <article class="box-contenedor">
+                <div class="panel-button">
+                    <div class="box-section">
+                        <div class="box-title">
+                            <p>Usuarios</p>
+                        </div>
+                        <div class="box-panel">
+                            <a class="box-button" th:href="@{/usuario/list}">Lista</a>
+                            <a class="box-button" th:href="@{/usuario/registro}">Crear</a>
+
+                        </div>
+                    </div>
+
+                    <div class="box-section">
+                        <div class="box-title">
+                            <p>Socios</p>
+                        </div>
+                        <div class="box-panel">
+                            <a class="box-button" th:href="@{/socio/list}">Lista</a>
+                            <a class="box-button" th:href="@{/socio/registro}">Crear</a>
+                        </div>
+                    </div>
+
+                    <div class="box-section">
+                        <div class="box-title">
+                            <p>Personal</p>
+                        </div>
+                        <div class="box-panel">
+                            <a class="box-button" th:href="@{/personal/list}">Lista</a>
+                            <a class="box-button" th:href="@{/personal/registro}">Crear</a>
+
+                        </div>
+                    </div>
+                </div>
+
+            </article>
+
+            <div class="barra-titulo">
+                <p class="sector-admin">Institucion</p>
+            </div>
+            <article class="box-contenedor">
+                <div class="panel-button">
+                    <div class="box-section">
+                        <div class="box-title">
+                            <p>Jugadores</p>
+                        </div>
+                        <div class="box-panel">
+                            <a class="box-button" th:href="@{/jugador/list}">Lista</a>
+                            <a class="box-button" th:href="@{/jugador/form}">Crear</a>
+                        </div>
+                    </div>
+
+                    <div class="box-section">
+                        <div class="box-title">
+                            <p>Posicion</p>
+                        </div>
+                        <div class="box-panel">
+                            <a class="box-button" th:href="@{/posicion/list}">Lista</a>
+                            <a class="box-button" th:href="@{/posicion/form}">Crear</a>
+                        </div>
+                    </div>
+
+                    <div class="box-section">
+                        <div class="box-title other">
+                            <p>Comision</p>
+                        </div>
+                        <div class="box-panel">
+                            <a class="box-button comision" href="#">Lista</a>
+                            <a class="box-button comision" href="#">Editar</a>
+                            <div class="box-title other-ct">
+                                <p>Cuerpo Técnico</p>
+                            </div>
+                            <a class="box-button" th:href="@{/cuerpotecnico/list}">Lista</a>
+                            <a class="box-button" th:href="@{/cuerpotecnico/form}">Crear</a>
+                        </div>
+                       
+                    </div>
+                </div>
+
+            </article>
+
+            <div class="barra-titulo">
+                <p class="sector-admin">E-commerce</p>
+            </div>
+            <article class="box-contenedor">
+                <div class="panel-button">
+                    <div class="box-section">
+                        <div class="box-title">
+                            <p>Productos</p>
+                        </div>
+                        <div class="box-panel">
+                            <a class="box-button" th:href="@{/productos/list}">Lista</a>
+                            <a class="box-button" th:href="@{/productos/registro}">Crear</a>
+                        </div>
+                    </div>
+
+                    <div class="box-section">
+                        <div class="box-title">
+                            <p>Indumentarias</p>
+                        </div>
+                        <div class="box-panel">
+                            <a class="box-button" th:href="@{/indumentaria/list}">Lista</a>
+                            <a class="box-button" th:href="@{/indumentaria/registro}">Crear</a>
+                        </div>
+                    </div>
+
+                    <div class="box-section">
+                        <div class="box-title">
+                            <p>Stock</p>
+                        </div>
+                        <div class="box-panel">
+                            <a class="box-button" href="#">Lista</a>
+                            <a class="box-button" href="#">Editar</a>
+
+                        </div>
+                    </div>
+                </div>
+            </article>
+        </section>
+    </main>
+    <script src="/main.js"></script>
+</body>
+
+</html>

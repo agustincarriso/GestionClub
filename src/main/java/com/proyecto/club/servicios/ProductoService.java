@@ -1,25 +1,34 @@
 package com.proyecto.club.servicios;
 
+
+import com.proyecto.club.entidades.Foto;
+
 import com.proyecto.club.excepciones.WebException;
 import com.proyecto.club.entidades.Producto;
 import com.proyecto.club.repositorios.ProductoRepository;
+import java.io.IOException;
 import java.util.List;
 import java.util.Optional;
 import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
 /**
  * @author S
  */
+
 @Service
 public class ProductoService {
 
     @Autowired
     public ProductoRepository productoRepository;
+    
+    @Autowired 
+    public FotoService fotoService;
 
     @Transactional
-    public Producto save(Producto producto) throws WebException {
+    public Producto save(Producto producto, MultipartFile imagen) throws WebException, IOException {
 
 
         if (producto.getNombre().isEmpty() || producto.getNombre() == null) {
@@ -41,7 +50,11 @@ public class ProductoService {
 
             throw new WebException("El stock debe ser mayor o igual a cero");
         }
-
+        
+        Foto img = fotoService.guardarFoto(imagen);
+        
+        producto.setFoto(img);
+        
         return productoRepository.save(producto);
 
     }

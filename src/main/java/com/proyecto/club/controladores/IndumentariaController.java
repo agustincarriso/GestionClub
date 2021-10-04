@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
 /**
  * @author S
@@ -39,24 +40,25 @@ public class IndumentariaController {
         } else {
             model.addAttribute("indumentaria", new Indumentaria());
         }
-        return "indumentaria-registro.html";
+        return "/html-administracion/indumentaria/indumentaria-registro.html";
     }
 
    @GetMapping("/list")
    public String lista(Model model){
    model.addAttribute("indumentaria", indumentariaService.listAll());
-   return "indumentaria-list.html";
+   return "/html-administracion/indumentaria/indumentaria-list.html";
    }
    
    @PostMapping("/registrado")
-   public String registrado(@ModelAttribute Indumentaria indumentaria, Model model, ModelMap modelo) throws Exception{
+
+   public String registrado(@ModelAttribute Indumentaria indumentaria, MultipartFile imagen, ModelMap modelo) throws Exception{
    try{
-        indumentariaService.save(indumentaria);
+        indumentariaService.save(indumentaria, imagen);
        
    }catch(Exception w){
        
        modelo.put("error", w.getMessage());
-       
+         
        return "redirect:/indumentaria/registro";
    }
        return "redirect:/indumentaria/list";

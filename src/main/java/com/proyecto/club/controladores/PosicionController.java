@@ -26,7 +26,7 @@ public class PosicionController {
         }else{
             model.addAttribute("posiciones", posicionServicio.listAll());
         }
-        return "posicion-list";
+        return "/html-administracion/posicion/posicion-list";
     }
 
     @GetMapping("/form")
@@ -41,7 +41,7 @@ public class PosicionController {
         }else{
            model.addAttribute("posicion",new Posicion()); 
         }
-        return "posicion-form";
+        return "/html-administracion/posicion/posicion-form";
     }
 
     @PostMapping("/save")
