@@ -26,7 +26,7 @@ import org.springframework.web.multipart.MultipartFile;
  */
 @Controller
 @RequestMapping("/socio")
-public class SocioController {
+public class SocioRegistroController {
 
 	@Autowired
 	public SocioService socioService;
