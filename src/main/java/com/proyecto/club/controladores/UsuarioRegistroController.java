@@ -22,7 +22,7 @@ import org.springframework.web.multipart.MultipartFile;
  */
 @Controller
 @RequestMapping("/usuario")
-public class UsuarioController {
+public class UsuarioRegistroController {
 
     @Autowired
     public UsuarioService usuarioService;
@@ -46,7 +46,8 @@ public class UsuarioController {
             model.addAttribute("usuario", new Usuario());
         }
 
-        return "/html-administracion/usuario/usuario-registro.html";
+        return "usuario-registro.html";
+
     }
 
     @GetMapping("/list")
@@ -94,7 +95,7 @@ public class UsuarioController {
 //                return "redirect:/usuario/list";
 //                
 //            } catch(Exception ex){
-//                Logger.getLogger(UsuarioController.class.getName()).log(Level.SEVERE, null, ex);
+//                Logger.getLogger(UsuarioRegistroController.class.getName()).log(Level.SEVERE, null, ex);
 //            }
 //            return "redirect:/usuario/list";
 //        }

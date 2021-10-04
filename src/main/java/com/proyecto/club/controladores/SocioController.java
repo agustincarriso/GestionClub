@@ -24,66 +24,63 @@ import org.springframework.web.multipart.MultipartFile;
 /**
  * @author S
  */
-
 @Controller
 @RequestMapping("/socio")
 public class SocioController {
-    
-    @Autowired
-    public SocioService socioService;
 
-    @GetMapping("/registro")
-    public String registroSocio(Model model, @RequestParam(required = false) String id) {
-        if (id != null) {
-            Optional<Socio> optional = socioService.findById(id);
+	@Autowired
+	public SocioService socioService;
 
-            if (optional.isPresent()) {
-                model.addAttribute("socio",optional.get());
-            } else {
-                return "redirect:/socio/list";
-            }
-        } else {
-            model.addAttribute("socio",new Socio());
-        }
+	@GetMapping("/registro")
+	public String registroSocio(Model model, @RequestParam(required = false) String id) {
+		if (id != null) {
+			Optional<Socio> optional = socioService.findById(id);
 
-        return "/html-administracion/socio/socio-registro.html";
-    }
+			if (optional.isPresent()) {
+				model.addAttribute("socio", optional.get());
+			} else {
+				return "redirect:/socio/list";
+			}
+		} else {
+			model.addAttribute("socio", new Socio());
+		}
 
-    @GetMapping("/list")
-    public String lista(Model model) {
-        model.addAttribute("socio", socioService.listAll());
-        return "/html-administracion/socio/socio-list.html";
-    }
+		return "socio-registro.html";
+	}
 
-    @PostMapping("/registrado")
-    public String registrado(@ModelAttribute Socio socio, MultipartFile imagen, ModelMap modelo) throws Exception {
-        try {
+	@GetMapping("/list")
+	public String lista(Model model) {
+		model.addAttribute("socio", socioService.listAll());
+		return "/html-administracion/socio/socio-list.html";
+	}
 
-            socioService.save(socio,imagen);
+	@PostMapping("/registrado")
+	public String registrado(@ModelAttribute Socio socio, MultipartFile imagen, ModelMap modelo) throws Exception {
+		try {
 
-        } catch (Exception w) {
+			socioService.save(socio, imagen);
 
-            w.getMessage();
+		} catch (Exception w) {
 
-            //modelo.put("error", w.getMessage());
-            return "socio-registro";
-        }
-        return "redirect:/th:field=\"*{fechaBaja}\"";
+			w.getMessage();
 
-    }
+			modelo.put("error", w.getMessage());
+			return "socio-registro.html";
+		}
+		return "redirect:/th:field=\"*{fechaBaja}\"";
+	}
 
-    @GetMapping("/eliminar")
-    public String eliminar(@RequestParam(required = true) String id, Model model) {
-        try {
-            socioService.deleteById(id);
-            model.addAttribute("socio", socioService.listAll());
-            return "redirect:/socio/list";
-        } catch (WebException ex) {
-            ex.getMessage();
-        }
-        return "redirect:/socio/list";
+	@GetMapping("/eliminar")
+	public String eliminar(@RequestParam(required = true) String id, Model model) {
+		try {
+			socioService.deleteById(id);
+			model.addAttribute("socio", socioService.listAll());
+			return "redirect:/socio/list";
+		} catch (WebException ex) {
+			ex.getMessage();
+		}
+		return "redirect:/socio/list";
 
-    }
-
+	}
 
 }
