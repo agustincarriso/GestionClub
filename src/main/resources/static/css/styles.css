@@ -47,6 +47,8 @@ body {
     text-decoration: none;
     color: #fff;
     margin-right: 20px;
+    white-space: nowrap;
+    margin-top: 13px;
 }
 
 .nav__items {
@@ -59,6 +61,7 @@ body {
     border: 1.5px solid #fff;
     box-shadow: 0px 0px 2px 2px;
     border-radius: 6px;
+    margin-top: 13px;
 }
 
 /* IMAGEN LOGO */
@@ -76,6 +79,8 @@ body {
     display: flex;
     width: 75px;
     padding: 2px;
+    margin-bottom: 10px;
+    margin-top: 10px;
 }
 
 .logo__name {
@@ -83,6 +88,9 @@ body {
     font-size: 25px;
     margin-left: 10px;
     color: #fff;
+    white-space: nowrap;
+    margin-top: 10px;
+    
 }
 
 
@@ -106,7 +114,7 @@ li {
 ul.slider {
     position: relative;
     width: 100%;
-    height: 550px;
+    height: 595px;
 }
 
 ul.slider li {
@@ -177,7 +185,7 @@ ul.slider li:target {
 /* SECCION NOTICIAS */
 .noticias {
     height: 160vh;
-    background-image: var(--background), url(../assets/img-bgd/bgd-wave.jpg);
+    background-image: var(--background), url(../assets/9bb2b89f9ebc960e856675f4424ba840.jpg);
     background-repeat: no-repeat;
     /* para que abarque el 100% del contenedor el background */
     background-size: cover;
@@ -233,7 +241,7 @@ ul.slider li:target {
 
 .card {
     width: 23%;
-    padding: 25px 0;
+    padding: 25px 0px;
     margin-top: 30px;
     overflow: hidden;
     background: linear-gradient(180deg, var(--color-primary) 0%, var(--color-secondary));
@@ -493,7 +501,8 @@ ul.slider li:target {
 /* PATROCINADORES */
 
 .patrocinadores {
-    background-color: rgba(243, 244, 247, 0.994);
+    /* background-color: rgba(243, 244, 247, 0.994); */
+    background-color: #fff;
 }
 
 .patrocinadores__title {
@@ -514,6 +523,7 @@ ul.slider li:target {
         "img1 img2 img3 img4 img5"
         "img6 img7 img8 img9 img10";
     gap: 20px;
+    
 
 }
 
@@ -529,7 +539,7 @@ ul.slider li:target {
     height: 90%;
     /* funcion para que se ajuste al elemento padre */
     align-items: center;
-    object-fit: scale-down;
+    object-fit:scale-down;
 }
 
 .patrocinador__hover {
@@ -599,6 +609,7 @@ ul.slider li:target {
     font-size: 30px;
     margin-bottom: 20px;
     font-weight: 400;
+    
 }
 
 .download__app {
@@ -741,7 +752,7 @@ ul.slider li:target {
 
 }
 
-.item__contact {
+/* .item__contact {
     width: 50%;
     padding: 40px 0;
     text-align: center;
@@ -768,4 +779,4 @@ ul.slider li:target {
     font-size: 18px;
 
 
-}
+} */

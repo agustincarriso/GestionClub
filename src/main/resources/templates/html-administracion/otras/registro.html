@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es-AR" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="/https://fonts.googleapis.com/css2?family=Hammersmith+One&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="/assets/escudo.png" type="image/x-icon">
+    <link rel="stylesheet" href="/css/normalize.css">
+    <link rel="stylesheet" href="/css/styles-registro.css">
+    <link rel="stylesheet" href="/css/styles.css">
+    <title>Registro</title>
+</head>
+
+<body>
+    <header th:replace="/fragments/nav-bar :: nav-bar-sin-slider"></header>
+    <main>
+        <section class="form-register">
+            <form action="" method="POST" id="form">
+                <div class="form">
+                    <h1>Registro de usuario</h1>
+                    <div class="grupo">
+                        <input class="input" type="text" name="" id="name" required><span class="barra"></span>
+                        <label class="label" for="">Nombre</label>
+                    </div>
+                    <div class="grupo">
+                        <input class="input" type="text" name="" id="name" required><span class="barra"></span>
+                        <label class="label" for="">Apellido</label>
+                    </div>
+                    <div class="grupo">
+                        <input class="input" type="text" name="" id="name" required><span class="barra"></span>
+                        <label class="label" for="">DNI</label>
+                    </div>
+                    <div class="grupo">
+
+                        <input class="input" type="email" name="" id="mail" required><span class="barra"></span>
+                        <label class="label" for="">Email</label>
+                    </div>
+                    <div class="grupo">
+                        <input class="input" type="text" name="" id="name" required><span class="barra"></span>
+                        <label class="label" for="">Nombre de usuario</label>
+                    </div>
+                    <div class="grupo">
+                        <input class="input" type="password" name="" id="name" required><span class="barra"></span>
+                        <label class="label" for="">Contraseña</label>
+                    </div>
+                    <div class="grupo">
+                        <input class="input" type="password" name="" id="name" required><span class="barra"></span>
+                        <label class="label" for="">Repita contraseña</label>
+                    </div>
+                    <button class="button" type="submit">Registrarme</button>
+                    <p class="confirmacion__mail">Recibirás confirmación del registro por correo electrónico.</p>
+                </div>
+            </form>
+        </section>
+    </main>
+    <script src="/main.js"></script>
+</body>
+
+</html>
+

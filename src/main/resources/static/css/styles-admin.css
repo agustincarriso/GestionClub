@@ -10,13 +10,23 @@
 
 body {
     font-family: 'Hammersmith One', sans-serif;
-  
-    background: #0f0c29;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #24243e, #1b2f62, #0f0c29);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #24243e, #1b2f62, #0f0c29); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: #1b2f62;
+    /* fallback for old browsers */
+    background: -webkit-linear-gradient(to top, hsla(213, 44%, 29%, 0.638), #1b2f62);
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to top, hsla(213, 44%, 29%, 0.638), #1b2f62);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background-repeat: no-repeat;
+    /* para que abarque el 100% del contenedor el background */
+    background-size: cover;
+    /* para fingir el efecto paralax */
+    background-attachment: fixed;
+    /* para centrar el background */
+    background-position: center;
+    /* para poder posicionar el efecto wave */
+    position: relative;
+    /* margin-bottom: 0px; */
 }
-
-
 
 .hero__sin--slider {
     width: 100%;
@@ -40,18 +50,15 @@ body {
     top: 120px;
 }
 
-
 h1 {
     text-align: center;
     color: #fff;
 }
 
 
-
 .panel {
     background: var(--color-primary);
     padding: 40px 0;
-    border: 2px solid #fff;
     box-shadow: 0 0 6px 4px rgba(255, 255, 255, 0.8);
     border-radius: 8px;
     width: 25%;
@@ -138,7 +145,7 @@ h1 {
 .other-ct {
     height: 50px;
     margin-right: 20px;
-    margin-top: -70px;
+    margin-top: -40px;
 
 }
 
@@ -163,11 +170,11 @@ h1 {
 }
 
 .comision{
-    margin-top: -20px;
+    margin-top: -10px;
 }
 
 .ctecnico {
-    margin-top: -80px;
+    margin-top: -50px;
 }
 
 

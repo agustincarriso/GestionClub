@@ -10,10 +10,22 @@
 
 body {
     font-family: 'Hammersmith One', sans-serif;
-  
-    background: #0f0c29;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #24243e, #1b2f62, #0f0c29);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #24243e, #1b2f62, #0f0c29); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: #1b2f62;
+    /* fallback for old browsers */
+    background: -webkit-linear-gradient(to top, hsla(213, 44%, 29%, 0.638), #1b2f62);
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to top, hsla(213, 44%, 29%, 0.638), #1b2f62);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background-repeat: no-repeat;
+    /* para que abarque el 100% del contenedor el background */
+    background-size: cover;
+    /* para fingir el efecto paralax */
+    background-attachment: fixed;
+    /* para centrar el background */
+    background-position: center;
+    /* para poder posicionar el efecto wave */
+    position: relative;
+    /* margin-bottom: 0px; */
 }
 
 .hero__sin--slider {
@@ -29,7 +41,7 @@ body {
     margin-bottom: 100px;
 }
 
-.logo__club {
+.logo__club{
     width: 100px;
     height: 100px;
     position: absolute;
@@ -37,7 +49,7 @@ body {
     left: calc(50% - 30px);
 }
 
-h1 {
+h1{
     text-align: center;
 }
 
@@ -46,11 +58,14 @@ h1 {
     padding: 40px 0;
     box-shadow: 0 0 6px 4px rgba(255, 255, 255, 0.8);
     border-radius: 8px;
+}
+
+.form {
 
     width: 100%;
-    height: 700px;
+    height: 800px;
     margin: auto 20px;
-    margin-top: 280px;
+    margin-top: 80px;
 
 }
 
@@ -59,9 +74,9 @@ h1 {
     margin: 45px;
 }
 
-.input {
+.input{
     background: none;
-    color: var(--black2);
+    color: var(--black1);
     font-size: 18px;
     padding: 10px 10px 10px 5px;
     display: block;
@@ -70,53 +85,52 @@ h1 {
     border-bottom: 1px solid var(--color-primary);
 }
 
-.input:focus {
+.input:focus{
     /* quita el recuadro donde va el input */
     outline: none;
     color: var(--color-secondary);
 }
 
-.label {
+.label{
     color: var(--color-primary);
     font-size: 16px;
     position: absolute;
     left: 5px;
-    top: -10px;
+    top: 10px;
     transition: 0.7s ease all;
     pointer-events: none;
 }
 
 /* input:valid para que no se superpongan los textos del label */
 input:focus~label,
-input:valid~label {
+input:valid~label{
     top: -14px;
     font-size: 12px;
     color: #1b2f62;
 }
 
-.barra {
+.barra{
     position: relative;
     display: block;
     width: 100%;
 }
 
 /* efecto de barra cargando del label */
-.barra::before {
+.barra::before{
     content: "";
     height: 2px;
     width: 0%;
     bottom: 0%;
     position: absolute;
-    background: linear-gradient(to top, hsla(213, 44%, 29%, 0.638), #1b2f62);
+    background: linear-gradient(to top, hsla(213, 44%, 29%, 0.638), #1b2f62); 
     transition: 0.5s ease width;
     left: 0%;
 }
-
-.input:focus~.barra::before {
+.input:focus~.barra::before{
     width: 100%;
 }
 
-.button {
+.button{
     font-family: 'Hammersmith One', sans-serif;
     background: #1b2f62;
     /* fallback for old browsers */
@@ -131,16 +145,15 @@ input:valid~label {
     color: #ffff;
     height: 40px;
     font-size: 18px;
-    cursor: pointer;
+    cursor:pointer;
 }
-
-.confirmacion__mail {
+.confirmacion__mail{
     font-size: 12px;
     text-align: center;
     margin-top: 22px;
 }
 
-.contraseña__olvidada {
+.contraseña__olvidada{
     font-family: 'Hammersmith One', sans-serif;
     display: block;
     text-decoration: none;
@@ -148,9 +161,9 @@ input:valid~label {
     font-size: 12px;
     margin: 10px auto;
 }
-
-.box1 {
+ 
+.box1{
     margin: 100px auto;
     width: 300px;
     height: 50px;
-}
+  }
