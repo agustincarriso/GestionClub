@@ -47,6 +47,8 @@ body {
     text-decoration: none;
     color: #fff;
     margin-right: 20px;
+    white-space: nowrap;
+    margin-top: 13px;
 }
 
 .nav__items {
@@ -59,6 +61,7 @@ body {
     border: 1.5px solid #fff;
     box-shadow: 0px 0px 2px 2px;
     border-radius: 6px;
+    margin-top: 13px;
 }
 
 /* IMAGEN LOGO */
@@ -74,8 +77,10 @@ body {
 
 .imagen__logo {
     display: flex;
-    width: 75px;
+    width: 65px;
     padding: 2px;
+    margin-bottom: 10px;
+    margin-top: 10px;
 }
 
 .logo__name {
@@ -83,6 +88,8 @@ body {
     font-size: 25px;
     margin-left: 10px;
     color: #fff;
+    white-space: nowrap;
+    margin-top: 10px;
 }
 
 
@@ -106,7 +113,7 @@ li {
 ul.slider {
     position: relative;
     width: 100%;
-    height: 550px;
+    height: 595px;
 }
 
 ul.slider li {
@@ -177,7 +184,7 @@ ul.slider li:target {
 /* SECCION NOTICIAS */
 .noticias {
     height: 160vh;
-    background-image: var(--background), url(../assets/img-bgd/bgd-wave.jpg);
+    background-image: var(--background), url(../assets/9bb2b89f9ebc960e856675f4424ba840.jpg);
     background-repeat: no-repeat;
     /* para que abarque el 100% del contenedor el background */
     background-size: cover;
@@ -738,21 +745,23 @@ ul.slider li:target {
 .contact__title {
     font-weight: 300;
     color: rgba(255, 255, 255, 0.679);
+    margin-left: 70px;
+    white-space: nowrap;
 
 }
 
 .item__contact {
-    width: 50%;
-    padding: 40px 0;
-    text-align: center;
+    width: 100%;
+    padding: 20px 0;
     border: 1px solid color #fff;
     font-weight: 300;
     font-size: 14px;
-    margin-left: 0;
+    margin-left: 0px;
     color: #000000;
     color: rgba(255, 255, 255, 0.679);
-    background: linear-gradient(180deg, var(--black2) 0%, var(--black1));
+    background: linear-gradient(180deg, var(--color-primary) 0%, var(--color-secondary));
     border: 2px solid var(--color-secondary);
+    white-space: nowrap;
 }
 
 .item__contact--now {

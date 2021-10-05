@@ -206,8 +206,10 @@ body {
 .carrito__text {
     display: flex;
     padding: 3%;
-    margin-left: 35px;
+    margin-left: 57px;
     margin-top: 10px;
+    margin-bottom: 10px;
+    text-align: center;
 }
 
 .carrito__icon {
