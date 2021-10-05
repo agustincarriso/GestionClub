@@ -33,7 +33,7 @@ body {
     width: 100px;
     height: 100px;
     position: absolute;
-    bottom: 473px;
+    bottom: 514px;
     left: calc(50% - 30px);
 }
 
@@ -46,11 +46,20 @@ h1 {
     padding: 40px 0;
     box-shadow: 0 0 6px 4px rgba(255, 255, 255, 0.8);
     border-radius: 8px;
+    width: 100%;
+    height: 700px;
+    margin: auto 20px;
+    margin-top: 335px;
+    margin-bottom: 50px;
+    /* background: #ffff;
+    padding: 40px 0;
+    box-shadow: 0 0 6px 4px rgba(255, 255, 255, 0.8);
+    border-radius: 8px;
 
     width: 100%;
     height: 700px;
     margin: auto 20px;
-    margin-top: 280px;
+    margin-top: 480px; */
 
 }
 
