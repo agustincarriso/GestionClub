@@ -17,22 +17,23 @@
     <header th:replace="/fragments/nav-bar :: nav-bar-sin-slider"></header>
     <main>
         <section class="form-register">
-            <form action="" method="POST" id="form">
+            <form th:action="@{/logincheck}" method="POST" id="form">
                 <div class="form">
                     <img class="logo__club" src="/assets/escudo.png" alt="logo de talleres">
                     <h1>Login</h1>
                  
                     <div class="grupo">
-                        <input class="input" type="text" name="" id="name" required><span class="barra"></span>
-                        <label class="label" for="">Nombre de usuario</label>
+                        <input class="input" type="text" th:value="${username}" name="username" id="name" required><span class="barra"></span>
+                        <label class="label" for="">Nombre de usuario (e-mail )</label>
                     </div>
                     <div class="grupo">
                         <input class="input" type="password" name="" id="name" required><span class="barra"></span>
                         <label class="label" for="">Contraseña</label>
                   
                     <button class="button" type="submit">Iniciar Sesión</button>
+                    <p class="msj-error" th:if="${error}" th:text="${error} ">Ocurrio un error</p>
                     <p class="confirmacion__mail">¿Olvidaste la contraseña?</p>
-                    <a class="contraseña__olvidada" href="/">Click aquí</a>
+                    <a class="contraseña__olvidada" href="/">Clic aqui</a>
                 </div>
             </form>
         </section>
