@@ -18,46 +18,39 @@
     <main>
         <section class="form-register">
 
-            <form th:action="@{/usuario/registrado}" method="POST" th:object="${usuario}" enctype="multipart/form-data">
-                <input hidden th:field="*{id}">
+             <form th:action="@{/usuario/registrado}" method="POST" th:object="${usuario}" enctype="multipart/form-data">
+               <input hidden th:field="*{id}">
                 <div class="form">
                     <img class="logo__club" src="/assets/escudo.png" alt="logo de talleres">
                     <h1>Registro</h1>
                     <div class="grupo">
 
-                        <input class="input" type="text" name="" id="nombre" th:field="*{nombre}" required><span
-                            class="barra"></span>
+                        <input class="input" type="text" name="" id="nombre" th:field="*{nombre}" required><span class="barra"></span>
 
                         <label class="label" for="nombre">Nombre</label>
                     </div>
                     <div class="grupo">
-                        <input class="input" type="text" name="" id="name" th:field="*{apellido}" required><span
-                            class="barra"></span>
+                        <input class="input" type="text" name="" id="name" th:field="*{apellido}" required><span class="barra"></span>
                         <label class="label" for="">Apellido</label>
                     </div>
                     <div class="grupo">
-                        <input class="input" type="text" name="" id="name" th:field="*{domicilio}" required><span
-                            class="barra"></span>
+                        <input class="input" type="text" name="" id="name" th:field="*{domicilio}" required><span class="barra"></span>
                         <label class="label" for="">Domicilio</label>
                     </div>
                     <div class="grupo">
-                        <input class="input" type="email" name="" id="mail" th:field="*{email}" required><span
-                            class="barra"></span>
+                        <input class="input" type="email" name="" id="mail" th:field="*{email}" required><span class="barra"></span>
                         <label class="label" for="">Email</label>
                     </div>
                     <div class="grupo">
-                        <input class="input" type="password" name="" id="name" th:field="*{password}" required><span
-                            class="barra"></span>
+                        <input class="input" type="password" name="" id="name" th:field="*{password}" required><span class="barra"></span>
                         <label class="label" for="">Contraseña </label>
                     </div>
                     <div class="grupo">
-                        <input class="input" type="number" name="" id="name" th:field="*{dni}" required><span
-                            class="barra"></span>
+                        <input class="input" type="number" name="" id="name" th:field="*{dni}" required><span class="barra"></span>
                         <label class="label" for="">DNI</label>
                     </div>
                     <div class="grupo">
-                        <input class="input" type="number" name="" id="name" th:field="*{telefono}" required><span
-                            class="barra"></span>
+                        <input class="input" type="number" name="" id="name" th:field="*{telefono}" required><span class="barra"></span>
                         <label class="label" for="">Teléfono</label>
                     </div>
                     <div class="grupo">
@@ -75,3 +68,4 @@
 </body>
 
 </html>
+
