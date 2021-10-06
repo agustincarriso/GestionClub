@@ -3,17 +3,10 @@ spring:
   datasource: 
     #url: jdbc:mysql://localhost:3306/club?allowPublicKeyRetrieval=true&useSSL=false&useTimezone=true&serverTimezone=GMT&characterEncoding=UTF-8
     #username: root
-<<<<<<< HEAD
-    #password: root
-    url: jdbc:mysql://remotemysql.com:3306/heAmhA2BC9?allowPublicKeyRetrieval=true&useSSL=false&useTimezone=true&serverTimezone=GMT&characterEncoding=UTF-8
-    username: heAmhA2BC9
-    password: cqZF2TbT0l
-=======
     #password: root1234
     url: jdbc:mysql://clubtalleres.c7hyojzoudb4.sa-east-1.rds.amazonaws.com:3306/clubtalleres?allowPublicKeyRetrieval=true&useSSL=false&useTimezone=true&serverTimezone=GMT&characterEncoding=UTF-8
     username: admintalleres
     password: equipo1egg
->>>>>>> 2832e914edc8ee5ec26eb994a03fd8b7a430e373
     driver-class-name: com.mysql.cj.jdbc.Driver 
 
 #Configuración Creación de tablas (Hibernate)
