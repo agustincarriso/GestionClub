@@ -1,19 +1,14 @@
 spring:
  #Configuración MySQL
   datasource: 
-<<<<<<< HEAD
-    url: jdbc:mysql://localhost:3306/club?allowPublicKeyRetrieval=true&useSSL=false&useTimezone=true&serverTimezone=GMT&characterEncoding=UTF-8
-    username: root
-    password: root
-=======
     #url: jdbc:mysql://localhost:3306/club?allowPublicKeyRetrieval=true&useSSL=false&useTimezone=true&serverTimezone=GMT&characterEncoding=UTF-8
     #username: root
-    #password: root1234
+    #password: root
     url: jdbc:mysql://remotemysql.com:3306/heAmhA2BC9?allowPublicKeyRetrieval=true&useSSL=false&useTimezone=true&serverTimezone=GMT&characterEncoding=UTF-8
     username: heAmhA2BC9
     password: cqZF2TbT0l
->>>>>>> c26b1210f2058b9204c57fd707ee6e4e0aace706
     driver-class-name: com.mysql.cj.jdbc.Driver 
+
 #Configuración Creación de tablas (Hibernate)
   jpa:
     show-sql: true
