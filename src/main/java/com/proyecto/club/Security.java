@@ -28,7 +28,7 @@ public class Security extends WebSecurityConfigurerAdapter {
         http.authorizeRequests().antMatchers("/css/*","/img/*","/js/*").permitAll()
                  .and().formLogin()
                        .loginPage("/login")
-                       .usernameParameter("username")
+                       .usernameParameter("email")
                        .passwordParameter("password")
                        .defaultSuccessUrl("/")
                        .loginProcessingUrl("/logincheck")
