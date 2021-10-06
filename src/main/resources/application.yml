@@ -4,9 +4,9 @@ spring:
     #url: jdbc:mysql://localhost:3306/club?allowPublicKeyRetrieval=true&useSSL=false&useTimezone=true&serverTimezone=GMT&characterEncoding=UTF-8
     #username: root
     #password: root1234
-    url: jdbc:mysql://remotemysql.com:3306/heAmhA2BC9?allowPublicKeyRetrieval=true&useSSL=false&useTimezone=true&serverTimezone=GMT&characterEncoding=UTF-8
-    username: heAmhA2BC9
-    password: cqZF2TbT0l
+    url: jdbc:mysql://clubtalleres.c7hyojzoudb4.sa-east-1.rds.amazonaws.com:3306/clubtalleres?allowPublicKeyRetrieval=true&useSSL=false&useTimezone=true&serverTimezone=GMT&characterEncoding=UTF-8
+    username: admintalleres
+    password: equipo1egg
     driver-class-name: com.mysql.cj.jdbc.Driver 
 #Configuración Creación de tablas (Hibernate)
   jpa:
