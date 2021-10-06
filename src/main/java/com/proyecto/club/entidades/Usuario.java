@@ -1,8 +1,11 @@
  
 package com.proyecto.club.entidades;
 
+import com.proyecto.club.enums.Role;
 import java.io.Serializable;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
@@ -30,6 +33,8 @@ public class Usuario implements Serializable {
     protected String password; // Rodri no pongo password 2 porque nos vamos a complicar al pedo, validemos con este y va a estar bien :3
     protected String dni; // No lo pongo como int/Integer porque no lo vamos a usar para hacer calculos
     protected String telefono; // idem
+    @Enumerated(EnumType.STRING)
+    private Role rol;
     
     @OneToOne
     protected Foto foto;
@@ -122,6 +127,14 @@ public class Usuario implements Serializable {
 
     public void setFoto(Foto foto) {
         this.foto = foto;
+    }
+
+    public Role getRol() {
+        return rol;
+    }
+
+    public void setRol(Role rol) {
+        this.rol = rol;
     }
 
    

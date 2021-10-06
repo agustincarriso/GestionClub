@@ -57,7 +57,7 @@ public class UsuarioRegistroController {
     }
 
     @PostMapping("/registrado")
-    public String registrado(@ModelAttribute Usuario usuario, MultipartFile imagen, ModelMap modelo) throws Exception {
+    public String registrado(@ModelAttribute Usuario usuario, @RequestParam(required = false) MultipartFile imagen, ModelMap modelo) throws Exception {
         try {  
 
             usuarioService.save(usuario, imagen);
