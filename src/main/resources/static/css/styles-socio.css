@@ -21,20 +21,20 @@ body {
 }
 
 .form-register {
-    height: 600px;
+    height: 880px;
     display: flex;
     justify-content: center;
     align-items: center;
     color: var(--black2);
-    margin-bottom: 100px;
+  
 }
 
 .logo__club {
     width: 100px;
     height: 100px;
     position: absolute;
-    bottom: 514px;
-    left: calc(50% - 30px);
+    top: 150px;
+    left: calc(50% - 50px);
 }
 
 h1 {
@@ -43,24 +43,12 @@ h1 {
 
 .form {
     background: #ffff;
-    padding: 40px 0;
+    padding: 40px 30px;
     box-shadow: 0 0 6px 4px rgba(255, 255, 255, 0.8);
     border-radius: 8px;
     width: 100%;
-    height: 700px;
-    margin: auto 20px;
-    margin-top: 335px;
-    margin-bottom: 50px;
-    /* background: #ffff;
-    padding: 40px 0;
-    box-shadow: 0 0 6px 4px rgba(255, 255, 255, 0.8);
-    border-radius: 8px;
-
-    width: 100%;
-    height: 700px;
-    margin: auto 20px;
-    margin-top: 480px; */
-
+    margin: 100px auto 50px;
+    
 }
 
 .form .grupo {
@@ -72,7 +60,7 @@ h1 {
     background: none;
     color: var(--black2);
     font-size: 18px;
-    padding: 10px 10px 10px 5px;
+    padding: 10px 10px 5px;
     display: block;
     width: 100%;
     border: none;
@@ -90,7 +78,7 @@ h1 {
     font-size: 16px;
     position: absolute;
     left: 5px;
-    top: -10px;
+    top: -5px;
     transition: 0.7s ease all;
     pointer-events: none;
 }
