@@ -123,9 +123,9 @@ public class UsuarioService implements UserDetailsService {
     }
 
     @Override
-    public UserDetails loadUserByUsername(String dni) throws UsernameNotFoundException {
+    public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
         try {
-            Usuario usuario = usuarioRepository.findByDni(dni);
+            Usuario usuario = usuarioRepository.findByEmail(email);
             User user;
             List<GrantedAuthority> authorities = new ArrayList<>();
             authorities.add(new SimpleGrantedAuthority("ROLE_"+usuario.getRol()));
@@ -136,7 +136,7 @@ public class UsuarioService implements UserDetailsService {
             if (usuario.getRol().equals(Role.SOCIO)) {
                 authorities.add(new SimpleGrantedAuthority("ROLE_USER"));
             }
-            return new User(dni, usuario.getPassword(), authorities);
+            return new User(email, usuario.getPassword(), authorities);
         } catch (Exception e) {
             throw new UsernameNotFoundException("El usuario no existe");
         }
