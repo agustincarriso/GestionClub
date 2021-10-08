@@ -21,13 +21,14 @@
                 <div class="form">
                     <img class="logo__club" src="/assets/escudo.png" alt="logo de talleres">
                     <h1>Login</h1>
-                 
+                    <p class="confirmacion__mail" th:if="${param.logout}">Sesión finalizada con éxito</p>
+                    
                     <div class="grupo">
-                        <input class="input" type="text" th:value="${username}" name="username" id="name" required><span class="barra"></span>
-                        <label class="label" for="">Nombre de usuario (e-mail)</label>
-                    </div>
+
+                        <input class="input" type="email" th:value="${email}" name="email" id="email" required><span class="barra"></span>
+                        <label class="label" for="">Nombre de usuario (e-mail )</label></div>
                     <div class="grupo">
-                        <input class="input" type="password" name="" id="name" required><span class="barra"></span>
+                        <input class="input" type="password" name="password" id="password" required><span class="barra"></span>
                         <label class="label" for="">Contraseña</label>
                   
                     <button class="button" type="submit">Iniciar Sesión</button>
