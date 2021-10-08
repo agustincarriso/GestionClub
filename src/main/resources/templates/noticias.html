@@ -8,35 +8,120 @@
     <link href="https://fonts.googleapis.com/css2?family=Hammersmith+One&display=swap" rel="stylesheet">
     <link rel="shortcut icon" href="/assets/escudo.png" type="image/x-icon">
     <link rel="stylesheet" href="/css/normalize.css">
-    <link rel="stylesheet" href="/css/styles-login.css">
+    <link rel="stylesheet" href="/css/styles-noticias.css">
     <link rel="stylesheet" href="/css/styles.css">
-    <title>Login</title>
+    <title>Noticias</title>
 </head>
 
 <body>
     <header th:replace="/fragments/nav-bar :: nav-bar-sin-slider"></header>
     <main>
-        <section class="form-register">
-            <form action="" method="POST" id="form">
-                <div class="form">
-                    <img class="logo__club" src="/assets/escudo.png" alt="logo de talleres">
-                    <h1>Login</h1>
-                 
-                    <div class="grupo">
-                        <input class="input" type="text" name="" id="name" required><span class="barra"></span>
-                        <label class="label" for="">Nombre de usuario</label>
+        <div class="head-noticias"></div>
+        <section class="section__noticias">
+            <h2 class="section__noticias-title">Noticias</h2>
+            <div class="container-noticias">
+                <article class="container-cards">
+                    <div class="card">
+                        <img src="/assets/img-noticias/beltramone_862x485.jpg" class="card__img">
+                        <div class="cards_text">
+                            <p class="card_list">Beltramone Continuará Jugando a Préstamo</p>
+                            <p class="card__copy">La Comisión Directiva del Club informa que Exequiel Beltramone
+                                continuará jugando a préstamo sin cargo y con opción de compra hasta junio de 2022 en el
+                                Tlaxcala de México. Exequiel, oriundo de... </p><br>
+                            <a href="/html-administracion/noticias-web/noticia-1.html" class="card__button">LEER MÁS..</a>
+                            <P class="fecha__noticia">02 DE SEPTIEMBRE, 2021</P>
+                        </div>
                     </div>
-                    <div class="grupo">
-                        <input class="input" type="password" name="" id="name" required><span class="barra"></span>
-                        <label class="label" for="">Contraseña</label>
-                  
-                    <button class="button" type="submit">Iniciar Sesíon</button>
-                    <p class="confirmacion__mail">¿Olvidaste la contraseña?</p>
-                    <a class="contraseña__olvidada" href="/">Clic aqui</a>
-                </div>
-            </form>
+                    <div class="card">
+                        <img src="/assets/img-noticias/JMV_7807-1536x1024.jpg" class="card__img">
+                        <div class="cards_text">
+                            <p class="card_list">Nuestros Juveníles Juegan Ante Independiente</p>
+                            <p class="card__copy">Este sábado continuará la acción para nuestros Juveniles Albiazules
+                                que enfrentaran a Independiente por la octava fecha del Torneo Inicial de la Liga
+                                Profesional 2021. Las categoria de...</p><br>
+                                <a href="/html-administracion/noticias-web/noticia-2.html" class="card__button">LEER MÁS..</a>
+                            <P class="fecha__noticia">31 DE AGOSTO, 2021</P>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <img src="/assets/img-noticias/Fut-Fem.jpg" class="card__img">
+                        <div class="cards_text">
+                            <p class="card_list">El Fútbol Femenino de Talleres te Convoca, animate! </p>
+                            <p class="card__copy">El Club Talleres informa que se realizarán pruebas de jugadoras de
+                                Fútbol Femenino para divisiones inferiores para niñas nacidas entre el año 2005 a 2008
+                                inclusive. La convocatoria será desde las 14:00hs en el predio...</p><br>
+                                <a href="/html-administracion/noticias-web/noticia-3.html" class="card__button">LEER MÁS..</a>
+                            <P class="fecha__noticia">28 DE AGOSTO, 2021</P>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <img src="/assets/img-noticias/beltramone_862x485.jpg" class="card__img">
+                        <div class="cards_text">
+                            <p class="card_list">Beltramone Continuará Jugando a Préstamo</p>
+                            <p class="card__copy">La Comisión Directiva del Club informa que Exequiel Beltramone
+                                continuará jugando a préstamo sin cargo y con opción de compra hasta junio de 2022 en el
+                                Tlaxcala de México. Exequiel, oriundo de... </p><br>
+                                <a href="/html-administracion/noticias-web/noticia-4.html" class="card__button">LEER MÁS..</a>
+                            <P class="fecha__noticia">02 DE SEPTIEMBRE, 2021</P>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <img src="/assets/img-noticias/beltramone_862x485.jpg" class="card__img">
+                        <div class="cards_text">
+                            <p class="card_list">Beltramone Continuará Jugando a Préstamo</p>
+                            <p class="card__copy">La Comisión Directiva del Club informa que Exequiel Beltramone
+                                continuará jugando a préstamo sin cargo y con opción de compra hasta junio de 2022 en el
+                                Tlaxcala de México. Exequiel, oriundo de... </p><br>
+                                <a href="/html-administracion/noticias-web/noticia-5.html" class="card__button">LEER MÁS..</a>
+                            <P class="fecha__noticia">02 DE SEPTIEMBRE, 2021</P>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <img src="/assets/img-noticias/beltramone_862x485.jpg" class="card__img">
+                        <div class="cards_text">
+                            <p class="card_list">Beltramone Continuará Jugando a Préstamo</p>
+                            <p class="card__copy">La Comisión Directiva del Club informa que Exequiel Beltramone
+                                continuará jugando a préstamo sin cargo y con opción de compra hasta junio de 2022 en el
+                                Tlaxcala de México. Exequiel, oriundo de... </p><br>
+                                <a href="/html-administracion/noticias-web/noticia-6.html" class="card__button">LEER MÁS..</a>
+                            <P class="fecha__noticia">02 DE SEPTIEMBRE, 2021</P>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <img src="/assets/img-noticias/beltramone_862x485.jpg" class="card__img">
+                        <div class="cards_text">
+                            <p class="card_list">Beltramone Continuará Jugando a Préstamo</p>
+                            <p class="card__copy">La Comisión Directiva del Club informa que Exequiel Beltramone
+                                continuará jugando a préstamo sin cargo y con opción de compra hasta junio de 2022 en el
+                                Tlaxcala de México. Exequiel, oriundo de... </p><br>
+                                <a href="/html-administracion/noticias-web/noticia-7.html" class="card__button">LEER MÁS..</a>
+                            <P class="fecha__noticia">02 DE SEPTIEMBRE, 2021</P>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <img src="/assets/img-noticias/beltramone_862x485.jpg" class="card__img">
+                        <div class="cards_text">
+                            <p class="card_list">Beltramone Continuará Jugando a Préstamo</p>
+                            <p class="card__copy">La Comisión Directiva del Club informa que Exequiel Beltramone
+                                continuará jugando a préstamo sin cargo y con opción de compra hasta junio de 2022 en el
+                                Tlaxcala de México. Exequiel, oriundo de... </p><br>
+                                <a href="/html-administracion/noticias-web/noticia-8.html" class="card__button">LEER MÁS..</a>
+                            <P class="fecha__noticia">02 DE SEPTIEMBRE, 2021</P>
+                        </div>
+                    </div>
+                </article>
+
+            </div>
+            <div class="noticias__wave--inf" style="overflow: hidden;"><svg viewBox="0 0 500 150"
+                preserveAspectRatio="none" style="height: 100%; width: 100%;">
+                <path d="M-1.41,71.53 C235.04,215.63 283.57,6.42 503.10,87.33 L500.00,150.00 L0.00,150.00 Z"
+                    style="stroke: none; fill: #fff"></path>
+            </svg></div>
         </section>
+
     </main>
     <script src="/main.js"></script>
+    <footer th:replace="/fragments/footer :: footer-fragment"></footer>
 </body>
+
 </html>

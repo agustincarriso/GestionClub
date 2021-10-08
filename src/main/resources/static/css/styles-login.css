@@ -23,18 +23,19 @@ body {
 }
 
 .form-register {
-    height: 600px;
+    height: 690px;
     display: flex;
     justify-content: center;
     align-items: center;
     color: var(--black2);
 }
+
 .logo__club{
     width: 100px;
     height: 100px;
     position: absolute;
-    bottom: 515px;
-    left: calc(50% - 30px);
+    top: 150px;
+    left: calc(50% - 50px);
 }
 
 h1{
@@ -43,16 +44,13 @@ h1{
 
 .form {
     background: #ffff;
-    padding: 40px 0;
+    padding: 40px 30px;
     box-shadow: 0 0 6px 4px rgba(255, 255, 255, 0.8);
     border-radius: 8px;
+    width: 100%;
+    margin: 100px auto 50px;
 }
 
-.form {
-    width: 100%;
-    height: 420px;
-    margin: auto 20px;
-}
 
 .form .grupo {
     position: relative;
@@ -63,7 +61,7 @@ h1{
     background: none;
     color: var(--black1);
     font-size: 18px;
-    padding: 10px 10px 10px 5px;
+    padding: 10px 10px 5px;
     display: block;
     width: 100%;
     border: none;
@@ -84,6 +82,7 @@ h1{
     top: 10px;
     transition: 0.7s ease all;
     pointer-events: none;
+    white-space: nowrap;
 }
 
 /* input:valid para que no se superpongan los textos del label */
