@@ -661,7 +661,8 @@ ul.slider li:target {
 
 .copyright {
     width: 100%;
-    margin-top: 20px;
+    margin-top: 50px;
+    margin-bottom: 15px;
     font-size: 17px;
 }
 
@@ -670,16 +671,19 @@ ul.slider li:target {
     text-decoration: none;
     display: inline-block;
     margin-top: 20px;
+    margin-left: 10px;
 }
 
 .politica__privacidad--margin {
-    margin-right: 10px;
+    margin-right: 20px;
+    margin-left: 0;
 }
 
 .get-email {
     width: 50%;
-
-
+    
+ 
+    
 }
 
 .newsletter {
@@ -727,7 +731,7 @@ ul.slider li:target {
 
 
 .socialmedia {
-    margin-top: 24px;
+    margin-top: 20px;
     margin-left: 4px;
     display: flex;
 }
@@ -735,6 +739,10 @@ ul.slider li:target {
 .socialmedia__legend {
     margin-right: 16px;
     margin-top: 10px;
+}
+.socialmedia__legend2 {
+    margin-right: 16px;
+    margin-top: 3px;
 }
 
 .socialmedia__icon {
@@ -754,14 +762,14 @@ ul.slider li:target {
     width: 100%;
     flex-wrap: wrap;
     color: #fff;
-    background: var(--color-secondary);
+   
 
 }
 
 .contact__title {
     font-weight: 300;
     color: rgba(255, 255, 255, 0.679);
-    margin-left: 70px;
+    margin-left: 68px;
     white-space: nowrap;
 
 }
@@ -773,9 +781,10 @@ ul.slider li:target {
     font-weight: 300;
     font-size: 14px;
     margin-left: 0px;
-    color: #000000;
-    color: rgba(255, 255, 255, 0.679);
-    background: linear-gradient(180deg, var(--color-primary) 0%, var(--color-secondary));
+    /* color: #000000;
+    color: rgba(255, 255, 255, 0.679); */
+    /* background: linear-gradient(180deg, var(--color-primary) 0%, var(--color-secondary)); */
+    background-color:var(--color-secondary);
     border: 2px solid var(--color-secondary);
     white-space: nowrap;
 }
