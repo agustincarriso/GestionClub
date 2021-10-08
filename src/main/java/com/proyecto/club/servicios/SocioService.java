@@ -4,6 +4,8 @@ package com.proyecto.club.servicios;
 import com.proyecto.club.entidades.Foto;
 import com.proyecto.club.excepciones.WebException;
 import com.proyecto.club.entidades.Socio;
+import com.proyecto.club.entidades.Usuario;
+import com.proyecto.club.enums.Role;
 import com.proyecto.club.repositorios.SocioRepository;
 import java.io.IOException;
 import java.util.List;
@@ -22,6 +24,9 @@ public class SocioService {
     
     @Autowired
     public SocioRepository socioRepository;
+    
+    @Autowired
+    public UsuarioService usuarioService;
     
     @Autowired
     public FotoService fotoService;
@@ -54,16 +59,18 @@ public class SocioService {
 
             throw new WebException("El password no puede estar vacio");
         }
-         
-          if (socio.getDni().isEmpty() || socio.getDni()== null) {
+          Usuario usuario2 = usuarioService.findByDni(socio.getDni());
+          if (socio.getDni().isEmpty() || socio.getDni()== null || usuario2 == null || usuario2.getDni() != socio.getDni()) {
 
-            throw new WebException("El password no puede estar vacio");
+            throw new WebException("El dni no puede estar vacio");
         }
           
             if (socio.getTelefono().isEmpty() || socio.getTelefono()== null) {
 
             throw new WebException("El password no puede estar vacio");
         }
+            
+            socio.setRol(Role.SOCIO);
 
             Foto img = fotoService.guardarFoto(archivo);
             socio.setFoto(img);
@@ -106,5 +113,7 @@ public class SocioService {
         socioRepository.delete(socio);
 
     }
+    
+    
     
 }

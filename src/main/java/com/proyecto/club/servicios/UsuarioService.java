@@ -1,24 +1,30 @@
-
+ 
 package com.proyecto.club.servicios;
 
 import com.proyecto.club.excepciones.WebException;
 import com.proyecto.club.entidades.Foto;
 import com.proyecto.club.entidades.Usuario;
+import com.proyecto.club.enums.Role;
 import com.proyecto.club.repositorios.UsuarioRepository;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.User;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
-/**
- * @author S
- */
 
 @Service
-public class UsuarioService {
+public class UsuarioService implements UserDetailsService {
     
     @Autowired
     public UsuarioRepository usuarioRepository;
@@ -28,8 +34,7 @@ public class UsuarioService {
 
     @Transactional
     public Usuario save(Usuario usuario, MultipartFile archivo) throws WebException, IOException {
-        
-        
+                
         if (usuario.getNombre().isEmpty() || usuario.getNombre() == null) {
 
             throw new WebException("El nombre no puede estar vacio");
@@ -54,20 +59,27 @@ public class UsuarioService {
 
             throw new WebException("El password no puede estar vacio");
         }
+          
+         Usuario usuario2 = usuarioRepository.findByDni(usuario.getDni());
          
-          if (usuario.getDni().isEmpty() || usuario.getDni()== null) {
+          if (usuario.getDni().isEmpty() || usuario.getDni()== null || usuario2 != null) {
 
-            throw new WebException("El password no puede estar vacio");
+            throw new WebException("No se puede crear un usuario con un DNI existente o nulo");
         }
           
             if (usuario.getTelefono().isEmpty() || usuario.getTelefono()== null) {
 
-            throw new WebException("El password no puede estar vacio");
+            throw new WebException("El telefono no puede estar vacio");
         }
 
             Foto img = fotoService.guardarFoto(archivo);
             
             usuario.setFoto(img);
+            
+            BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+            usuario.setPassword(encoder.encode(usuario.getPassword()));
+            
+            usuario.setRol(Role.USER);
             
             return usuarioRepository.save(usuario);
 
@@ -87,6 +99,10 @@ public class UsuarioService {
     public Optional<Usuario> findById(String id) {
                 
         return  usuarioRepository.findById(id);
+    }
+    
+    public Usuario findByDni(String dni) throws WebException {
+            return usuarioRepository.findByDni(dni);
     }
     
     
@@ -109,6 +125,25 @@ public class UsuarioService {
 
     }
 
+    @Override
+    public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
+        try {
+            Usuario usuario = usuarioRepository.findByEmail(email);
+            User user;
+            List<GrantedAuthority> authorities = new ArrayList<>();
+            authorities.add(new SimpleGrantedAuthority("ROLE_"+usuario.getRol()));
+            if (usuario.getRol().equals(Role.ADMIN)) {
+                authorities.add(new SimpleGrantedAuthority("ROLE_USER"));
+                authorities.add(new SimpleGrantedAuthority("ROLE_SOCIO"));
+            }
+            if (usuario.getRol().equals(Role.SOCIO)) {
+                authorities.add(new SimpleGrantedAuthority("ROLE_USER"));
+            }
+            return new User(email, usuario.getPassword(), authorities);
+        } catch (Exception e) {
+            throw new UsernameNotFoundException("El usuario no existe");
+        }
+    }
 }
     
 
