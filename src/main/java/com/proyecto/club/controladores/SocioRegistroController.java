@@ -1,15 +1,11 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package com.proyecto.club.controladores;
 
 import com.proyecto.club.excepciones.WebException;
 import com.proyecto.club.entidades.Socio;
 import com.proyecto.club.servicios.SocioService;
-
 import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -28,59 +24,95 @@ import org.springframework.web.multipart.MultipartFile;
 @RequestMapping("/socio")
 public class SocioRegistroController {
 
-	@Autowired
-	public SocioService socioService;
+    @Autowired
+    public SocioService socioService;
+    
+    
+    @GetMapping("/registro")
+    public String registroSocio(Model model, @RequestParam(required = false) String id) {
+      
+        System.out.println(id);
+        if (id != null) {
+            Optional<Socio> optional = socioService.findById(id);
 
-	@GetMapping("/registro")
-	public String registroSocio(Model model, @RequestParam(required = false) String id) {
-		if (id != null) {
-			Optional<Socio> optional = socioService.findById(id);
+            if (optional.isPresent()){ 
+                Socio socio = optional.get();
+               
+                model.addAttribute("socio",socio);
+            } else {
+                return "redirect:/socio/list";
+            }
+        } else {
+            model.addAttribute("socio", new Socio());
+        }
 
-			if (optional.isPresent()) {
-				model.addAttribute("socio", optional.get());
-			} else {
-				return "redirect:/socio/list";
-			}
-		} else {
-			model.addAttribute("socio", new Socio());
-		}
+        return "socio-registro.html";
 
-		return "socio-registro.html";
-	}
+    }
 
-	@GetMapping("/list")
-	public String lista(Model model) {
-		model.addAttribute("socio", socioService.listAll());
-		return "/html-administracion/socio/socio-list.html";
-	}
+    @GetMapping("/list")
+    public String lista(Model model) {
+        model.addAttribute("socio", socioService.listAll());
+        return "/html-administracion/socio/socio-list.html";
+    }
 
-	@PostMapping("/registrado")
-	public String registrado(@ModelAttribute Socio socio, MultipartFile imagen, ModelMap modelo) throws Exception {
-		try {
+    @PostMapping("/registrado")
+    public String registrado(@ModelAttribute Socio socio, @RequestParam(required = false) MultipartFile imagen, ModelMap modelo) throws Exception {
+        try {  
 
-			socioService.save(socio, imagen);
+            socioService.save(socio, imagen);
 
-		} catch (Exception w) {
+        } catch (Exception w) {
+            
+            w.printStackTrace();
+            
+            modelo.put("error", w.getMessage());
 
-			w.getMessage();
+            return "redirect:/socio/registro";
+        }
+        return "redirect:/";
 
-			modelo.put("error", w.getMessage());
-			return "socio-registro.html";
-		}
-		return "redirect:/th:field=\"*{fechaBaja}\"";
-	}
+    }
 
-	@GetMapping("/eliminar")
-	public String eliminar(@RequestParam(required = true) String id, Model model) {
-		try {
-			socioService.deleteById(id);
-			model.addAttribute("socio", socioService.listAll());
-			return "redirect:/socio/list";
-		} catch (WebException ex) {
-			ex.getMessage();
-		}
-		return "redirect:/socio/list";
+    @GetMapping("/eliminar")
+    public String eliminar(@RequestParam(required = true) String id, Model model) {
+        try {
+            socioService.deleteById(id);
+            model.addAttribute("socio", socioService.listAll());
+            return "redirect:/socio/list";
+        } catch (WebException ex) {
+           ex.getMessage();
+        }
+        return "redirect:/socio/list";
+    }
+        
+        
+//        @GetMapping("/eliminar")
+//        public String eliminar(@ModelAttribute Socio socio, Model model) throws Exception{
+//        try {
+//                socioService.deleteByObject(socio);
+//                model.addAttribute("socio", socioService.listAll());
+//                return "redirect:/socio/list";
+//                
+//            } catch(Exception ex){
+//                Logger.getLogger(SocioRegistroController.class.getName()).log(Level.SEVERE, null, ex);
+//            }
+//            return "redirect:/socio/list";
+//        }
+            
+        @GetMapping("/socioSeleccionado")
+        public String mostrarSocio
+        (String id, Model model
+        
+            ){
+        if (id != null) {
 
-	}
+                model.addAttribute("socio", socioService.findById(id));
 
+            }
+            return "socio-seleccionado";
+
+    
+    }
+    
 }
