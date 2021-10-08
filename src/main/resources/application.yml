@@ -8,6 +8,7 @@ spring:
     username: admintalleres
     password: equipo1egg
     driver-class-name: com.mysql.cj.jdbc.Driver 
+
 #Configuración Creación de tablas (Hibernate)
   jpa:
     show-sql: true
