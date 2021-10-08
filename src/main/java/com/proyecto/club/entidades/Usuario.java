@@ -30,9 +30,12 @@ public class Usuario implements Serializable {
     protected String apellido;
     protected String domicilio;
     protected String email;
-    protected String password; // Rodri no pongo password 2 porque nos vamos a complicar al pedo, validemos con este y va a estar bien :3
-    protected String dni; // No lo pongo como int/Integer porque no lo vamos a usar para hacer calculos
-    protected String telefono; // idem
+    
+    protected String password; 
+    
+    protected String dni;
+    protected String telefono; 
+    
     @Enumerated(EnumType.STRING)
     private Role rol;
     

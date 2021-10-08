@@ -8,7 +8,7 @@
         </div>
         <a href="/panel-admin" class="nav__items--cta">Panel de Control</a>
         <a href="/#" class="nav__items--cta">Equipo</a>
-        <a href="/#" class="nav__items--cta">Noticias</a>
+        <a href="/noticias" class="nav__items--cta">Noticias</a>
         <a href="/usuario/registro" class="nav__items--cta">Registrarse</a>
         <a href="/socio/registro" class="nav__items--cta">Asociarse</a>
         <a href="/login" class="nav__items">Iniciar Sesión</a>
@@ -20,11 +20,13 @@
         <div class="logo">
             <a href="/" class="logo">
             <img src="/assets/escudo.png" class="imagen__logo">
-            <h2 class="logo__name">Club Atético Talleres</h2></a>
+            <h2 class="logo__name">Club Atlético Talleres</h2></a>
         </div>
-        <a href="/panel-admin" class="nav__items--cta">Panel de Control</a>
+        <div sec:authorize="hasRole('ROLE_ADMIN')">
+            <a href="/panel-admin" class="nav__items--cta">Panel de Control</a>
+        </div>
         <a href="/#" class="nav__items--cta">Equipo</a>
-        <a href="/#" class="nav__items--cta">Noticias</a>
+        <a href="/noticias" class="nav__items--cta">Noticias</a>
         <a href="/usuario/registro" class="nav__items--cta">Registrarse</a>
         <a href="/socio/registro" class="nav__items--cta">Asociarse</a>
         <a href="/login" class="nav__items">Iniciar Sesión</a>

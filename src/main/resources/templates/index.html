@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es-AR" xmlns:th="http://www.thymeleaf.org">
+<html lang="es-AR" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 
 <head>
     <meta charset="UTF-8">
@@ -26,9 +26,14 @@
                     <h2 class="logo__name">Club Atlético Talleres</h2>
                 </a>
             </div>
+
+            <div sec:authorize="hasRole('ROLE_ADMIN')">
+
             <a href="/panel-admin" class="nav__items--cta">Panel de Control</a>
+            </div>
+            
             <a href="/#" class="nav__items--cta">Equipo</a>
-            <a href="/#" class="nav__items--cta">Noticias</a>
+            <a href="/noticias" class="nav__items--cta">Noticias</a>
             <a href="/usuario/registro" class="nav__items--cta">Registrarse</a>
             <a href="/socio/registro" class="nav__items--cta">Asociarse</a>
             <a href="/login" class="nav__items">Iniciar Sesión</a>
@@ -76,7 +81,7 @@
                             <p class="card__copy">La Comisión Directiva del Club informa que Exequiel Beltramone
                                 continuará jugando a préstamo sin cargo y con opción de compra hasta junio de 2022 en el
                                 Tlaxcala de México. Exequiel, oriundo de... </p><br>
-                            <a href="/#" class="card__button">LEER MÁS..</a>
+                            <a href="/noticias" class="card__button">LEER MÁS..</a>
                             <P class="fecha__noticia">02 DE SEPTIEMBRE, 2021</P>
                         </div>
                     </div>
@@ -87,7 +92,7 @@
                             <p class="card__copy">Este sábado continuará la acción para nuestros Juveniles Albiazules
                                 que enfrentaran a Independiente por la octava fecha del Torneo Inicial de la Liga
                                 Profesional 2021. Las categoria de...</p><br>
-                            <a href="/#" class="card__button">LEER MÁS...</a>
+                            <a href="/noticias" class="card__button">LEER MÁS...</a>
                             <P class="fecha__noticia">31 DE AGOSTO, 2021</P>
                         </div>
                     </div>
@@ -98,7 +103,7 @@
                             <p class="card__copy">El Club Talleres informa que se realizarán pruebas de jugadoras de
                                 Fútbol Femenino para divisiones inferiores para niñas nacidas entre el año 2005 a 2008
                                 inclusive. La convocatoria será desde las 14:00hs en el predio...</p><br>
-                            <a href="/#" class="card__button">LEER MÁS...</a>
+                            <a href="/noticias" class="card__button">LEER MÁS...</a>
                             <P class="fecha__noticia">28 DE AGOSTO, 2021</P>
                         </div>
                     </div>
@@ -378,8 +383,8 @@
                 </div>
                 <div class="footer__copy">
                     <p class="copyright">EQUIPO DE DESARROLLO &copy; 2021 Todos los derechos reservados</p>
-                    <a href="#" class="politica__privacidad politica__privacidad--margin">Politica de privacidad</a>
-                    <a href="#" class="politica__privacidad">Terminos y condiciones</a>
+                    <a href="https://apps.apple.com/story/id1539235847" target="_blank" class="politica__privacidad politica__privacidad--margin">Politica de privacidad</a>
+                    <a href="https://apps.apple.com/story/id1539235847" target="_blank" class="politica__privacidad">Terminos y condiciones</a>
                 </div>
             </section>
             <section class="get-email">
@@ -388,6 +393,9 @@
                     <input type="text" class="newsletter__input" placeholder="Ingresa tu email">
                     <input type="submit" class="newsletter__submit" value="Suscribirse">
                 </form>
+                <div class="socialmedia">
+                    <p class="socialmedia__legend2">Canales de Comunicación: +54 0351 5715300 | Int. 155   </p>   
+                </div>
                 <div class="socialmedia">
                     <p class="socialmedia__legend">Síguenos en:</p>
                     <a href="https://es-la.facebook.com/CATalleres/" target="_blank"><i
@@ -408,7 +416,7 @@
         <div class="contact">
             <div class="item__contact">
                 <i class='bx bx-copyright contact__icon'></i>
-                <h3 class="contact__title">Copyright © 2021 | Desarrollado por (Proyecto X) | Contáctanos ahora</h3>
+                <h3 class="contact__title">Copyright © 2021 | Desarrollado por (Proyecto X) - Team 1 | Eggtech TPF</h3>
             </div>
         </div>
 

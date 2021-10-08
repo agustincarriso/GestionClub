@@ -1,4 +1,4 @@
-
+ 
 package com.proyecto.club.servicios;
 
 import com.proyecto.club.excepciones.WebException;
@@ -18,6 +18,7 @@ import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -33,8 +34,7 @@ public class UsuarioService implements UserDetailsService {
 
     @Transactional
     public Usuario save(Usuario usuario, MultipartFile archivo) throws WebException, IOException {
-        
-        
+                
         if (usuario.getNombre().isEmpty() || usuario.getNombre() == null) {
 
             throw new WebException("El nombre no puede estar vacio");
@@ -75,6 +75,9 @@ public class UsuarioService implements UserDetailsService {
             Foto img = fotoService.guardarFoto(archivo);
             
             usuario.setFoto(img);
+            
+            BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+            usuario.setPassword(encoder.encode(usuario.getPassword()));
             
             usuario.setRol(Role.USER);
             

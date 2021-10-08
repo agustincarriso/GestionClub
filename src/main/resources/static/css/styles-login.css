@@ -82,6 +82,7 @@ h1{
     top: 10px;
     transition: 0.7s ease all;
     pointer-events: none;
+    white-space: nowrap;
 }
 
 /* input:valid para que no se superpongan los textos del label */
