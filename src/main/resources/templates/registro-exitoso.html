@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es-AR" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Hammersmith+One&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="/assets/escudo.png" type="image/x-icon">
+    <link rel="stylesheet" href="/css/normalize.css">
+    <link rel="stylesheet" href="/css/styles-admin.css">
+    <link rel="stylesheet" href="/css/styles.css">
+    <title>Panel-Admin</title>
+</head>
+
+<body>
+    <header th:replace="/fragments/nav-bar :: nav-bar-sin-slider"></header>
+    <main>
+        <h1>esta es la web para registro exitoso</h1>
+
+
+
+
+        <div class="row m-1">
+            <div class="col">
+                <div class="display-1 text-center m-5">Bienvenidos a proyecto personas</div>
+                <h2 class="texto-bienvenida" th:if="${session.usuariosession != null}"
+                    th:text="${session.usuariosession.nombre +' '+ session.usuariosession.apellido}"></h2>
+            </div>
+        </div>
+
+        <div class="contenedor-bienvenidos">
+            <div class="row-button">
+                <a th:href="@{/}" class="comenzar">Comenzar</a>
+            </div>
+        </div>
+
+
+
+    </main>
+    <script src="/main.js"></script>
+    <footer th:replace="/fragments/footer :: footer-fragment-formularios"></footer>
+</body>
+
+</html>

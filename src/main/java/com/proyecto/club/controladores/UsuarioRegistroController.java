@@ -68,7 +68,8 @@ public class UsuarioRegistroController {
             return "usuario-registro.html";
         }
 
-        return "redirect:/";
+	/*url a la que redirecciono despues de registrar un usuario*/
+        return "redirect:/registro-exitoso";
 
     }
 
