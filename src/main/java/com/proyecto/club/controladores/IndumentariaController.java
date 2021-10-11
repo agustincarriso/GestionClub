@@ -8,6 +8,7 @@ import java.util.Optional;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
@@ -27,6 +28,7 @@ public class IndumentariaController {
 @Autowired
    public IndumentariaService indumentariaService;
     
+   @PreAuthorize("hasAnyRole('ROLE_ADMIN')")
     @GetMapping("/registro")
     public String registroIndumentaria(Model model, @RequestParam(required = false) String id) {
         if (id != null) {
@@ -43,12 +45,14 @@ public class IndumentariaController {
         return "/html-administracion/indumentaria/indumentaria-registro.html";
     }
 
+    @PreAuthorize("hasAnyRole('ROLE_ADMIN')")
    @GetMapping("/list")
    public String lista(Model model){
    model.addAttribute("indumentaria", indumentariaService.listAll());
    return "/html-administracion/indumentaria/indumentaria-list.html";
    }
    
+   @PreAuthorize("hasAnyRole('ROLE_ADMIN')")
    @PostMapping("/registrado")
 
    public String registrado(@ModelAttribute Indumentaria indumentaria, MultipartFile imagen, ModelMap modelo) throws Exception{
@@ -65,6 +69,7 @@ public class IndumentariaController {
   
    }
    
+   @PreAuthorize("hasAnyRole('ROLE_ADMIN')")
    @GetMapping("/eliminar")
    public String eliminar(@RequestParam(required = true) String id, Model model){
        try{

@@ -6,8 +6,8 @@ import com.proyecto.club.entidades.Usuario;
 import com.proyecto.club.servicios.UsuarioService;
 import java.util.Optional;
 
-
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
@@ -28,19 +28,18 @@ public class UsuarioRegistroController {
 
     @Autowired
     public UsuarioService usuarioService;
-    
-    
+
     @GetMapping("/registro")
     public String registroUsuario(Model model, @RequestParam(required = false) String id) {
-      
+
         System.out.println(id);
         if (id != null) {
             Optional<Usuario> optional = usuarioService.findById(id);
 
-            if (optional.isPresent()){ 
+            if (optional.isPresent()) {
                 Usuario usuario = optional.get();
-               
-                model.addAttribute("usuario",usuario);
+
+                model.addAttribute("usuario", usuario);
             } else {
                 return "redirect:/usuario/list";
             }
@@ -52,6 +51,7 @@ public class UsuarioRegistroController {
 
     }
 
+    @PreAuthorize("hasAnyRole('ROLE_ADMIN')")
     @GetMapping("/list")
     public String lista(Model model) {
         model.addAttribute("usuario", usuarioService.listAll());
@@ -59,8 +59,9 @@ public class UsuarioRegistroController {
     }
 
     @PostMapping("/registrado")
-    public String registrado(Model model, @ModelAttribute Usuario usuario, RedirectAttributes redirectAttributes, @RequestParam(required = false) MultipartFile imagen, ModelMap modelo) throws Exception {
-        try {  
+    public String registrado(Model model, @ModelAttribute Usuario usuario, RedirectAttributes redirectAttributes,
+            @RequestParam(required = false) MultipartFile imagen, ModelMap modelo) throws Exception {
+        try {
             usuarioService.save(usuario, imagen);
         } catch (Exception w) {
             model.addAttribute("error", w.getMessage());
@@ -68,11 +69,12 @@ public class UsuarioRegistroController {
             return "usuario-registro.html";
         }
 
-	/*url a la que redirecciono despues de registrar un usuario*/
+        /* url a la que redirecciono despues de registrar un usuario */
         return "redirect:/registro-exitoso";
 
     }
 
+    @PreAuthorize("hasAnyRole('ROLE_ADMIN')")
     @GetMapping("/eliminar")
     public String eliminar(@RequestParam(required = true) String id, Model model) {
         try {
@@ -80,38 +82,35 @@ public class UsuarioRegistroController {
             model.addAttribute("usuario", usuarioService.listAll());
             return "redirect:/usuario/list";
         } catch (WebException ex) {
-           ex.getMessage();
+            ex.getMessage();
         }
         return "redirect:/usuario/list";
     }
-        
-        
-//        @GetMapping("/eliminar")
-//        public String eliminar(@ModelAttribute Usuario usuario, Model model) throws Exception{
-//        try {
-//                usuarioService.deleteByObject(usuario);
-//                model.addAttribute("usuario", usuarioService.listAll());
-//                return "redirect:/usuario/list";
-//                
-//            } catch(Exception ex){
-//                Logger.getLogger(UsuarioRegistroController.class.getName()).log(Level.SEVERE, null, ex);
-//            }
-//            return "redirect:/usuario/list";
-//        }
-            
-        @GetMapping("/usuarioSeleccionado")
-        public String mostrarUsuario
-        (String id, Model model
-        
-            ){
+
+    // @GetMapping("/eliminar")
+    // public String eliminar(@ModelAttribute Usuario usuario, Model model) throws
+    // Exception{
+    // try {
+    // usuarioService.deleteByObject(usuario);
+    // model.addAttribute("usuario", usuarioService.listAll());
+    // return "redirect:/usuario/list";
+    //
+    // } catch(Exception ex){
+    // Logger.getLogger(UsuarioRegistroController.class.getName()).log(Level.SEVERE,
+    // null, ex);
+    // }
+    // return "redirect:/usuario/list";
+    // }
+    @PreAuthorize("hasAnyRole('ROLE_ADMIN')")
+    @GetMapping("/usuarioSeleccionado")
+    public String mostrarUsuario(String id, Model model) {
         if (id != null) {
 
-                model.addAttribute("usuario", usuarioService.findById(id));
+            model.addAttribute("usuario", usuarioService.findById(id));
 
-            }
-            return "usuario-seleccionado";
+        }
+        return "usuario-seleccionado";
 
-    
     }
-    
+
 }
