@@ -63,7 +63,7 @@ public class SocioService {
             throw new WebException("La contraseña debe tener al menos 6 caracteres");
         }
         for (int i = 0; i < symbols.length; i++) {
-            if (socio.getPassword().contains(symbols.toString().substring(i, i))) {
+            if (socio.getPassword().contains(symbols[i])) {
                 throw new WebException("La contraseña no debe contener símbolos");
             }
         }
