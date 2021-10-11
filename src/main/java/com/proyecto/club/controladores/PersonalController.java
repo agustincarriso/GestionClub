@@ -8,6 +8,7 @@ import java.util.Optional;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
@@ -26,6 +27,7 @@ public class PersonalController {
     @Autowired
     public PersonalService personalService;
 
+    @PreAuthorize("hasAnyRole('ROLE_ADMIN')")
     @GetMapping("/registro")
     public String registroPersonal(Model model, @RequestParam(required = false) String id) {
         
@@ -45,12 +47,14 @@ public class PersonalController {
         return "/html-administracion/personal/personal-registro";
     }
 
+    @PreAuthorize("hasAnyRole('ROLE_ADMIN')")
     @GetMapping("/list")
     public String lista(Model model) {
         model.addAttribute("personal", personalService.listAll());
         return "/html-administracion/personal/personal-list.html";
     }
 
+    @PreAuthorize("hasAnyRole('ROLE_ADMIN')")
     @PostMapping("/registrado")
 
     public String registrado(@ModelAttribute Personal personal,MultipartFile imagen, ModelMap modelo) throws Exception {
@@ -69,6 +73,7 @@ public class PersonalController {
 
     }
 
+    @PreAuthorize("hasAnyRole('ROLE_ADMIN')")
     @GetMapping("/eliminar")
     public String eliminar(@RequestParam(required = true) String id, Model model) {
         try {

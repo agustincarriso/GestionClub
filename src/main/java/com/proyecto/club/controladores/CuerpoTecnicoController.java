@@ -5,6 +5,7 @@ import com.proyecto.club.servicios.CuerpoTecnicoServicio;
 import com.proyecto.club.servicios.PuestoCTServicio;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -23,6 +24,7 @@ public class CuerpoTecnicoController {
      @Autowired
     private PuestoCTServicio puestoServicio;
 
+    @PreAuthorize("hasAnyRole('ROLE_ADMIN')")
     @GetMapping("/list")
     public String listarCuerpoTecnicoes(Model model,@RequestParam(required = false) String q) {
         if (q != null) {
@@ -33,6 +35,7 @@ public class CuerpoTecnicoController {
         return "/html-administracion/cuerpo-tecnico/cuerpotecnico-list";
     }
 
+    @PreAuthorize("hasAnyRole('ROLE_ADMIN')")
     @GetMapping("/form")
     public String crearCuerpoTecnico(Model model, @RequestParam(required = false) String id) {
         if (id != null) {
@@ -49,6 +52,7 @@ public class CuerpoTecnicoController {
         return "/html-administracion/cuerpo-tecnico/cuerpotecnico-form";
     }
 
+    @PreAuthorize("hasAnyRole('ROLE_ADMIN')")
     @PostMapping("/save")
     public String guardarCuerpoTecnico(Model model,RedirectAttributes redirectAttributes,CuerpoTecnico cuerpotecnico) {
        
@@ -65,6 +69,7 @@ public class CuerpoTecnicoController {
         return "redirect:/cuerpotecnico/list";
     }
 
+    @PreAuthorize("hasAnyRole('ROLE_ADMIN')")
     @GetMapping("/delete")
     public String delete(@RequestParam(required = true) String id) {
         cuerpotecnicoServicio.deleteById(id);

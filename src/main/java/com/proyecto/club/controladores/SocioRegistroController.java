@@ -7,6 +7,7 @@ import com.proyecto.club.servicios.SocioService;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
@@ -50,7 +51,7 @@ public class SocioRegistroController {
         return "socio-registro.html";
 
     }
-
+    @PreAuthorize("hasAnyRole('ROLE_ADMIN')")
     @GetMapping("/list")
     public String lista(Model model) {
         model.addAttribute("socio", socioService.listAll());
@@ -71,7 +72,7 @@ public class SocioRegistroController {
         return "redirect:/";
 
     }
-
+    @PreAuthorize("hasAnyRole('ROLE_ADMIN')")
     @GetMapping("/eliminar")
     public String eliminar(@RequestParam(required = true) String id, Model model) {
         try {
@@ -97,7 +98,8 @@ public class SocioRegistroController {
 //            }
 //            return "redirect:/socio/list";
 //        }
-            
+        
+        @PreAuthorize("hasAnyRole('ROLE_ADMIN')")
         @GetMapping("/socioSeleccionado")
         public String mostrarSocio(String id, Model model){
         if (id != null) {
