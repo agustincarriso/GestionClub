@@ -6,7 +6,7 @@ import javax.persistence.Id;
 import org.hibernate.annotations.GenericGenerator;
 
 @Entity
-public class Posicion implements Comparable{
+public class Posicion implements Comparable<Object>{
     
     @Id
     @GeneratedValue(generator = "uuid")

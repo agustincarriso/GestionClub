@@ -16,9 +16,6 @@ public class CuerpoTecnicoServicio {
     
     @Autowired
     private CuerpoTecnicoRepositorio cuerpotecnicoRepositorio;
-    
-    @Autowired
-    private CuerpoTecnicoServicio cuerpoTecnicoServicio;
 
 
     public CuerpoTecnico save(String nombreCompleto, String nacionalidad,Date edad, PuestoCT puesto ) {
