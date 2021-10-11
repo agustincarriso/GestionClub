@@ -6,6 +6,7 @@ import com.proyecto.club.entidades.Usuario;
 import com.proyecto.club.servicios.UsuarioService;
 import java.util.Optional;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -58,19 +59,15 @@ public class UsuarioRegistroController {
     }
 
     @PostMapping("/registrado")
-    public String registrado(@ModelAttribute Usuario usuario, RedirectAttributes redirectAttributes, @RequestParam(required = false) MultipartFile imagen, ModelMap modelo) throws Exception {
+    public String registrado(Model model, @ModelAttribute Usuario usuario, RedirectAttributes redirectAttributes, @RequestParam(required = false) MultipartFile imagen, ModelMap modelo) throws Exception {
         try {  
-
             usuarioService.save(usuario, imagen);
-
         } catch (Exception w) {
-            
-            w.printStackTrace();
-            
-            modelo.put("error", w.getMessage());
-            redirectAttributes.addFlashAttribute("error", w.getMessage());
-            return "redirect:/usuario/registro";
+            model.addAttribute("error", w.getMessage());
+            model.addAttribute("usuario", usuario);
+            return "usuario-registro.html";
         }
+
 	/*url a la que redirecciono despues de registrar un usuario*/
         return "redirect:/registro-exitoso";
 

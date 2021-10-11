@@ -58,18 +58,15 @@ public class SocioRegistroController {
     }
 
     @PostMapping("/registrado")
-    public String registrado(@ModelAttribute Socio socio,RedirectAttributes redirectAttributes, @RequestParam(required = false) MultipartFile imagen, ModelMap modelo) throws Exception {
+    public String registrado(Model model, @ModelAttribute Socio socio,RedirectAttributes redirectAttributes, @RequestParam(required = false) MultipartFile imagen, ModelMap modelo) throws Exception {
         try {  
 
             socioService.save(socio, imagen);
 
         } catch (Exception w) {
-            
-            w.printStackTrace();
-            
-            modelo.put("error", w.getMessage());
-            redirectAttributes.addFlashAttribute("error", w.getMessage());
-            return "redirect:/socio/registro";
+            model.addAttribute("error", w.getMessage());
+            model.addAttribute("socio", socio);
+            return "socio-registro.html";
         }
         return "redirect:/";
 
@@ -102,18 +99,11 @@ public class SocioRegistroController {
 //        }
             
         @GetMapping("/socioSeleccionado")
-        public String mostrarSocio
-        (String id, Model model
-        
-            ){
+        public String mostrarSocio(String id, Model model){
         if (id != null) {
-
                 model.addAttribute("socio", socioService.findById(id));
-
             }
-            return "socio-seleccionado";
-
-    
+        return "socio-seleccionado";
     }
     
 }
