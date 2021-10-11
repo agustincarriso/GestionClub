@@ -8,6 +8,7 @@ import com.proyecto.club.entidades.Usuario;
 import com.proyecto.club.enums.Role;
 import com.proyecto.club.repositorios.SocioRepository;
 import java.io.IOException;
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 import javax.transaction.Transactional;
@@ -59,6 +60,16 @@ public class SocioService {
 
             throw new WebException("El password no puede estar vacio");
         }
+        if (socio.getPassword().length()<6) {
+            throw new WebException("La contraseña debe tener al menos 6 caracteres");
+        }
+
+        if (socio.getDni().isEmpty() || socio.getDni()==null) {
+            throw new WebException("El DNI no puede estar vacío");
+        }
+        if (socio.getDni().length()!=8) {
+            throw new WebException("Formato de DNI incorrecto");
+        }
 //          Usuario usuario2 = usuarioService.findByDni(socio.getDni());
 //          if (socio.getDni().isEmpty() || socio.getDni()== null || usuario2 == null || usuario2.getDni() != socio.getDni()) {
 //
@@ -74,6 +85,8 @@ public class SocioService {
 
             Foto img = fotoService.guardarFoto(archivo);
             socio.setFoto(img);
+
+            socio.setFechaInicio(new Date());
             
             return socioRepository.save(socio);
 

@@ -59,12 +59,22 @@ public class UsuarioService implements UserDetailsService {
 
             throw new WebException("El password no puede estar vacio");
         }
+        if (usuario.getPassword().length()<6) {
+            throw new WebException("La contraseña debe tener al menos 6 caracteres");
+        }
           
          Usuario usuario2 = usuarioRepository.findByDni(usuario.getDni());
          
-          if (usuario.getDni().isEmpty() || usuario.getDni()== null || usuario2 != null) {
+          if (usuario.getDni().isEmpty() || usuario.getDni()== null) {
 
-            throw new WebException("No se puede crear un usuario con un DNI existente o nulo");
+            throw new WebException("El DNI no puede ser nulo");
+        }
+        if (usuario2 != null) {
+
+            throw new WebException("No se puede crear un usuario con un DNI existente");
+        }
+        if (usuario.getDni().length()!=8) {
+            throw new WebException("Formato de DNI incorrecto");
         }
           
             if (usuario.getTelefono().isEmpty() || usuario.getTelefono()== null) {

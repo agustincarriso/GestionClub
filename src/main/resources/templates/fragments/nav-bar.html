@@ -6,12 +6,15 @@
                 <h2 class="logo__name">Club Atlético Talleres</h2>
             </a>
         </div>
-        <a href="/panel-admin" class="nav__items--cta">Panel de Control</a>
+        <div sec:authorize="hasRole('ROLE_ADMIN')">
+            <a href="/panel-admin" class="nav__items--cta">Panel de Control</a>
+        </div>
         <a href="/#" class="nav__items--cta">Equipo</a>
         <a href="/noticias" class="nav__items--cta">Noticias</a>
-        <a href="/usuario/registro" class="nav__items--cta">Registrarse</a>
+        <a sec:authorize="!isAuthenticated()" href="/usuario/registro" class="nav__items--cta">Registrarse</a>
         <a href="/socio/registro" class="nav__items--cta">Asociarse</a>
-        <a href="/login" class="nav__items">Iniciar Sesión</a>
+        <a sec:authorize="!isAuthenticated()" href="/login" class="nav__items">Iniciar Sesión</a>
+        <a sec:authorize="isAuthenticated()" href="/logout" class="nav__items">Cerrar Sesión</a>
     </nav>
    </header>
 
@@ -29,7 +32,8 @@
         <a href="/noticias" class="nav__items--cta">Noticias</a>
         <a href="/usuario/registro" class="nav__items--cta">Registrarse</a>
         <a href="/socio/registro" class="nav__items--cta">Asociarse</a>
-        <a href="/login" class="nav__items">Iniciar Sesión</a>
+        <a sec:authorize="!isAuthenticated()" href="/login" class="nav__items">Iniciar Sesión</a>
+            <a sec:authorize="isAuthenticated()" href="/logout" class="nav__items">Cerrar Sesión</a>
     </nav>
    </header>
 

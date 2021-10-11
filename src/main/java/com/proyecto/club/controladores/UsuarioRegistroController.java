@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 /**
  * @author S
@@ -57,7 +58,7 @@ public class UsuarioRegistroController {
     }
 
     @PostMapping("/registrado")
-    public String registrado(@ModelAttribute Usuario usuario, @RequestParam(required = false) MultipartFile imagen, ModelMap modelo) throws Exception {
+    public String registrado(@ModelAttribute Usuario usuario, RedirectAttributes redirectAttributes, @RequestParam(required = false) MultipartFile imagen, ModelMap modelo) throws Exception {
         try {  
 
             usuarioService.save(usuario, imagen);
@@ -67,7 +68,7 @@ public class UsuarioRegistroController {
             w.printStackTrace();
             
             modelo.put("error", w.getMessage());
-
+            redirectAttributes.addFlashAttribute("error", w.getMessage());
             return "redirect:/usuario/registro";
         }
         return "redirect:/";
