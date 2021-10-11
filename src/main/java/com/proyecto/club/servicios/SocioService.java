@@ -35,20 +35,20 @@ public class SocioService {
     public Socio save(Socio socio, MultipartFile archivo) throws WebException, IOException {
         
               
-        if (socio.getNombre().isEmpty() || socio.getNombre() == null) {
-
-            throw new WebException("El nombre no puede estar vacio");
-        }
-
-        if (socio.getApellido().isEmpty() || socio.getApellido()== null) {
-
-            throw new WebException("El apellido no puede estar vacio");
-        }
-
-        if (socio.getDomicilio().isEmpty() || socio.getDomicilio()== null) {
-
-            throw new WebException("El domicilio no puede estar vacio");
-        }
+//        if (socio.getNombre().isEmpty() || socio.getNombre() == null) {
+//
+//            throw new WebException("El nombre no puede estar vacio");
+//        }
+//
+//        if (socio.getApellido().isEmpty() || socio.getApellido()== null) {
+//
+//            throw new WebException("El apellido no puede estar vacio");
+//        }
+//
+//        if (socio.getDomicilio().isEmpty() || socio.getDomicilio()== null) {
+//
+//            throw new WebException("El domicilio no puede estar vacio");
+//        }
 
         if (socio.getEmail().isEmpty() || socio.getEmail()== null) {
 
@@ -59,16 +59,16 @@ public class SocioService {
 
             throw new WebException("El password no puede estar vacio");
         }
-          Usuario usuario2 = usuarioService.findByDni(socio.getDni());
-          if (socio.getDni().isEmpty() || socio.getDni()== null || usuario2 == null || usuario2.getDni() != socio.getDni()) {
-
-            throw new WebException("El dni no puede estar vacio");
-        }
+//          Usuario usuario2 = usuarioService.findByDni(socio.getDni());
+//          if (socio.getDni().isEmpty() || socio.getDni()== null || usuario2 == null || usuario2.getDni() != socio.getDni()) {
+//
+//            throw new WebException("El dni no puede estar vacio");
+//        }
           
-            if (socio.getTelefono().isEmpty() || socio.getTelefono()== null) {
-
-            throw new WebException("El password no puede estar vacio");
-        }
+//            if (socio.getTelefono().isEmpty() || socio.getTelefono()== null) {
+//
+//            throw new WebException("El password no puede estar vacio");
+//        }
             
             socio.setRol(Role.SOCIO);
 
