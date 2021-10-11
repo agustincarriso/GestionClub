@@ -35,6 +35,8 @@ public class UsuarioService implements UserDetailsService {
     @Transactional
     public Usuario save(Usuario usuario, MultipartFile archivo) throws WebException, IOException {
                 
+        String[] symbols = { "+", "=", "-", "*", "'"};
+
         if (usuario.getNombre().isEmpty() || usuario.getNombre() == null) {
 
             throw new WebException("El nombre no puede estar vacio");
@@ -61,6 +63,12 @@ public class UsuarioService implements UserDetailsService {
         }
         if (usuario.getPassword().length()<6) {
             throw new WebException("La contraseña debe tener al menos 6 caracteres");
+        }
+
+        for (int i = 0; i < symbols.length; i++) {
+            if (usuario.getPassword().contains(symbols.toString().substring(i, i))) {
+                throw new WebException("La contraseña no debe contener símbolos");
+            }
         }
           
          Usuario usuario2 = usuarioRepository.findByDni(usuario.getDni());
@@ -139,7 +147,6 @@ public class UsuarioService implements UserDetailsService {
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
         try {
             Usuario usuario = usuarioRepository.findByEmail(email);
-            User user;
             List<GrantedAuthority> authorities = new ArrayList<>();
             authorities.add(new SimpleGrantedAuthority("ROLE_"+usuario.getRol()));
             if (usuario.getRol().equals(Role.ADMIN)) {
