@@ -71,7 +71,8 @@ public class UsuarioRegistroController {
             redirectAttributes.addFlashAttribute("error", w.getMessage());
             return "redirect:/usuario/registro";
         }
-        return "redirect:/";
+	/*url a la que redirecciono despues de registrar un usuario*/
+        return "redirect:/registro-exitoso";
 
     }
 

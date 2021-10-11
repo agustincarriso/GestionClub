@@ -12,9 +12,6 @@ body {
     font-family: 'Hammersmith One', sans-serif;
 }
 
-
-
-
 .container {
     width: 90%;
     margin: 0px auto;
@@ -762,15 +759,16 @@ ul.slider li:target {
     width: 100%;
     flex-wrap: wrap;
     color: #fff;
-   
-
+    text-align: center;
+  
 }
 
 .contact__title {
     font-weight: 300;
     color: rgba(255, 255, 255, 0.679);
-    margin-left: 68px;
     white-space: nowrap;
+    font-size: 16px;
+    margin: auto;
 
 }
 
