@@ -67,6 +67,7 @@ public class SocioRegistroController {
             
             w.printStackTrace();
             
+            modelo.put("error", w.getMessage());
             redirectAttributes.addFlashAttribute("error", w.getMessage());
             return "redirect:/socio/registro";
         }

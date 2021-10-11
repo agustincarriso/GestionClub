@@ -66,7 +66,7 @@ public class UsuarioService implements UserDetailsService {
         }
 
         for (int i = 0; i < symbols.length; i++) {
-            if (usuario.getPassword().contains(symbols.toString().substring(i, i))) {
+            if (usuario.getPassword().contains(symbols[i])) {
                 throw new WebException("La contraseña no debe contener símbolos");
             }
         }
