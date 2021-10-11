@@ -12,9 +12,6 @@ body {
     font-family: 'Hammersmith One', sans-serif;
 }
 
-
-
-
 .container {
     width: 90%;
     margin: 0px auto;
@@ -770,6 +767,8 @@ ul.slider li:target {
     font-weight: 300;
     color: rgba(255, 255, 255, 0.679);
     white-space: nowrap;
+    font-size: 16px;
+    margin: auto;
 
 }
 
