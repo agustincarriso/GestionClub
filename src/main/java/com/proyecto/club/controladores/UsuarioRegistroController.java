@@ -70,7 +70,7 @@ public class UsuarioRegistroController {
 
             return "redirect:/usuario/registro";
         }
-        return "redirect:/";
+        return "redirect:/registro-exitoso";
 
     }
 
