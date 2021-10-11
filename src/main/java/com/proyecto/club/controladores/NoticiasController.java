@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
  * @author W7
  */
 @Controller
-@RequestMapping("/")
+@RequestMapping("")
 public class NoticiasController {
 
 	@GetMapping("/noticias")
