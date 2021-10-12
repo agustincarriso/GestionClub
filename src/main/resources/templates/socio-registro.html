@@ -18,21 +18,19 @@
 <body>
     <header th:replace="/fragments/nav-bar :: nav-bar-sin-slider"></header>
     <main>
-        <div th:replace="/fragments/alerts :: alertas"></div>
+       
         <section class="form-register">
             <form th:action="@{/socio/registrado}" method="POST" th:object="${socio} " enctype="multipart/form-data">
-
                 <input hidden th:field="*{id}">
                 <div class="form">
                     <img class="logo__club" src="/assets/escudo.png" alt="logo de talleres">
-                    <h1>Registro Socio</h1>
+                    <h1 class="form-title">Registro Socio</h1>
 
                     <div class="grupo">
                         <input class="input" type="email" name="" id="name" th:field="*{email}" required><span
                             class="barra"></span>
                         <label class="label" for="">E-mail</label>
                     </div>
-
                     <div class="grupo">
                         <input class="input" type="password" name="" id="name" th:field="*{password}" required><span
                             class="barra"></span>
@@ -54,6 +52,7 @@
                 </div>
             </form>
         </section>
+        <div th:replace="/fragments/alerts :: alertas"></div>
     </main>
     <script src="/main.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
