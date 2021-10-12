@@ -4,12 +4,17 @@ package com.proyecto.club.servicios;
 import com.proyecto.club.excepciones.WebException;
 import com.proyecto.club.entidades.Foto;
 import com.proyecto.club.entidades.Usuario;
+import com.proyecto.club.entidades.Socio;
 import com.proyecto.club.enums.Role;
+import com.proyecto.club.repositorios.SocioRepository;
 import com.proyecto.club.repositorios.UsuarioRepository;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.Date;
+
+import javax.servlet.http.HttpSession;
 import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
@@ -20,6 +25,8 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.web.context.request.RequestContextHolder;
+import org.springframework.web.context.request.ServletRequestAttributes;
 import org.springframework.web.multipart.MultipartFile;
 
 
@@ -27,10 +34,13 @@ import org.springframework.web.multipart.MultipartFile;
 public class UsuarioService implements UserDetailsService {
     
     @Autowired
-    public UsuarioRepository usuarioRepository;
+    private UsuarioRepository usuarioRepository;
+
+    @Autowired
+    private SocioRepository socioRepository;
     
     @Autowired
-    public FotoService fotoService;
+    private FotoService fotoService;
 
     @Transactional
     public Usuario save(Usuario usuario, MultipartFile archivo) throws WebException, IOException {
@@ -55,6 +65,11 @@ public class UsuarioService implements UserDetailsService {
         if (usuario.getEmail().isEmpty() || usuario.getEmail()== null) {
 
             throw new WebException("El email no puede estar vacio");
+        }
+
+        Usuario user = findByEmail(usuario.getEmail());
+        if (user!=null) {
+            throw new WebException("El email ya está registrado");
         }
 
          if (usuario.getPassword().isEmpty() || usuario.getPassword()== null) {
@@ -118,6 +133,14 @@ public class UsuarioService implements UserDetailsService {
                 
         return  usuarioRepository.findById(id);
     }
+
+    public Usuario encontrarPorId(String id) {   
+        return  usuarioRepository.encontrarPorId(id);
+    }
+
+    public Usuario findByEmail(String email) {
+        return usuarioRepository.findByEmail(email);
+    }
     
     public Usuario findByDni(String dni) throws WebException {
             return usuarioRepository.findByDni(dni);
@@ -138,8 +161,30 @@ public class UsuarioService implements UserDetailsService {
 
     @Transactional
     public void deleteByObject(Usuario usuario) {
-
         usuarioRepository.delete(usuario);
+    }
+
+    @Transactional
+    public Socio cambioASocio(Usuario usuario, MultipartFile archivo, Double valorCuota) throws IOException, WebException {
+        
+        Foto img = fotoService.guardarFoto(archivo);
+        
+        Socio socio = new Socio();
+        socio.setId(usuario.getId());
+        socio.setNombre(usuario.getNombre());
+        socio.setApellido(usuario.getApellido());
+        socio.setDni(usuario.getDni());
+        socio.setEmail(usuario.getEmail());
+        socio.setDomicilio(usuario.getDomicilio());
+        socio.setFechaInicio(new Date());
+        socio.setPassword(usuario.getPassword());
+        socio.setFoto(img);
+        socio.setRol(Role.SOCIO);
+        socio.setTelefono(usuario.getTelefono());
+        socio.setValorCuota(valorCuota);
+        socio.setNumeroSocio(UsuarioService.this.listAll().size()+1);
+        deleteById(usuario.getId());
+        return socioRepository.save(socio);
 
     }
 
@@ -154,8 +199,11 @@ public class UsuarioService implements UserDetailsService {
                 authorities.add(new SimpleGrantedAuthority("ROLE_SOCIO"));
             }
             if (usuario.getRol().equals(Role.SOCIO)) {
-                authorities.add(new SimpleGrantedAuthority("ROLE_USER"));
+                authorities.add(new SimpleGrantedAuthority("ROLE_SOCIO"));
             }
+            ServletRequestAttributes attr = (ServletRequestAttributes) RequestContextHolder.currentRequestAttributes();
+            HttpSession session = attr.getRequest().getSession(true);
+            session.setAttribute("usuariosession", usuario);
             return new User(email, usuario.getPassword(), authorities);
         } catch (Exception e) {
             throw new UsernameNotFoundException("El usuario no existe");
