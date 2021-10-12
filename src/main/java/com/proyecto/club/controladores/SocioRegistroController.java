@@ -6,18 +6,17 @@ import com.proyecto.club.entidades.Socio;
 import com.proyecto.club.servicios.SocioService;
 import java.util.Optional;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.ui.ModelMap;
+//import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
+//import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.multipart.MultipartFile;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+//import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 /**
  * @author S
@@ -27,12 +26,11 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 public class SocioRegistroController {
 
     @Autowired
-    public SocioService socioService;
+    private SocioService socioService;
     
     
     @GetMapping("/registro")
     public String registroSocio(Model model, @RequestParam(required = false) String id) {
-      
         System.out.println(id);
         if (id != null) {
             Optional<Socio> optional = socioService.findById(id);
@@ -50,7 +48,9 @@ public class SocioRegistroController {
 
         return "socio-registro.html";
 
-    }
+    } 
+
+
     @PreAuthorize("hasAnyRole('ROLE_ADMIN')")
     @GetMapping("/list")
     public String lista(Model model) {
@@ -58,20 +58,7 @@ public class SocioRegistroController {
         return "/html-administracion/socio/socio-list.html";
     }
 
-    @PostMapping("/registrado")
-    public String registrado(Model model, @ModelAttribute Socio socio,RedirectAttributes redirectAttributes, @RequestParam(required = false) MultipartFile imagen, ModelMap modelo) throws Exception {
-        try {  
 
-            socioService.save(socio, imagen);
-
-        } catch (Exception w) {
-            model.addAttribute("error", w.getMessage());
-            model.addAttribute("socio", socio);
-            return "socio-registro.html";
-        }
-        return "redirect:/";
-
-    }
     @PreAuthorize("hasAnyRole('ROLE_ADMIN')")
     @GetMapping("/eliminar")
     public String eliminar(@RequestParam(required = true) String id, Model model) {

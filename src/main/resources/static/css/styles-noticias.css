@@ -36,11 +36,11 @@ body {
     color: #FFFFFF;
     font-size: 4.5em;
     font-weight: 600;
-    text-align: right;
+    text-align: left;
     position: absolute;
     top: 200px;
     right: 0;
-    margin-right: 140px;
+    margin-right: 940px;
 }
 
 .noticias__wave--inf {
