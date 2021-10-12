@@ -7,6 +7,7 @@ import com.proyecto.club.servicios.UsuarioService;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
@@ -16,6 +17,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 /**
  * @author S
@@ -26,19 +28,18 @@ public class UsuarioRegistroController {
 
     @Autowired
     public UsuarioService usuarioService;
-    
-    
+
     @GetMapping("/registro")
     public String registroUsuario(Model model, @RequestParam(required = false) String id) {
-      
+
         System.out.println(id);
         if (id != null) {
             Optional<Usuario> optional = usuarioService.findById(id);
 
-            if (optional.isPresent()){ 
+            if (optional.isPresent()) {
                 Usuario usuario = optional.get();
-               
-                model.addAttribute("usuario",usuario);
+
+                model.addAttribute("usuario", usuario);
             } else {
                 return "redirect:/usuario/list";
             }
@@ -50,6 +51,7 @@ public class UsuarioRegistroController {
 
     }
 
+    @PreAuthorize("hasAnyRole('ROLE_ADMIN')")
     @GetMapping("/list")
     public String lista(Model model) {
         model.addAttribute("usuario", usuarioService.listAll());
@@ -57,23 +59,22 @@ public class UsuarioRegistroController {
     }
 
     @PostMapping("/registrado")
-    public String registrado(@ModelAttribute Usuario usuario, @RequestParam(required = false) MultipartFile imagen, ModelMap modelo) throws Exception {
-        try {  
-
+    public String registrado(Model model, @ModelAttribute Usuario usuario, RedirectAttributes redirectAttributes,
+            @RequestParam(required = false) MultipartFile imagen, ModelMap modelo) throws Exception {
+        try {
             usuarioService.save(usuario, imagen);
-
         } catch (Exception w) {
-            
-            w.printStackTrace();
-            
-            modelo.put("error", w.getMessage());
-
-            return "redirect:/usuario/registro";
+            model.addAttribute("error", w.getMessage());
+            model.addAttribute("usuario", usuario);
+            return "usuario-registro.html";
         }
-        return "redirect:/";
+
+        /* url a la que redirecciono despues de registrar un usuario */
+        return "redirect:/registro-exitoso";
 
     }
 
+    @PreAuthorize("hasAnyRole('ROLE_ADMIN')")
     @GetMapping("/eliminar")
     public String eliminar(@RequestParam(required = true) String id, Model model) {
         try {
@@ -81,38 +82,62 @@ public class UsuarioRegistroController {
             model.addAttribute("usuario", usuarioService.listAll());
             return "redirect:/usuario/list";
         } catch (WebException ex) {
-           ex.getMessage();
+            ex.getMessage();
         }
         return "redirect:/usuario/list";
     }
-        
-        
-//        @GetMapping("/eliminar")
-//        public String eliminar(@ModelAttribute Usuario usuario, Model model) throws Exception{
-//        try {
-//                usuarioService.deleteByObject(usuario);
-//                model.addAttribute("usuario", usuarioService.listAll());
-//                return "redirect:/usuario/list";
-//                
-//            } catch(Exception ex){
-//                Logger.getLogger(UsuarioRegistroController.class.getName()).log(Level.SEVERE, null, ex);
-//            }
-//            return "redirect:/usuario/list";
-//        }
-            
-        @GetMapping("/usuarioSeleccionado")
-        public String mostrarUsuario
-        (String id, Model model
-        
-            ){
+
+    // @GetMapping("/eliminar")
+    // public String eliminar(@ModelAttribute Usuario usuario, Model model) throws
+    // Exception{
+    // try {
+    // usuarioService.deleteByObject(usuario);
+    // model.addAttribute("usuario", usuarioService.listAll());
+    // return "redirect:/usuario/list";
+    //
+    // } catch(Exception ex){
+    // Logger.getLogger(UsuarioRegistroController.class.getName()).log(Level.SEVERE,
+    // null, ex);
+    // }
+    // return "redirect:/usuario/list";
+    // }
+    @PreAuthorize("hasAnyRole('ROLE_ADMIN')")
+    @GetMapping("/usuarioSeleccionado")
+    public String mostrarUsuario(String id, Model model) {
         if (id != null) {
 
-                model.addAttribute("usuario", usuarioService.findById(id));
+            model.addAttribute("usuario", usuarioService.findById(id));
 
-            }
-            return "usuario-seleccionado";
+        }
+        return "usuario-seleccionado";
 
-    
     }
-    
+
+    @GetMapping("/asociarse")
+    public String asociarse(@RequestParam(required = true) String id, ModelMap model) {
+        try {
+            Usuario usuario = usuarioService.encontrarPorId(id);
+            model.addAttribute("perfil", usuario);
+        } catch (Exception e) {
+            model.addAttribute("error", e.getMessage());
+        }
+        return "socio-registro";
+    }
+
+    @PostMapping("/socioregistrado")
+    public String socioRegistrado(Model model, @RequestParam(required = false) MultipartFile imagen,
+            @RequestParam(required = true) String id, @RequestParam(required = true) Double valorCuota) throws Exception {
+                
+        Usuario user = usuarioService.encontrarPorId(id);
+        try {
+            usuarioService.cambioASocio(user, imagen, valorCuota);
+        } catch (Exception e) {
+            model.addAttribute("error", e.getMessage());
+            return "redirect:/asociarse";
+        }
+        /* url a la que redirecciono despues de registrar un usuario */
+        return "redirect:/registro-exitoso";
+
+    }
+
 }

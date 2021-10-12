@@ -13,31 +13,14 @@
     <title>Club Talleres</title>
 </head>
 
-<!-- <head th:replace="/fragments/head :: head"></head> -->
+
 
 <body>
     <!-- hero no lleva un container en el bloque ya que como vamos a utilizar un slider
     queremos que el mismo abarque el 100% del ancho de la pantalla -->
+
     <header class="hero">
-        <nav class="nav">
-            <div class="logo">
-                <a href="/" class="logo">
-                    <img src="/assets/escudo.png" class="imagen__logo">
-                    <h2 class="logo__name">Club Atlético Talleres</h2>
-                </a>
-            </div>
-
-            <div sec:authorize="hasRole('ROLE_ADMIN')">
-
-            <a href="/panel-admin" class="nav__items--cta">Panel de Control</a>
-            </div>
-            
-            <a href="/#" class="nav__items--cta">Equipo</a>
-            <a href="/noticias" class="nav__items--cta">Noticias</a>
-            <a href="/usuario/registro" class="nav__items--cta">Registrarse</a>
-            <a href="/socio/registro" class="nav__items--cta">Asociarse</a>
-            <a href="/login" class="nav__items">Iniciar Sesión</a>
-        </nav>
+        <header th:replace="/fragments/nav-bar :: nav-bar-sin-slider"></header>
         <br>
         <div class="hero__slider">
             <ul class="slider">
@@ -201,7 +184,7 @@
                             <!-- efecto que se mostrara cuando pasemos el mouse por arriba -->
                             <object class="patrocinador__logo" data="assets/img-sponsor/img1.svg" type="image/svg+xml">
                                 <!-- imagen alternativa por si el SVG no carga -->
-                                <img src="/assets/img-sponsor/marcas/PNG/web_c3.png" alt="Imagen PNG alternativa">
+                                <img src="/assets/img-sponsor/marcas/PNG/img1.png" alt="Imagen PNG alternativa">
                             </object>
                             <div class="patrocinador__hover">
                                 <h2 class="patrocinador__subtitle"></h2>

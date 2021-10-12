@@ -4,10 +4,13 @@ package com.proyecto.club.entidades;
 import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+
+
 import org.hibernate.annotations.GenericGenerator;
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -22,8 +25,8 @@ public class Socio extends Usuario {
     @GeneratedValue(generator = "uuid")
     @GenericGenerator(name = "uuid", strategy = "uuid2")
     private String id;   
-   
-    private String numeroSocio; 
+
+    private Integer numeroSocio; 
     private String acceso; 
     private Double valorCuota;
 
@@ -41,7 +44,7 @@ public class Socio extends Usuario {
     public Socio() {
     }
     
-    public Socio(String id, String nombre, String apellido, String domicilio, String email, String password, String dni, String telefono, String numeroSocio, String acceso, Double valorCuota, Date fechaInicio, Date fechaBaja, Foto foto) {
+    public Socio(String id, String nombre, String apellido, String domicilio, String email, String password, String dni, String telefono, Integer numeroSocio, String acceso, Double valorCuota, Date fechaInicio, Date fechaBaja, Foto foto) {
         super(id,nombre, apellido, domicilio, email, password, dni, telefono, foto);
         this.numeroSocio = numeroSocio;
         this.acceso = acceso;
@@ -68,11 +71,11 @@ public class Socio extends Usuario {
         this.foto = foto;
     }
     
-    public String getNumeroSocio() {
+    public Integer getNumeroSocio() {
         return numeroSocio;
     }
 
-    public void setNumeroSocio(String numeroSocio) {
+    public void setNumeroSocio(Integer numeroSocio) {
         this.numeroSocio = numeroSocio;
     }
 

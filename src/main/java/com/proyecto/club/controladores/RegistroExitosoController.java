@@ -10,11 +10,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
  * @author W7
  */
 @Controller
-@RequestMapping("")
-public class CanchaController {
+@RequestMapping("/")
+public class RegistroExitosoController {
 
-	@GetMapping("/cancha")
-	public String login() {
-		return "cancha.html";
+	@GetMapping("/registro-exitoso")
+	public String registroExitoso() {
+		return "registro-exitoso.html";
 	}
+	
 }

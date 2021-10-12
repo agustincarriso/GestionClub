@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es-AR" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Hammersmith+One&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="/assets/escudo.png" type="image/x-icon">
+    <link rel="stylesheet" href="/css/normalize.css">
+    <link rel="stylesheet" href="/css/styles-exitoso.css">
+    <link rel="stylesheet" href="/css/styles.css">
+    <title>Panel-Admin</title>
+</head>
+
+<body>
+    <header th:replace="/fragments/nav-bar :: nav-bar-sin-slider"></header>
+    <main>
+     
+            <section class="bienvenido-user">
+                <h1 class="bienvenido-title">Registro Exitoso!</h1>
+                <img class="logo-club" src="/assets/escudo.png" alt="logo de talleres">
+                <div class="acciones-user">
+                    <h2>Bienvenid@s a la web de talleres</h2>
+                    <p>*Recibiras un mail con tus datos de registro*</p>
+                </div>
+                <div class="button-user">
+                    <a href="/"><i class="fas fa-home button-icon"></i>Web Principal</a>
+                    <a href="/login"><i class="fas fa-sign-in-alt button-icon"></i>Iniciar Sesión</a>
+                    <a href="/socio/registro"><i class="fas fa-user-check button-icon"></i>hacerme Socio</a>
+                   
+                </div>
+                <div class="card-registro">
+                    <div class="card-socio">
+                        <h2>Beneficios</h2>
+                        <div class="">
+                            <p class="card__copy"><i class="fas fa-check"></i> Accede a descuentos en entradas a partidos</p>
+                            <p class="card__copy"><i class="fas fa-check"></i> Descuentos en compras y cuotas sin interes en la tienda online</p>
+                            <p class="card__copy"><i class="fas fa-check"></i> Acceseso exclusivo a las instalaciones del club</p>
+                            <p class="card__copy"><i class="fas fa-check"></i> Enterate antes que nadie como saldra nuestro equipo a la cancha</p>
+                            <a href="/socio/registro" class="button-user-cta">Hacerme Socio!</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+     
+
+
+
+
+        <div class="row m-1">
+            <div class="col">
+                <h2 class="texto-bienvenida" th:if="${session.usuariosession != null}"
+                    th:text="${session.usuariosession.nombre +' '+ session.usuariosession.apellido}"></h2>
+            </div>
+        </div>
+
+    </main>
+    <script src="/main.js"></script>
+    <footer th:replace="/fragments/footer :: footer-fragment-formularios"></footer>
+    <script src="https://kit.fontawesome.com/5208273844.js" crossorigin="anonymous"></script>
+
+</body>
+
+</html>
