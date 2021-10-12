@@ -15,7 +15,6 @@
         <div sec:authorize="!hasRole('ROLE_ADMIN')">
             <a href="/socio/registro" class="nav__items--cta">Asociarse</a>
         </div>
-        
         <a sec:authorize="!isAuthenticated()" href="/login" class="nav__items">Iniciar Sesión</a>
         <a sec:authorize="isAuthenticated()" href="/logout" class="nav__items">Cerrar Sesión</a>
     </nav>

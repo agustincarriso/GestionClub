@@ -26,7 +26,7 @@ body {
 }
 
 .form-register {
-    height: 690px;
+    height: 688px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -37,7 +37,7 @@ body {
     width: 100px;
     height: 100px;
     position: absolute;
-    top: 150px;
+    top: 155px;
     left: calc(50% - 50px);
 }
 
@@ -51,7 +51,7 @@ h1 {
     box-shadow: 0 0 6px 4px rgba(255, 255, 255, 0.8);
     border-radius: 8px;
     min-width: 593px;
-    margin: 100px auto 50px;
+    margin: 50px auto 0px;
 }
 
 
