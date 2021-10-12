@@ -18,7 +18,7 @@
 <body>
     <header th:replace="/fragments/nav-bar :: nav-bar-sin-slider"></header>
     <main>
-        
+
         <div th:replace="/fragments/alerts :: alertas"></div>
         <section class="form-register">
             <form th:action="@{/usuario/socioregistrado}" method="POST" enctype="multipart/form-data" th:object="${perfil}">
@@ -30,6 +30,7 @@
                     <div class="descripcion">
                         <br>
                         <center>¡Ahora podrás tener muchos más <br> beneficios y ayudar a tu equipo!</center>
+
                     </div>
                     <div class="grupo">
                         <label class="label" for="">Foto para el Carnet de Socio</label>
@@ -51,6 +52,7 @@
                 </div>
             </form>
         </section>
+        <div th:replace="/fragments/alerts :: alertas"></div>
     </main>
     <script src="/main.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
