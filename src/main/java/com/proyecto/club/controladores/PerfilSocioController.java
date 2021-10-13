@@ -11,10 +11,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
  */
 @Controller
 @RequestMapping("")
-public class CanchaController {
+public class PerfilSocioController {
 
-	@GetMapping("/equipo")
-	public String login() {
-		return "equipo.html";
+	@GetMapping("/perfil-socio")
+	public String perfilSocio() {
+		return "perfil-socio.html";
+	}
+        	@GetMapping("/perfil-usuario")
+	public String perfilUsuario() {
+		return "perfil-usuario.html";
 	}
 }
