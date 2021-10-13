@@ -21,7 +21,9 @@
 
             <img class="logo-club-bienvenido" src="/assets/escudo.png" alt="logo de talleres">
             <div class="acciones-user">
-                <h2>Bienvenid@ <span th:if="${session.usuariosession != null}"
+                <h2 sec:authorize="!hasRole('ROLE_SOCIO')">Bienvenid@ <span th:if="${session.usuariosession != null}"
+                        th:text="${session.usuariosession.nombre +' '+ session.usuariosession.apellido}"></span></h2>
+                <h2 sec:authorize="!hasRole('ROLE_USER')">Bienvenid@ Socio <span th:if="${session.usuariosession != null}"
                         th:text="${session.usuariosession.nombre +' '+ session.usuariosession.apellido}"></span></h2>
 
             </div>
@@ -30,7 +32,7 @@
                 <a href="/noticias"><i class="fas fa-newspaper button-icon"></i>Noticias</a>
                 <a href="/tienda-indumentaria"><i class="fas fa-store button-icon"></i>La Tienda</a>
             </div>
-            <div class="card-registro">
+            <div sec:authorize="!hasRole('ROLE_SOCIO')" class="card-registro">
                 <div class="card-socio">
                     <h3> </i>Hacete Socio <i class="far fa-thumbs-up"></i></h3>
                     <h2>Beneficios</h2>
@@ -43,8 +45,23 @@
                             club</p>
                         <p class="card__copy"><i class="fas fa-check"></i> Enterate antes que nadie como saldra nuestro
                             equipo a la cancha</p>
-                        <a href="/socio/registro" class="button-user-cta"> <i
-                                class="fas fa-user-check button-icon"></i>Hacerme Socio!</a>
+                        <a th:href="@{/usuario/asociarse(id=__${session.usuariosession.id}__)}" class="button-user-cta">
+                            <i class="fas fa-user-check button-icon"></i>Hacerme Socio!</a>
+                    </div>
+                </div>
+            </div>
+            <div class="card-registro" sec:authorize="!hasRole('ROLE_USER')">
+                <div class="card-socio">
+                    <h2>Tus beneficios</h2>
+                    <div class="box-card__copy">
+                        <p class="card__copy"><i class="fas fa-check"></i> Acceso a descuentos en entradas a partidos
+                        </p>
+                        <p class="card__copy"><i class="fas fa-check"></i> Descuentos en compras y cuotas sin interes en
+                            la tienda online</p>
+                        <p class="card__copy"><i class="fas fa-check"></i> Acceso exclusivo a las instalaciones del
+                            club</p>
+                        <p class="card__copy"><i class="fas fa-check"></i> Enterate antes que nadie como saldra nuestro
+</p>
                     </div>
                 </div>
             </div>
