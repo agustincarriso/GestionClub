@@ -18,4 +18,15 @@ public class RegistroExitosoController {
 		return "registro-exitoso.html";
 	}
 	
+	@GetMapping("/bienvenidos")
+	public String bienvenidos() {
+		return "bienvenidos.html";
+	}
+	
+//	@GetMapping("/asociado-exitoso")
+//	public String bienvenidoSocio() {
+//		return "asociado-exitoso.html";
+//	}
+	
+	
 }

@@ -23,7 +23,7 @@ body {
 .hero {
     width: 100%;
     min-height: 100vh;
-   
+
 }
 
 .nav {
@@ -80,6 +80,45 @@ body {
     color: #fff;
 }
 
+/* NAV ITEM LOGOUT */
+.container-logout {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    color: #fff;
+    width: 15%;
+    height: 60px;
+    padding: 5px 0px;
+    font-weight: inherit;
+    margin-right: 20px;
+    border: 1.5px solid #fff;
+    box-shadow: 0px 0px 2px 2px;
+    border-radius: 6px;
+
+}
+
+.button-logout {
+    display: inline-block;
+    text-decoration: none;
+    color: #fff;
+    
+}
+
+.button-logout p{
+    margin-top: 10px;
+}
+
+.logout-icon {
+    margin-right: 10px;
+}
+
+.container-logout:hover {
+    box-shadow: 0 0 10px 0 #fff inset, 0 0 10px 4px #FFF;
+    color: #fff;
+}
+
+
+
 /* IMAGEN LOGO */
 
 .logo {
@@ -106,7 +145,7 @@ body {
     white-space: nowrap;
     margin: auto;
     margin-left: 10px;
-    
+
 }
 
 
@@ -172,7 +211,6 @@ ul.slider li:target {
     bottom: 20%;
     justify-content: center;
     align-items: center;
-
 }
 
 .menu__icons {
@@ -681,9 +719,9 @@ ul.slider li:target {
 
 .get-email {
     width: 50%;
-    
- 
-    
+
+
+
 }
 
 .newsletter {
@@ -740,6 +778,7 @@ ul.slider li:target {
     margin-right: 16px;
     margin-top: 10px;
 }
+
 .socialmedia__legend2 {
     margin-right: 16px;
     margin-top: 3px;
@@ -763,7 +802,7 @@ ul.slider li:target {
     flex-wrap: wrap;
     color: #fff;
     text-align: center;
-  
+
 }
 
 .contact__title {
@@ -785,7 +824,7 @@ ul.slider li:target {
     /* color: #000000;
     color: rgba(255, 255, 255, 0.679); */
     /* background: linear-gradient(180deg, var(--color-primary) 0%, var(--color-secondary)); */
-    background-color:var(--color-secondary);
+    background-color: var(--color-secondary);
     border: 2px solid var(--color-secondary);
     white-space: nowrap;
 }

@@ -111,6 +111,14 @@ body {
     text-align: center;
 }
 
+.box-card__copy{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
 
 /* efecto button cta */
 .button-user a {
@@ -127,11 +135,13 @@ body {
     display: inline-block;
     color: #FFFF;
     text-decoration: none;
-    width: 200px;
+    width: 250px;
     border: 1px solid #FFFF;
     margin: 20px auto;
     padding: 20px;
     text-align: center;
+    font-size: 19px;
+    
 }
 
 .button-user-cta {
@@ -142,4 +152,22 @@ body {
 .button-user-cta:hover {
     box-shadow: 0 0 40px 40px #ffff inset;
     color: var(--black2);
+}
+
+
+/* estilos vista bienvenidos (login) */
+
+.logo-club-bienvenido{
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    top: 150px;
+    left: calc(50% - 50px);
+}
+
+.card-socio h3{
+    color: #FFFF;
+    line-height: 1.5;
+    font-size: 30px;
+    letter-spacing: 0.10em;
 }
