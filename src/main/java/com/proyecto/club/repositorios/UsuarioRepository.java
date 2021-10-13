@@ -24,4 +24,12 @@ public interface UsuarioRepository extends JpaRepository<Usuario, String>{
         + "p.telefono LIKE :query ")
      List<Usuario> findByQuery(@Param("query") String query); 
     
+    @Query("select u from Usuario u where u.dni = :dni")
+    Usuario findByDni(@Param("dni") String dni);
+    
+    @Query("select u from Usuario u where u.email = :email")
+    Usuario findByEmail(@Param("email") String email);
+
+    @Query("select u from Usuario u where u.id = :id")
+    Usuario encontrarPorId(@Param("id") String id);
 }

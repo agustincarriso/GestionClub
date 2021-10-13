@@ -10,22 +10,10 @@
 
 body {
     font-family: 'Hammersmith One', sans-serif;
-    background: #1b2f62;
-    /* fallback for old browsers */
-    background: -webkit-linear-gradient(to top, hsla(213, 44%, 29%, 0.638), #1b2f62);
-    /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to top, hsla(213, 44%, 29%, 0.638), #1b2f62);
-    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-    background-repeat: no-repeat;
-    /* para que abarque el 100% del contenedor el background */
-    background-size: cover;
-    /* para fingir el efecto paralax */
-    background-attachment: fixed;
-    /* para centrar el background */
-    background-position: center;
-    /* para poder posicionar el efecto wave */
-    position: relative;
-    /* margin-bottom: 0px; */
+  
+    background: #0f0c29;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #24243e, #1b2f62, #0f0c29);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #24243e, #1b2f62, #0f0c29); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
 .hero__sin--slider {
@@ -33,37 +21,62 @@ body {
 }
 
 .form-register {
-    height: 600px;
+    width: 650px;
+    height: 900px;
     display: flex;
     justify-content: center;
     align-items: center;
     color: var(--black2);
-    margin-bottom: 100px;
+    margin: auto;
+  
 }
 
 .logo__club {
     width: 100px;
     height: 100px;
     position: absolute;
-    bottom: 473px;
-    left: calc(50% - 30px);
+    top: 155px;
+    left: calc(50% - 50px);
 }
 
-h1 {
+.socio-title {
     text-align: center;
+    font-weight: bold;
 }
+
+.requisitos-list{
+    border: 2px solid var(--color-secondary);
+    text-align: left;
+    padding: 10px;
+    margin: 40px 0 20px;
+      
+}
+
+.socio-subtitle{
+    text-align: center;
+    font-weight: 400;
+    font-size: 40px;
+}
+
+.socio-p{
+    text-align: center;
+    font-size: 20px;
+    padding: 0 75px;
+}
+
+.socio-plan{
+    width: 100%;
+}
+
 
 .form {
     background: #ffff;
-    padding: 40px 0;
+    padding: 40px 30px;
     box-shadow: 0 0 6px 4px rgba(255, 255, 255, 0.8);
     border-radius: 8px;
-
     width: 100%;
-    height: 700px;
-    margin: auto 20px;
-    margin-top: 280px;
-
+    margin: 50px auto 0px;
+    
 }
 
 .form .grupo {
@@ -75,7 +88,7 @@ h1 {
     background: none;
     color: var(--black2);
     font-size: 18px;
-    padding: 10px 10px 10px 5px;
+    padding: 10px 10px 5px;
     display: block;
     width: 100%;
     border: none;
@@ -93,7 +106,7 @@ h1 {
     font-size: 16px;
     position: absolute;
     left: 5px;
-    top: -10px;
+    top: -5px;
     transition: 0.7s ease all;
     pointer-events: none;
 }
@@ -161,8 +174,3 @@ input:valid~label {
     margin: 10px auto;
 }
 
-.box1 {
-    margin: 100px auto;
-    width: 300px;
-    height: 50px;
-}

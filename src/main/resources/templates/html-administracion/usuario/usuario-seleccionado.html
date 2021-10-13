@@ -58,7 +58,7 @@
         
         <section>
             <div class="card" style="width: 18rem;">
-                <img th:if="${usuario.foto!= null}" th:src="/${'/foto/usuario?id=' + usuario.id}">
+                <img th:if="${usuario.foto!= null}" th:src="${'/foto/usuario?id=' + usuario.id}">
                
                 <div class="card-body">
                     <p th:text="${usuario.nombre}" class="card-text"></p>

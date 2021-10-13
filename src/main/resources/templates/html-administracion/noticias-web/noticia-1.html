@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es-AR" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Hammersmith+One&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="/assets/escudo.png" type="image/x-icon">
+    <link rel="stylesheet" href="/css/normalize.css">
+    <link rel="stylesheet" href="/css/styles-noticias.css">
+    <link rel="stylesheet" href="/css/styles.css">
+    <title>Noticias</title>
+</head>
+
+<body>
+    <header th:replace="/fragments/nav-bar :: nav-bar-sin-slider"></header>
+    <main>
+        <section class="section__noticias">
+            <div class="container-noticias">
+                <article class="noticia-ampliada">
+                    <div class="card-ampliada">
+                        <img src="/assets/img-noticias/beltramone_862x485.jpg" class="card__img-noticia">
+                        <div class="cards_text">
+                            <p class="card_list">Beltramone Continuará Jugando a Préstamo</p>
+                            <p class="card__copy">La Comisión Directiva del Club informa que Exequiel Beltramone
+                                continuará jugando a préstamo sin cargo y con opción de compra hasta junio de 2022 en el
+                                Tlaxcala de México. Exequiel, oriundo de... </p><br>
+                            <a href="/noticias" class="card__button">Volver atrás</a>
+                            <P class="fecha__noticia">02 DE SEPTIEMBRE, 2021</P>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+    </main>
+    <footer th:replace="/fragments/footer :: footer-fragment-formularios"></footer>
+</body><P></P>
+
+</html>

@@ -12,9 +12,6 @@ body {
     font-family: 'Hammersmith One', sans-serif;
 }
 
-
-
-
 .container {
     width: 90%;
     margin: 0px auto;
@@ -26,63 +23,129 @@ body {
 .hero {
     width: 100%;
     min-height: 100vh;
-    background: var(--color-primary);
+
 }
 
 .nav {
     background: var(--color-primary);
     display: flex;
     justify-content: flex-end;
+    text-align: center;
+    align-items: center;
     width: 100%;
     height: 90px;
-    align-items: center;
     font-weight: 400;
     border-bottom: 0.2px solid #fff;
-    text-align: center;
-
 }
 
 .nav__items--cta {
     padding: 10px 15px;
     text-decoration: none;
     color: #fff;
-    margin-right: 20px;
+    margin-right: 15px;
+    white-space: nowrap;
+    box-shadow: 0 0 40px 40px #1b2f62 inset, 0 0 0 0 #1b2f62;
+    -webkit-transition: all 150ms ease-in-out;
+    transition: all 150ms ease-in-out;
+
+}
+
+/* .nav__items--cta:hover {
+    box-shadow: 0 0 10px 0 #3498db inset, 0 0 10px 4px #3498db;
+} */
+
+.nav__items--cta:hover {
+    box-shadow: 0 0 10px 0 #fff inset, 0 0 10px 4px #FFF;
+    color: #fff;
 }
 
 .nav__items {
     color: #fff;
     text-decoration: none;
     width: 15%;
+    padding: 15px 0px;
+    font-weight: inherit;
+    margin-right: 20px;
+    border: 1.5px solid #fff;
+    box-shadow: 0px 0px 2px 2px;
+    border-radius: 6px;
+    line-height: 2px;
+}
+
+/* .nav__items:hover {
+    box-shadow: 0 0 10px 0 #3498db inset, 0 0 10px 4px #3498db;
+  } */
+.nav__items:hover {
+    box-shadow: 0 0 10px 0 #fff inset, 0 0 10px 4px #FFF;
+    color: #fff;
+}
+
+/* NAV ITEM LOGOUT */
+.container-logout {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    color: #fff;
+    width: 15%;
+    height: 60px;
     padding: 5px 0px;
     font-weight: inherit;
     margin-right: 20px;
     border: 1.5px solid #fff;
     box-shadow: 0px 0px 2px 2px;
     border-radius: 6px;
+
 }
+
+.button-logout {
+    display: inline-block;
+    text-decoration: none;
+    color: #fff;
+    
+}
+
+.button-logout p{
+    margin-top: 10px;
+}
+
+.logout-icon {
+    margin-right: 10px;
+}
+
+.container-logout:hover {
+    box-shadow: 0 0 10px 0 #fff inset, 0 0 10px 4px #FFF;
+    color: #fff;
+}
+
+
 
 /* IMAGEN LOGO */
 
 .logo {
     display: flex;
     align-items: center;
-    width: 60%;
+    width: 30%;
     text-decoration: none;
-    margin-right: 180px;
+    margin-right: auto;
 
 }
 
 .imagen__logo {
     display: flex;
-    width: 75px;
+    width: 65px;
     padding: 2px;
+    margin-bottom: 10px;
+    /* margin-top: 10px; */
 }
 
 .logo__name {
     font-weight: inherit;
     font-size: 25px;
-    margin-left: 10px;
     color: #fff;
+    white-space: nowrap;
+    margin: auto;
+    margin-left: 10px;
+
 }
 
 
@@ -92,7 +155,7 @@ body {
     margin: 0px auto;
     width: 100%;
     margin-bottom: 0px;
-    margin-top: -10px;
+    margin-top: -18px;
 
 }
 
@@ -106,7 +169,7 @@ li {
 ul.slider {
     position: relative;
     width: 100%;
-    height: 550px;
+
 }
 
 ul.slider li {
@@ -115,7 +178,6 @@ ul.slider li {
     top: 0;
     opacity: 0;
     width: 100%;
-    height: 100%;
     text-align: center;
     transition: opacity 1.5s;
     background: var(--color-primary);
@@ -149,7 +211,6 @@ ul.slider li:target {
     bottom: 20%;
     justify-content: center;
     align-items: center;
-
 }
 
 .menu__icons {
@@ -177,7 +238,7 @@ ul.slider li:target {
 /* SECCION NOTICIAS */
 .noticias {
     height: 160vh;
-    background-image: var(--background), url(../assets/img-bgd/bgd-wave.jpg);
+    background-image: var(--background), url(../assets/9bb2b89f9ebc960e856675f4424ba840.jpg);
     background-repeat: no-repeat;
     /* para que abarque el 100% del contenedor el background */
     background-size: cover;
@@ -348,7 +409,7 @@ ul.slider li:target {
     padding: 0;
     grid-auto-flow: row;
     justify-content: center;
-    margin-top:35px;
+    margin-top: 35px;
     margin-right: 25px;
 }
 
@@ -373,7 +434,7 @@ ul.slider li:target {
     justify-content: center;
     border-radius: 15px;
     background-color: none;
-   
+
 }
 
 .grid__item--img3 {
@@ -638,7 +699,8 @@ ul.slider li:target {
 
 .copyright {
     width: 100%;
-    margin-top: 20px;
+    margin-top: 50px;
+    margin-bottom: 15px;
     font-size: 17px;
 }
 
@@ -647,16 +709,19 @@ ul.slider li:target {
     text-decoration: none;
     display: inline-block;
     margin-top: 20px;
+    margin-left: 10px;
 }
 
 .politica__privacidad--margin {
-    margin-right: 10px;
+    margin-right: 20px;
+    margin-left: 0;
 }
 
 .get-email {
     width: 50%;
- 
-    
+
+
+
 }
 
 .newsletter {
@@ -704,7 +769,7 @@ ul.slider li:target {
 
 
 .socialmedia {
-    margin-top: 24px;
+    margin-top: 20px;
     margin-left: 4px;
     display: flex;
 }
@@ -714,6 +779,11 @@ ul.slider li:target {
     margin-top: 10px;
 }
 
+.socialmedia__legend2 {
+    margin-right: 16px;
+    margin-top: 3px;
+}
+
 .socialmedia__icon {
     margin-top: 10px;
     margin-left: 20px;
@@ -721,7 +791,7 @@ ul.slider li:target {
     margin-right: 30px;
     display: inline-block;
     text-decoration: none;
-    color:#fff;
+    color: #fff;
 
 
 }
@@ -731,28 +801,32 @@ ul.slider li:target {
     width: 100%;
     flex-wrap: wrap;
     color: #fff;
-    background: var(--color-secondary);
+    text-align: center;
 
 }
 
 .contact__title {
     font-weight: 300;
     color: rgba(255, 255, 255, 0.679);
+    white-space: nowrap;
+    font-size: 16px;
+    margin: auto;
 
 }
 
 .item__contact {
-    width: 50%;
-    padding: 40px 0;
-    text-align: center;
+    width: 100%;
+    padding: 20px 0;
     border: 1px solid color #fff;
     font-weight: 300;
     font-size: 14px;
-    margin-left: 0;
-    color: #000000;
-    color: rgba(255, 255, 255, 0.679);
-    background: linear-gradient(180deg, var(--black2) 0%, var(--black1));
+    margin-left: 0px;
+    /* color: #000000;
+    color: rgba(255, 255, 255, 0.679); */
+    /* background: linear-gradient(180deg, var(--color-primary) 0%, var(--color-secondary)); */
+    background-color: var(--color-secondary);
     border: 2px solid var(--color-secondary);
+    white-space: nowrap;
 }
 
 .item__contact--now {

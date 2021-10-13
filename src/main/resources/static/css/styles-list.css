@@ -1,0 +1,146 @@
+/* VARIABLES DEFINIDIAS */
+:root {
+    --background: linear-gradient(135deg, #667eea7e 0%, #764ba298 100%);
+    --color-primary: #1b2f62;
+    --color-secondary: #0e204e;
+    --black1: #1a1b1f;
+    --black2: #30353b;
+    --boton-padding: 20px 40px;
+}
+
+body {
+    background: #0f0c29;
+    /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #24243e, #1b2f62, #0f0c29);
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #24243e, #1b2f62, #0f0c29);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+}
+
+main {
+    min-height: 100vh;
+}
+
+/* NAV-BAR */
+
+.listas-panel {
+    width: 100%;
+}
+
+.logo-list {
+    display: flex;
+    align-items: center;
+    width: 60%;
+    text-decoration: none;
+    margin-right: 10px;
+    justify-content: flex-start;
+}
+
+.nav__items-list {
+    color: #fff;
+    text-decoration: none;
+    width: 20%;
+    padding: 5px 0px;
+    font-weight: inherit;
+    margin-right: 100px;
+    margin-left: 150px;
+    border: 1.5px solid #fff;
+    box-shadow: 0px 0px 2px 2px;
+    border-radius: 6px;
+}
+
+
+/* LISTAS USUARIOS */
+
+.barra-titulo {
+    display: flex;
+    margin: 20px;
+    justify-content: center;
+
+}
+
+.sector-admin {
+    width: 1200px;
+    color: #fff;
+    font-size: 2.8rem;
+    text-align: center;
+    border: 2px solid var(--color-primary);
+    background: var(--black2);
+    border-radius: 15px;
+    font-weight: 700;
+    box-shadow: 0px 0px 12px 2px;
+}
+
+
+/* FOOTER */
+
+.footer-list {
+    background: var(--color-primary);
+    margin-top: 0px;
+
+}
+
+.contact-list {
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+    color: #fff;
+    background: var(--color-secondary);
+    position: relative;
+    bottom: 0;
+
+}
+
+.item__contact-list {
+    width: 50%;
+    padding: 20px 0;
+    text-align: center;
+    border: 1px solid color #fff;
+    font-weight: 300;
+    font-size: 14px;
+    margin-left: 0;
+
+    color: rgba(255, 255, 255, 0.679);
+    background: linear-gradient(180deg, var(--black2) 0%, var(--black1));
+    border: 2px solid var(--color-secondary);
+}
+
+.contact__title-list {
+    font-weight: 300;
+    color: rgba(255, 255, 255, 0.679);
+    font-size: 1.2rem;
+    margin-right: 20px;
+    margin-top: 20px;
+
+}
+
+.item__contact--now-list {
+    width: 50%;
+    padding: 20px 20px;
+    text-align: center;
+    border: 1px solid color #fff;
+    font-weight: 300;
+    font-size: 14px;
+    background: linear-gradient(180deg, var(--black2) 0%, var(--black1));
+    border: 2px solid var(--color-secondary);
+    font-size: 18px;
+}
+
+.contact-now {
+    display: inline-flex;
+    text-decoration: none;
+    color: rgba(255, 255, 255, 0.679);
+    justify-content: center;
+    align-items: center;
+}
+
+.contact-icon {
+    display: inline-block;
+    font-size: 1.2rem;
+    margin-bottom: 12px;
+}
+
+.elemento-p:hover {
+    color: #00bb2d;
+}

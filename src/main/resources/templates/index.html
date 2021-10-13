@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es-AR" xmlns:th="http://www.thymeleaf.org">
+<html lang="es-AR" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 
 <head>
     <meta charset="UTF-8">
@@ -13,39 +13,28 @@
     <title>Club Talleres</title>
 </head>
 
-<!-- <head th:replace="/fragments/head :: head"></head> -->
+
 
 <body>
     <!-- hero no lleva un container en el bloque ya que como vamos a utilizar un slider
     queremos que el mismo abarque el 100% del ancho de la pantalla -->
+
     <header class="hero">
-        <nav class="nav">
-            <div class="logo">
-                <a href="/" class="logo">
-                    <img src="/assets/escudo.png" class="imagen__logo">
-                    <h2 class="logo__name">Club Atletico Talleres</h2>
-                </a>
-            </div>
-            
-            <a href="/panel-admin" class="nav__items--cta">Panel de Control</a>
-            <a href="/usuario/registro" class="nav__items--cta">Registrarse</a>
-            <a href="/socio/registro" class="nav__items--cta">Asociarse</a>
-            <a href="/login" class="nav__items">Iniciar Sesión</a>
-        </nav>
+        <header th:replace="/fragments/nav-bar :: nav-bar-sin-slider"></header>
         <br>
         <div class="hero__slider">
             <ul class="slider">
-                <li id="slide1" class="slider slider1">
+                <li id="slide3" class="slider slider3">
+                    <video src="/assets/slider-video/Azul y Blanco y VOS - oDownloader.com.mp4" muted autoplay
+                        controls=""></video>
+                </li>
+                <!-- <li id="slide1" class="slider slider1">
                     <img src="/assets/img-slider/img-slider.jpg" />
                 </li>
                 <li id="slide2" class="slider slider2">
                     <img src="/assets/img-slider/camisetas-givova-talleres-cordoba-2021-4.jpg" />
-                </li>
-                <li id="slide3" class="slider slider3">
-                    <video src="/assets/slider-video/Azul y Blanco y VOS.mp4" muted autoplay controls=""></video>
-                </li>
-
-                <div class="menu">
+                </li> -->
+                <!-- <div class="menu">
                     <span class="menu__icons">
                         <a class="menu__icons--button" href="/#slide1"></a>
                     </span>
@@ -55,7 +44,7 @@
                     <span class="menu__icons">
                         <a class="menu__icons--button" href="/#slide3"></a>
                     </span>
-                </div>
+                </div> -->
             </ul>
         </div>
     </header>
@@ -75,7 +64,7 @@
                             <p class="card__copy">La Comisión Directiva del Club informa que Exequiel Beltramone
                                 continuará jugando a préstamo sin cargo y con opción de compra hasta junio de 2022 en el
                                 Tlaxcala de México. Exequiel, oriundo de... </p><br>
-                            <a href="/#" class="card__button">LEER MÁS..</a>
+                            <a href="/noticias" class="card__button">LEER MÁS..</a>
                             <P class="fecha__noticia">02 DE SEPTIEMBRE, 2021</P>
                         </div>
                     </div>
@@ -86,7 +75,7 @@
                             <p class="card__copy">Este sábado continuará la acción para nuestros Juveniles Albiazules
                                 que enfrentaran a Independiente por la octava fecha del Torneo Inicial de la Liga
                                 Profesional 2021. Las categoria de...</p><br>
-                            <a href="/#" class="card__button">LEER MÁS...</a>
+                            <a href="/noticias" class="card__button">LEER MÁS...</a>
                             <P class="fecha__noticia">31 DE AGOSTO, 2021</P>
                         </div>
                     </div>
@@ -97,7 +86,7 @@
                             <p class="card__copy">El Club Talleres informa que se realizarán pruebas de jugadoras de
                                 Fútbol Femenino para divisiones inferiores para niñas nacidas entre el año 2005 a 2008
                                 inclusive. La convocatoria será desde las 14:00hs en el predio...</p><br>
-                            <a href="/#" class="card__button">LEER MÁS...</a>
+                            <a href="/noticias" class="card__button">LEER MÁS...</a>
                             <P class="fecha__noticia">28 DE AGOSTO, 2021</P>
                         </div>
                     </div>
@@ -147,124 +136,33 @@
 
         </section>
 
-        <!-- seccion tienda productos -->
-        <!-- <section class="tienda">
-            <div class="container">
-                <h2 class="tienda__title">TIENDA DE PRODUCTOS</h2>
-                <div class="galery__port">
-
-                    <div class="producto__tienda">
-                        <div class="galery__port--img">
-                            <a href="/tienda-indumentaria">
-                                <img src="/assets/img-1.jpg" alt="camiseta talleres"></a>
-                            <div class="descripcion">
-                                <p class="descripcion__produc">Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                    Velit, numquam.</p>
-                                <p class="cuotas">12 x <span class="signo_peso">$</span> 179.17
-                                    <span>Sin interes</span></p>
-                            </div>
-
-                            <a href="/#" class="boton__comprar">
-                                <p class="carrito__text">Añadir al Carrito</p>
-                                <img class="carrito__icon" src="//assets/carrito_Mesa.png" alt="">
-                            </a>
-                            <a href="/tienda-indumentaria" class="tienda__productos">
-                                <i class="far fa-hand-point-right"></i><span> IR A LA TIENDA</span></a>
-
-                        </div>
-                    </div>
-
-                    <div class="producto__tienda">
-                        <div class="galery__port--img">
-
-                            <a href="/tienda-indumentaria">
-                                <img src="/assets/img-2.jpg" alt="camiseta talleres"></a>
-                            <div class="descripcion">
-                                <p class="descripcion__produc">Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                    Velit, numquam.</p>
-                                <p class="cuotas">12 x <span class="signo_peso">$</span> 179.17
-                                    <span>Sin interes</span></p>
-                            </div>
-
-                            <a href="/#" class="boton__comprar">
-                                <p class="carrito__text">Añadir al Carrito</p>
-                                <img class="carrito__icon" src="//assets/carrito_Mesa.png" alt="">
-                            </a>
-                            <a href="/tienda-indumentaria" class="tienda__productos">
-                                <i class="far fa-hand-point-right"></i><span> IR A LA TIENDA</span></a>
-                        </div>
-                    </div>
-
-                    <div class="producto__tienda">
-                        <div class="galery__port--img">
-                            <a href="/tienda-indumentaria">
-                                <img src="/assets/img-3.jpg" alt="camiseta talleres"></a>
-                            <div class="descripcion">
-                                <p class="descripcion__produc">Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                    Velit, numquam.</p>
-                                <p class="cuotas">12 x <span class="signo_peso">$</span> 179.17
-                                    <span>Sin interes</span></p>
-                            </div>
-                            <a href="/#" class="boton__comprar">
-                                <p class="carrito__text">Añadir al Carrito</p>
-                                <img class="carrito__icon" src="//assets/carrito_Mesa.png" alt="">
-                            </a>
-                            <a href="/tienda-indumentaria" class="tienda__productos">
-                                <i class="far fa-hand-point-right"></i><span> IR A LA TIENDA</span></a>
-                        </div>
-                    </div>
-
-                    <div class="producto__tienda">
-                        <div class="galery__port--img">
-                            <a href="/tienda-indumentaria">
-                                <img src="/assets/img-4.jpg" alt="camiseta talleres"></a>
-                            <div class="descripcion">
-                                <p class="descripcion__produc">Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                    Velit, numquam.</p>
-                                <p class="cuotas">12 x <span class="signo_peso">$</span> 179.17
-                                    <span>Sin interes</span></p>
-                            </div>
-                            <a href="/#" class="boton__comprar">
-                                <p class="carrito__text">Añadir al Carrito</p>
-                                <img class="carrito__icon" src="//assets/carrito_Mesa.png" alt="">
-                            </a>
-                            <a href="/tienda-indumentaria" class="tienda__productos">
-                                <i class="far fa-hand-point-right"></i><span> IR A LA TIENDA</span></a>
-                        </div>
-                   
-                    </div>
-               
-                </div>
-          
-        </section> -->
-
         <section class="projects">
             <div class="container">
                 <h2 class="tienda__title">TIENDA DE PRODUCTOS</h2>
                 <div class="grid-container">
-      
-      
+
+
                     <div class="grid-item buzos">
                         <a href="/tienda-indumentaria" class="cat__buzos">
                             <img src="/assets/img-tienda/img1.png" class="grid__item--img1" alt="">
                             <p class="boton__indumentaria buzo-boton">Buzos</p>
                         </a>
                     </div>
-      
+
                     <div class="grid-item accesorios">
                         <a href="/tienda-indumentaria" class="cat__accesorios">
                             <img src="/assets/img-tienda/img5.png" class="grid__item--img2" alt="">
                             <p class="boton__indumentaria accesorio-boton">Accesorios</p>
                         </a>
                     </div>
-      
+
                     <div class="grid-item shorts">
                         <a href="/tienda-indumentaria" class="cat__shorts">
                             <img src="/assets/img-tienda/img3.png" class="grid__item--img3" alt="">
                             <p class="boton__indumentaria short-boton">Shorts</p>
                         </a>
                     </div>
-      
+
                     <div class="grid-item camisetas">
                         <a href="/tienda-indumentaria" class="cat__camisetas">
                             <img src="/assets/img-tienda/img2.png" class="grid__item--img4" alt="">
@@ -286,12 +184,12 @@
                             <!-- efecto que se mostrara cuando pasemos el mouse por arriba -->
                             <object class="patrocinador__logo" data="assets/img-sponsor/img1.svg" type="image/svg+xml">
                                 <!-- imagen alternativa por si el SVG no carga -->
-                                <img src="/assets/img-sponsor/marcas/PNG/web_c3.png" alt="Imagen PNG alternativa">
+                                <img src="/assets/img-sponsor/marcas/PNG/img1.png" alt="Imagen PNG alternativa">
                             </object>
                             <div class="patrocinador__hover">
-                                <h2 class="patrocinador__subtitle">Visitar Web</h2>
+                                <h2 class="patrocinador__subtitle"></h2>
                                 <!-- agregamos un icono -->
-                                <i class="far fa-hand-pointer patrocinador__icon"></i>
+                                <!-- <i class="far fa-hand-pointer patrocinador__icon"></i> -->
                             </div>
                         </a>
                     </article>
@@ -305,9 +203,9 @@
 
                             <!-- efecto que se mostrara cuando pasemos el mouse por arriba -->
                             <div class="patrocinador__hover">
-                                <h2 class="patrocinador__subtitle">Visitar Web</h2>
+                                <h2 class="patrocinador__subtitle"></h2>
                                 <!-- agregamos un icono -->
-                                <i class="far fa-hand-pointer patrocinador__icon"></i>
+                                <!-- <i class="far fa-hand-pointer patrocinador__icon"></i> -->
                             </div>
                         </a>
                     </article>
@@ -322,9 +220,9 @@
 
                             <!-- efecto que se mostrara cuando pasemos el mouse por arriba -->
                             <div class="patrocinador__hover">
-                                <h2 class="patrocinador__subtitle">Visitar Web</h2>
+                                <h2 class="patrocinador__subtitle"></h2>
                                 <!-- agregamos un icono -->
-                                <i class="far fa-hand-pointer patrocinador__icon"></i>
+                                <!-- <i class="far fa-hand-pointer patrocinador__icon"></i> -->
                             </div>
                         </a>
                     </article>
@@ -338,9 +236,9 @@
 
                             <!-- efecto que se mostrara cuando pasemos el mouse por arriba -->
                             <div class="patrocinador__hover">
-                                <h2 class="patrocinador__subtitle">Visitar Web</h2>
+                                <h2 class="patrocinador__subtitle"></h2>
                                 <!-- agregamos un icono -->
-                                <i class="far fa-hand-pointer patrocinador__icon"></i>
+                                <!-- <i class="far fa-hand-pointer patrocinador__icon"></i> -->
                             </div>
                         </a>
                     </article>
@@ -354,9 +252,9 @@
 
                             <!-- efecto que se mostrara cuando pasemos el mouse por arriba -->
                             <div class="patrocinador__hover">
-                                <h2 class="patrocinador__subtitle">Visitar Web</h2>
+                                <h2 class="patrocinador__subtitle"></h2>
                                 <!-- agregamos un icono -->
-                                <i class="far fa-hand-pointer patrocinador__icon"></i>
+                                <!-- <i class="far fa-hand-pointer patrocinador__icon"></i> -->
                             </div>
                         </a>
                     </article>
@@ -371,9 +269,9 @@
 
                             <!-- efecto que se mostrara cuando pasemos el mouse por arriba -->
                             <div class="patrocinador__hover">
-                                <h2 class="patrocinador__subtitle">Visitar Web</h2>
+                                <h2 class="patrocinador__subtitle"></h2>
                                 <!-- agregamos un icono -->
-                                <i class="far fa-hand-pointer patrocinador__icon"></i>
+                                <!-- <i class="far fa-hand-pointer patrocinador__icon"></i> -->
                             </div>
                         </a>
                     </article>
@@ -387,9 +285,9 @@
 
                             <!-- efecto que se mostrara cuando pasemos el mouse por arriba -->
                             <div class="patrocinador__hover">
-                                <h2 class="patrocinador__subtitle">Visitar Web</h2>
+                                <h2 class="patrocinador__subtitle"></h2>
                                 <!-- agregamos un icono -->
-                                <i class="far fa-hand-pointer patrocinador__icon"></i>
+                                <!-- <i class="far fa-hand-pointer patrocinador__icon"></i> -->
                             </div>
                         </a>
                     </article>
@@ -403,9 +301,9 @@
 
                             <!-- efecto que se mostrara cuando pasemos el mouse por arriba -->
                             <div class="patrocinador__hover">
-                                <h2 class="patrocinador__subtitle">Visitar Web</h2>
+                                <h2 class="patrocinador__subtitle"></h2>
                                 <!-- agregamos un icono -->
-                                <i class="far fa-hand-pointer patrocinador__icon"></i>
+                                <!-- <i class="far fa-hand-pointer patrocinador__icon"></i> -->
                             </div>
                         </a>
                     </article>
@@ -419,9 +317,9 @@
 
                             <!-- efecto que se mostrara cuando pasemos el mouse por arriba -->
                             <div class="patrocinador__hover">
-                                <h2 class="patrocinador__subtitle">Visitar Web</h2>
+                                <h2 class="patrocinador__subtitle"></h2>
                                 <!-- agregamos un icono -->
-                                <i class="far fa-hand-pointer patrocinador__icon"></i>
+                                <!-- <i class="far fa-hand-pointer patrocinador__icon"></i> -->
                             </div>
                         </a>
                     </article>
@@ -435,13 +333,13 @@
 
                             <!-- efecto que se mostrara cuando pasemos el mouse por arriba -->
                             <div class="patrocinador__hover">
-                                <h2 class="patrocinador__subtitle">Visitar Web</h2>
+                                <h2 class="patrocinador__subtitle"></h2>
                                 <!-- agregamos un icono -->
-                                <i class="far fa-hand-pointer patrocinador__icon"></i>
+                                <!-- <i class="far fa-hand-pointer patrocinador__icon"></i> -->
                             </div>
                         </a>
                     </article>
-                    
+
                 </div>
             </div>
         </section>
@@ -468,8 +366,8 @@
                 </div>
                 <div class="footer__copy">
                     <p class="copyright">EQUIPO DE DESARROLLO &copy; 2021 Todos los derechos reservados</p>
-                    <a href="#" class="politica__privacidad politica__privacidad--margin">Politica de privacidad</a>
-                    <a href="#" class="politica__privacidad">Terminos y condiciones</a>
+                    <a href="https://apps.apple.com/story/id1539235847" target="_blank" class="politica__privacidad politica__privacidad--margin">Politica de privacidad</a>
+                    <a href="https://apps.apple.com/story/id1539235847" target="_blank" class="politica__privacidad">Terminos y condiciones</a>
                 </div>
             </section>
             <section class="get-email">
@@ -479,24 +377,32 @@
                     <input type="submit" class="newsletter__submit" value="Suscribirse">
                 </form>
                 <div class="socialmedia">
+                    <p class="socialmedia__legend2">Canales de Comunicación: +54 0351 5715300 | Int. 155   </p>   
+                </div>
+                <div class="socialmedia">
                     <p class="socialmedia__legend">Síguenos en:</p>
-                    <a href="https://es-la.facebook.com/CATalleres/" target="_blank"><i class="fab fa-facebook-f socialmedia__icon"></i></a>
-                    <a href="https://twitter.com/CATalleresdecba?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor" target="_blank"><i class="fab fa-twitter socialmedia__icon"></i></a>
-                    <a href="https://instagram.com/tallerescbaoficial" target="_blank"><i class="fab fa-instagram socialmedia__icon"></i></a>
-                    <a href="https://tiktok.com/@tallerescbaoficial" target="_blank"><i class="fab fa-tiktok socialmedia__icon"></i></a>
+                    <a href="https://es-la.facebook.com/CATalleres/" target="_blank"><i
+                            class="fab fa-facebook-f socialmedia__icon"></i></a>
+                    <a href="https://twitter.com/CATalleresdecba?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor"
+                        target="_blank"><i class="fab fa-twitter socialmedia__icon"></i></a>
+                    <a href="https://instagram.com/tallerescbaoficial" target="_blank"><i
+                            class="fab fa-instagram socialmedia__icon"></i></a>
+                    <a href="https://tiktok.com/@tallerescbaoficial" target="_blank"><i
+                            class="fab fa-tiktok socialmedia__icon"></i></a>
+                    <a href="https://youtube.com/channel/UC_65FCCzP49fzhNOfeN8pAw" target="_blank"><i
+                            class="fab fa-youtube socialmedia__icon"></i></a>
+                    <a href="https://api.whatsapp.com/send?phone=543512268833" target="_blank"><i
+                            class="fab fa-whatsapp socialmedia__icon"></i></a>
                 </div>
             </section>
         </div>
         <div class="contact">
             <div class="item__contact">
                 <i class='bx bx-copyright contact__icon'></i>
-                <h3 class="contact__title">Copyright © 2021 | Desarrollado por (link foto de todo el equipo)</h3>
-            </div>
-            <div class="item__contact--now">
-                <i class='bx bx-send contact__icon--gold'></i>
-                <h3 class="contact__title">Contáctanos ahora</h3>
+                <h3 class="contact__title">Copyright © 2021 | Desarrollado por (Proyecto X) - Team 1 | Eggtech TPF</h3>
             </div>
         </div>
+
     </footer>
     <script src="https://kit.fontawesome.com/5208273844.js" crossorigin="anonymous"></script>
 

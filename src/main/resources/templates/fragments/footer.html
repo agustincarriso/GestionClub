@@ -1,3 +1,5 @@
+<!-- footer principal -->
+
 <footer th:fragment="footer-fragment" class="footer">
     <div class="footer__suscripcion">
         <section class="download__section">
@@ -5,8 +7,8 @@
 
             <div class="download__app">
 
-                <a href="https://apps.apple.com/ar/app/club-atl%C3%A9tico-talleres/id1473006513"
-                    class="download__item" target="_blank">
+                <a href="https://apps.apple.com/ar/app/club-atl%C3%A9tico-talleres/id1473006513" class="download__item"
+                    target="_blank">
                     <i class="fab fa-apple download__logo"></i>
                     <h4 class="download__title">App Store</h4>
                 </a>
@@ -19,8 +21,10 @@
             </div>
             <div class="footer__copy">
                 <p class="copyright">EQUIPO DE DESARROLLO &copy; 2021 Todos los derechos reservados</p>
-                <a href="#" class="politica__privacidad politica__privacidad--margin">Politica de privacidad</a>
-                <a href="#" class="politica__privacidad">Terminos y condiciones</a>
+                <a href="https://apps.apple.com/story/id1539235847" target="_blank"
+                    class="politica__privacidad politica__privacidad--margin">Politica de privacidad</a>
+                <a href="https://apps.apple.com/story/id1539235847" target="_blank"
+                    class="politica__privacidad">Terminos y condiciones</a>
             </div>
         </section>
         <section class="get-email">
@@ -30,22 +34,59 @@
                 <input type="submit" class="newsletter__submit" value="Suscribirse">
             </form>
             <div class="socialmedia">
+                <p class="socialmedia__legend2">Canales de Comunicación: +54 0351 5715300 | Int. 155 </p>
+            </div>
+            <div class="socialmedia">
                 <p class="socialmedia__legend">Síguenos en:</p>
-                <i class="fab fa-facebook-f socialmedia__icon"></i>
-                <i class="fab fa-twitter socialmedia__icon"></i>
-                <i class="fab fa-instagram socialmedia__icon"></i>
-                <i class="fab fa-tiktok socialmedia__icon"></i>
+                <a href="https://es-la.facebook.com/CATalleres/" target="_blank"><i
+                        class="fab fa-facebook-f socialmedia__icon"></i></a>
+                <a href="https://twitter.com/CATalleresdecba?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor"
+                    target="_blank"><i class="fab fa-twitter socialmedia__icon"></i></a>
+                <a href="https://instagram.com/tallerescbaoficial" target="_blank"><i
+                        class="fab fa-instagram socialmedia__icon"></i></a>
+                <a href="https://tiktok.com/@tallerescbaoficial" target="_blank"><i
+                        class="fab fa-tiktok socialmedia__icon"></i></a>
+                <a href="https://youtube.com/channel/UC_65FCCzP49fzhNOfeN8pAw" target="_blank"><i
+                        class="fab fa-youtube socialmedia__icon"></i></a>
+                <a href="https://api.whatsapp.com/send?phone=543512268833" target="_blank"><i
+                        class="fab fa-whatsapp socialmedia__icon"></i></a>
             </div>
         </section>
     </div>
     <div class="contact">
         <div class="item__contact">
             <i class='bx bx-copyright contact__icon'></i>
-            <h3 class="contact__title">Copyright © 2021 | Desarrollado por (link foto de todo el equipo)</h3>
+            <h3 class="contact__title">Copyright © 2021 | Desarrollado por (Proyecto X) - Team 1 | Eggtech TPF</h3>
         </div>
-        <div class="item__contact--now">
-            <i class='bx bx-send contact__icon--gold'></i>
-            <h3 class="contact__title">Contáctanos ahora</h3>
+    </div>
+    <script src="https://kit.fontawesome.com/5208273844.js" crossorigin="anonymous"></script>
+
+</footer>
+
+<!-- footer para los formularios de registro e iniciar sesion -->
+<footer th:fragment="footer-fragment-formularios" class="footer" style="margin-top: 40px;">
+    <div class="contact">
+        <div class="item__contact">
+            <i class='bx bx-copyright contact__icon'></i>
+            <h3 class="contact__title">Copyright © 2021 | Desarrollado por (Proyecto X) - Team 1 | Eggtech TPF</h3>
+        </div>
+    </div>
+
+</footer>
+
+<!-- footer para el panel de control y sus vistas -->
+<footer th:fragment="footer-fragment-panel-control" class="footer-list">
+    <link rel="stylesheet" href="/css/styles-list.css">
+    <div class="contact-list">
+        <div class="item__contact-list">
+            <i class='bx bx-copyright contact__icon'></i>
+            <h3 class="contact__title-list">Copyright © 2021 | Desarrollado por Proyecto X</h3>
+        </div>
+        <div class="item__contact--now-list">
+            <a class="contact-now" href="https://wa.me/5493585131021" target="_blank">
+                <p class="contact__title-list elemento-p">Servicio Técnico
+                    <i class="fab fa-whatsapp contact-icon"></i></p>
+            </a>
         </div>
     </div>
     <script src="https://kit.fontawesome.com/5208273844.js" crossorigin="anonymous"></script>

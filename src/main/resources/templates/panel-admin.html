@@ -48,7 +48,7 @@
                         </div>
                         <div class="box-panel">
                             <a class="box-button" th:href="@{/socio/list}">Lista</a>
-                            <a class="box-button" th:href="@{/socio/registro}">Crear</a>
+                            <a class="box-button" th:href="@{/usuario/asociarse(id=__${session.usuariosession.id}__)}">Crear</a>
                         </div>
                     </div>
 
@@ -101,8 +101,8 @@
                             <div class="box-title other-ct">
                                 <p>Cuerpo Técnico</p>
                             </div>
-                            <a class="box-button" th:href="@{/cuerpotecnico/list}">Lista</a>
-                            <a class="box-button" th:href="@{/cuerpotecnico/form}">Crear</a>
+                            <a class="box-button ctecnico" th:href="@{/cuerpotecnico/list}">Lista</a>
+                            <a class="box-button ctecnico" th:href="@{/cuerpotecnico/form}">Crear</a>
                         </div>
                        
                     </div>
@@ -150,6 +150,7 @@
         </section>
     </main>
     <script src="/main.js"></script>
+    <footer th:replace="/fragments/footer :: footer-fragment-panel-control"> </footer>
 </body>
 
 </html>

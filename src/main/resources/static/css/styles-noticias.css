@@ -1,0 +1,89 @@
+/* VARIABLES DEFINIDIAS */
+:root {
+    --background: linear-gradient(135deg, #667eea7e 0%, #764ba298 100%);
+    --color-primary: #1b2f62;
+    --color-secondary: #0e204e;
+    --black1: #1a1b1f;
+    --black2: #30353b;
+    --boton-padding: 20px 40px;
+}
+
+body {
+    font-family: 'Hammersmith One', sans-serif;
+    background: #0f0c29;
+    /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #24243e, #1b2f62, #0f0c29);
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #24243e, #1b2f62, #0f0c29);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.head-noticias {
+    background-image: url(../assets/background_talleres/fondo-tribuna.jpg);
+    background-size: cover;
+    opacity: 0.17;
+    transition: background 0.3s, border-radius 0.3s, opacity 0.3s;
+    width: 100%;
+    min-height: 45vh;
+
+}
+
+.section__noticias {
+    background: #FFFFFF;
+}
+
+.section__noticias-title {
+    color: #FFFFFF;
+    font-size: 4.5em;
+    font-weight: 600;
+    text-align: left;
+    position: absolute;
+    top: 200px;
+    right: 0;
+    margin-right: 940px;
+}
+
+.noticias__wave--inf {
+    position: absolute;
+    top: 240px;
+    left: 0;
+    width: 100%;
+    height: 150px;
+}
+
+.container-noticias {
+    width: 90%;
+    margin: 0px auto;
+    overflow: hidden;
+    padding: 50px 0;
+
+}
+
+.container-cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.noticia-ampliada {
+    height: auto;
+}
+
+.card-ampliada {
+    width: 100%;
+    padding: 25px 0;
+    margin-top: 30px;
+    overflow: hidden;
+    background: linear-gradient(180deg, var(--color-primary) 0%, var(--color-secondary));
+    border-radius: 15px;
+    position: relative;
+    text-align: center;
+
+}
+
+.card__img-noticia{
+    width: 85%;
+    height: 70vhpx;
+    object-fit: cover;
+    border-radius: 10px;
+}

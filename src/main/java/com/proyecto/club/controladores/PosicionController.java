@@ -4,6 +4,7 @@ import com.proyecto.club.excepciones.WebException;
 import com.proyecto.club.servicios.PosicionServicio;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -19,6 +20,7 @@ public class PosicionController {
     @Autowired
     private PosicionServicio posicionServicio;
 
+    @PreAuthorize("hasAnyRole('ROLE_ADMIN')")
     @GetMapping("/list")
     public String listarPosiciones(Model model,@RequestParam(required = false) String q) {
         if (q != null) {
@@ -29,6 +31,7 @@ public class PosicionController {
         return "/html-administracion/posicion/posicion-list";
     }
 
+    @PreAuthorize("hasAnyRole('ROLE_ADMIN')")
     @GetMapping("/form")
     public String crearPosicion(Model model, @RequestParam(required = false) String id) {
         if (id != null) {
@@ -44,6 +47,7 @@ public class PosicionController {
         return "/html-administracion/posicion/posicion-form";
     }
 
+    @PreAuthorize("hasAnyRole('ROLE_ADMIN')")
     @PostMapping("/save")
     public String guardarPosicion(RedirectAttributes redirectAttributes,Posicion posicion) {
         
@@ -55,6 +59,7 @@ public class PosicionController {
         return "redirect:/posicion/list";
     }
 
+    @PreAuthorize("hasAnyRole('ROLE_ADMIN')")
     @GetMapping("/delete")
     public String delete(@RequestParam(required = true) String id) {
         posicionServicio.deleteById(id);

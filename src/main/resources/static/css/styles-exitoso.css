@@ -1,0 +1,173 @@
+/* VARIABLES DEFINIDIAS */
+:root {
+    --background: linear-gradient(135deg, #667eea7e 0%, #764ba298 100%);
+    --color-primary: #1b2f62;
+    --color-secondary: #0e204e;
+    --black1: #1a1b1f;
+    --black2: #30353b;
+    --boton-padding: 20px 40px;
+}
+
+body {
+    font-family: 'Hammersmith One', sans-serif;
+    /* backgroun 1 */
+
+    /* background: #0f0c29;
+    background: -webkit-linear-gradient(to right, #24243e, #1b2f62, #0f0c29);
+    background: linear-gradient(to right, #24243e, #1b2f62, #0f0c29);  */
+  
+    /* background 2 */
+    background-image: url(../assets/background_talleres/fondo-tribuna.jpg);
+    background-size: cover;
+    width: 100%;
+    min-height: 150vh;
+
+}
+
+
+
+.bienvenido-title {
+    color: #FFFF;
+    font-size: 2em;
+    font-weight: 600;
+    text-align: center;
+    position: relative;
+    top: 50px;
+}
+
+.logo-club {
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    top: 200px;
+    left: calc(50% - 50px);
+}
+
+.acciones-user h2 {
+    color: #FFFF;
+    font-size: 3em;
+    font-weight: 300;
+    text-align: center;
+    margin: 200px 0 5px;
+}
+
+.acciones-user p {
+    color: #FFFF;
+    font-weight: lighter;
+    opacity: 0.80;
+    text-align: center;
+    margin: 0px 0 5px;
+}
+
+.button-user {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin: 40px 0 5px;
+}
+
+.button-user a {
+    display: inline-block;
+    color: #FFFF;
+    text-decoration: none;
+    width: 250px;
+    border: 1px solid #FFFF;
+    margin: 20px auto;
+    padding: 20px;
+    font-size: 19px;
+}   
+
+.button-icon{
+    margin-right: 20px;
+    font-size: 29px;
+}
+
+
+
+
+.card-registro {
+    display: flex;
+    align-items: center;
+    margin: 20px 0 20px;
+    justify-content: center;
+}
+
+.card-socio h2 {
+    color: #FFFF;
+    line-height: 2;
+    font-size: 35px;
+    letter-spacing: 0.30em;
+}
+
+.card-socio {
+    width: auto;
+    padding: 25px 0;
+    overflow: hidden;
+    border: 1px solid #FFFF;
+    border-radius: 15px;
+    position: relative;
+    text-align: center;
+}
+
+.box-card__copy{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+
+/* efecto button cta */
+.button-user a {
+    /* -webkit-transition: box-shadow 0.5s ease-in-out, color 0.5s ease-in-out; */
+    transition: box-shadow 0.5s ease-in-out, color 0.1s ease-in-out;
+}
+
+.button-user a:hover {
+    box-shadow: 0 0 40px 40px #ffff inset;
+    color: var(--black2);
+}
+
+.button-user-cta {
+    display: inline-block;
+    color: #FFFF;
+    text-decoration: none;
+    width: 250px;
+    border: 1px solid #FFFF;
+    margin: 20px auto;
+    padding: 20px;
+    text-align: center;
+    font-size: 19px;
+    
+}
+
+.button-user-cta {
+    /* -webkit-transition: box-shadow 0.5s ease-in-out, color 0.5s ease-in-out; */
+    transition: box-shadow 0.5s ease-in-out, color 0.1s ease-in-out;
+}
+
+.button-user-cta:hover {
+    box-shadow: 0 0 40px 40px #ffff inset;
+    color: var(--black2);
+}
+
+
+/* estilos vista bienvenidos (login) */
+
+.logo-club-bienvenido{
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    top: 150px;
+    left: calc(50% - 50px);
+}
+
+.card-socio h3{
+    color: #FFFF;
+    line-height: 1.5;
+    font-size: 30px;
+    letter-spacing: 0.10em;
+}

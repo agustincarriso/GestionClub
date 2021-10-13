@@ -16,46 +16,51 @@
 <body>
     <header th:replace="/fragments/nav-bar :: nav-bar-sin-slider"></header>
     <main>
+
+        <div th:replace="/fragments/alerts :: alertas"></div>
         <section class="form-register">
-            <form th:action="@{/socio/registrado}" method="POST" th:object="${socio} "enctype="multipart/form-data">
-                
-                <input hidden th:field="*{id}">
+            <form th:action="@{/usuario/socioregistrado}" method="POST" enctype="multipart/form-data"
+                th:object="${perfil}">
+                <input type="text" hidden th:field="*{id}">
                 <div class="form">
                     <img class="logo__club" src="/assets/escudo.png" alt="logo de talleres">
-                    <h1>Registro Socio</h1>
+                    <h1 class="socio-title">Hazte Socio <span>con estos simples pasos</span></h1>
+                    <ul class="requisitos-list">
+                        <li><i class="fas fa-camera-retro"></i> Selecciona una foto para el carnet Digital (rostro completo
+                            y de frente)</li>
+                        <li><i class="fas fa-list-ul"></i> Eleji el plan mas conveniente para ti</li>
+                        <li><i class="far fa-hand-point-right"></i> Presiona el Boton <span>Hacerme socio!</span></li>
+                    </ul>
+                    <h2 class="socio-subtitle">Listo!<i class="far fa-thumbs-up"></i></h2>
+                    <p class="socio-p">Ahora podras disfrutar de todos los beneficios 
+                        exclusivos que tenemos para ti!</p>
 
                     <div class="grupo">
-                        <input class="input" type="email" name="" id="name" th:field="*{email}" required><span
-                            class="barra"></span>
-                        <label class="label" for="">E-mail</label>
-                    </div>
-                    <div class="grupo">
-                        <input class="input" type="password" name="" id="name" th:field="*{password}" required><span
-                            class="barra"></span>
-                        <label class="label" for="">Contraseña</label>
-                    </div>
-                    <div class="grupo">
-                        <input class="input" type="number" name="" id="name" th:field="*{dni}" required><span
-                            class="barra"></span>
-                        <label class="label" for="">DNI</label>
-                    </div>
-                    <div class="grupo">
-                        <input class="input" type="date" name="" id="name" th:field="*{fechaInicio}" required><span
-                            class="barra"></span>
-                        <label class="label" for="">Fecha de Inicio</label>
-                    </div>
-                    <div class="grupo">
-                        <input class="input" type="file" name="" id="name" th:field="*{foto}" required><span
-                            class="barra"></span>
                         <label class="label" for="">Foto para el Carnet de Socio</label>
+                        <br>
+                        <input class="input" type="file" id="imagen" name="imagen" required><span class="barra"></span>
+                    </div>
+                    <div class="grupo">
+                        <label class="label" for="">Selecciona tu plan</label>
+                        <br>
+                        <select id="valorCuota" name="valorCuota" th:value="${valorCuota}" required class="socio-plan">
+                            <option value="500">Paquete Bronce - cuota mensual $500</option>
+                            <option value="1000">Paquete Plata - cuota mensual $1000</option>
+                            <option value="1500">Paquete Oro - cuota mensual $1500</option>
+                            <option value="2000">Paquete Diamante - cuota mensual $2000</option>
+                        </select>
                     </div>
                     <button class="button" type="submit">Hacerme Socio!</button>
                     <p class="confirmacion__mail">Recibirás la confirmación por correo electrónico</p>
                 </div>
             </form>
         </section>
+        <div th:replace="/fragments/alerts :: alertas"></div>
     </main>
     <script src="/main.js"></script>
+    <footer th:replace="/fragments/footer :: footer-fragment-formularios"></footer>
+    <script src="https://kit.fontawesome.com/5208273844.js" crossorigin="anonymous"></script>
+
 </body>
 
 </html>

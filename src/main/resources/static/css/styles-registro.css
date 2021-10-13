@@ -10,11 +10,12 @@
 
 body {
     font-family: 'Hammersmith One', sans-serif;
-    background: #1b2f62;
+
+    background: #0f0c29;
     /* fallback for old browsers */
-    background: -webkit-linear-gradient(to top, hsla(213, 44%, 29%, 0.638), #1b2f62);
+    background: -webkit-linear-gradient(to right, #24243e, #1b2f62, #0f0c29);
     /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to top, hsla(213, 44%, 29%, 0.638), #1b2f62);
+    background: linear-gradient(to right, #24243e, #1b2f62, #0f0c29);
     /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     background-repeat: no-repeat;
     /* para que abarque el 100% del contenedor el background */
@@ -34,7 +35,7 @@ body {
 }
 
 .form-register {
-    height: 1017px;
+    height: 1120px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -45,25 +46,23 @@ body {
     width: 100px;
     height: 100px;
     position: absolute;
-    bottom: 890px;
-    left: calc(50% - 30px);
+    top: 155px;
+    left: calc(50% - 50px);
 }
 
-h1 {
+.form-title {
     text-align: center;
+    font-weight: bold;
+
 }
 
 .form {
     background: #ffff;
-    padding: 40px 0;
+    padding: 40px 30px;
     box-shadow: 0 0 6px 4px rgba(255, 255, 255, 0.8);
     border-radius: 8px;
-}
-
-.form {
     width: 100%;
-    margin: auto 20px;
-    margin-top: 118px;
+    margin: 50px auto 0px;
 }
 
 .form .grupo {
@@ -75,11 +74,12 @@ h1 {
     background: none;
     color: var(--black1);
     font-size: 18px;
-    padding: 10px 10px 10px 5px;
+    padding: 10px 10px 5px;
     display: block;
     width: 100%;
     border: none;
     border-bottom: 1px solid var(--color-primary);
+
 }
 
 .input:focus {
@@ -93,7 +93,7 @@ h1 {
     font-size: 16px;
     position: absolute;
     left: 5px;
-    top: -10px;
+    top: -5px;
     transition: 0.7s ease all;
     pointer-events: none;
 }
