@@ -9,7 +9,7 @@
         <div sec:authorize="hasRole('ROLE_ADMIN')">
             <a href="/panel-admin" class="nav__items--cta">Panel de Control</a>
         </div>
-        <a href="/#" class="nav__items--cta">Equipo</a>
+        <a href="/equipo" class="nav__items--cta">Equipo</a>
         <a href="/noticias" class="nav__items--cta">Noticias</a>
         <a sec:authorize="!isAuthenticated()" href="/usuario/registro" class="nav__items--cta">Registrarse</a>
         <div sec:authorize="hasRole('ROLE_USER')">
@@ -32,7 +32,7 @@
         <div sec:authorize="hasRole('ROLE_ADMIN')">
             <a href="/panel-admin" class="nav__items--cta">Panel de Control</a>
         </div>
-        <a href="/#" class="nav__items--cta">Equipo</a>
+        <a href="/equipo" class="nav__items--cta">Equipo</a>
         <a href="/noticias" class="nav__items--cta">Noticias</a>
         <a sec:authorize="!isAuthenticated()" href="/usuario/registro" class="nav__items--cta">Registrarse</a>
         <div sec:authorize="hasRole('ROLE_USER')">
