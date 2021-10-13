@@ -15,12 +15,56 @@
 
 <body>
     <main>
-        <section>
-            <article>
-                <h2>esta es una noticia</h2>
+        <header th:replace="/fragments/nav-bar :: nav-bar-sin-slider"></header>
+        <section class="section__noticias">
+            <div class="container-noticias">
+            <article class="noticia-ampliada">
+                <div class="card-ampliada">
+                    <img src="/assets/img-noticias/img-4.jpeg" class= "card__img-noticia">
+                    <div class="cards_text">
+                        <p class="card_list">Juveniles AFA: Talleres enfrenta a Patronato</p>
+                        <p class="card__copy">
+                            
+                            El albiazul jugará este sábado 2 de octubre ante el Patrón, para ponerse al día en el
+                            Campeonato Juvenil de Liga Profesional de Fútbol.
+                            La jornada se desarrollará en el marco de la Fecha 1, postergada en su momento.
+                            Las categorías mayores lo harán en condición de local, mientras que las menores jugarán en
+                            Paraná.
+                            A continuación, el cronograma de la jornada:
+                             
+                            En el Centro de Alto Rendimiento Deportivo Amadeo Nuccetelli:
+                            4ta | 10 hs
+                            5ta | 12 hs
+                            6ta | 14 hs
+                             
+                            En Santa Fe:
+                            7ma | 10 hs
+                            8va | 12 hs
+                            9na | 13.50 hs
+                             
+                            El pasado fin de semana la “T” jugó ante Unión. A continuación los resultados:
+                            En Córdoba
+                            4ta | Talleres 2 – Unión 1
+                            5ta | Talleres 2 – Unión 0
+                            6ta | Talleres 0 – Unión 0
+                             
+                            En Santa Fe
+                            7ma | Unión 2 – Talleres 2
+                            8va | Unión 1 – Talleres 1
+                            9na | Unión 0 – Talleres 1
+
+
+
+                        </p><br>
+                        <a href="/noticias" class="card__button">Volver atrás</a>
+                        <P class="fecha__noticia">25 DE AGOSTO, 2021</P>
+                    </div>
+                </div>
             </article>
+            </div>
         </section>
     </main>
     <footer th:replace="/fragments/footer :: footer-fragment-formularios"></footer>
 </body>
+
 </html>

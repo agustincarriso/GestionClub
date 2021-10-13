@@ -14,13 +14,39 @@
 </head>
 
 <body>
+    <header th:replace="/fragments/nav-bar :: nav-bar-sin-slider"></header>
     <main>
-        <section>
-            <article>
-                <h2>esta es una noticia</h2>
+        <section class="section__noticias">
+            <div class="container-noticias">
+            <article class="noticia-ampliada">
+                <div class="card-ampliada">
+                    <img src="/assets/img-noticias/img-6.jpeg" class="card__img-noticia">
+                    <div class="cards_text">
+                        <p class="card_list">Copa Argentina: Lo que viene</p>
+                        <p class="card__copy">
+                            
+                            Con dos goles de Michael Santos, Talleres venció a Temperley 2 a 1 y se clasificó a las
+                            semifinales de Copa Argentina.
+                            En la próxima instancia la T se medirá con el ganador del partido que el miércoles 6 de
+                            octubre jugarán Godoy Cruz y Tigre, en el Estadio Kempes.
+                            Así es, hasta el momento, el camino del albiazul en la presente edición de la competencia:
+                            32avos: Talleres 0 – Atlético de Rafaela 0 (La T ganó 6 a 5 en definición por penales)
+                            16avos: Talleres 1 – Vélez Sarsfield 1 (El albiazul se impuso 3 a 1 en definición por
+                            penales)
+                            8vos: Estudiantes de Río Cuarto 1 – Talleres 1 (La T ganó 6 a 5 en definición por penales)
+                            4tos: Temperley 1 – Talleres 2
+
+
+                        </p><br>
+                        <a href="/noticias" class="card__button">Volver atrás</a>
+                        <P class="fecha__noticia">22 DE AGOSTO, 2021</P>
+                    </div>
+                </div>
             </article>
+            </div>
         </section>
     </main>
     <footer th:replace="/fragments/footer :: footer-fragment-formularios"></footer>
 </body>
+
 </html>

@@ -14,11 +14,78 @@
 </head>
 
 <body>
+    <header th:replace="/fragments/nav-bar :: nav-bar-sin-slider"></header>
     <main>
-        <section>
-            <article>
-                <h2>esta es una noticia</h2>
+        <section class="section__noticias">
+            <div class="container-noticias">
+            <article class="noticia-ampliada">
+                <div class="card-ampliada">
+                    <img src="/assets/img-noticias/JMV_7807-1536x1024.jpg" class="card__img-noticia">
+                    <div class="cards_text">
+                        <p class="card_list">Liga Profesional: Confirmadas las fechas 16, 17 y 18</p>
+                        <p class="card__copy">
+                             La organización del torneo dio a conocer el calendario de las tres jornadas que se jugarán a partir del viernes 15 de Octubre.
+                            Talleres ya conoce los días y horarios de los partidos correspondientes a las Fechas 16, 17 y 18 del Torneo Socios.com. En esas jornadas el albiazul visitará a Cólon en Santa Fe, recibirá a River Plate en el Kempes y se presentará en el Estadio Ciudad de Lanús para jugar ante el Granate.
+                            
+                            Así será la agenda de la T en las próximas semanas:
+                            
+                             
+                            
+                            FECHA 14 – TORNEO SOCIOS.COM
+                            
+                            Lunes 4 de octubre
+                            
+                            18.00 hs Defensa – Talleres
+                            
+                            Estadio Norberto Tomaghello
+                            
+                             
+                            
+                            FECHA 15 – TORNEO SOCIOS.COM
+                            
+                            Lunes 11 de octubre
+                            
+                            21.15 hs Talleres – Atlético Tucumán
+                            
+                            Estadio Mario Alberto Kempes
+                            
+                             
+                            
+                            FECHA 16 – TORNEO SOCIOS.COM
+                            
+                            Domingo 17 de octubre
+                            
+                            15.45 hs Colón – Talleres
+                            
+                            Estadio Brigadier General Estanislao López
+                            
+                             
+                            
+                            FECHA 17 – TORNEO SOCIOS.COM
+                            
+                            Jueves 21 de octubre
+                            
+                            21.15 hs Talleres – River
+                            
+                            Estadio Mario Alberto Kempes
+                            
+                             
+                            
+                            FECHA 18 – TORNEO SOCIOS.COM
+                            
+                            Lunes 25 de Octubre
+                            
+                            16.45 hs Lanús – Talleres
+                            
+                            Estadio Ciudad de Lanús
+                            
+                             </p><br>
+                        <a href="/noticias" class="card__button">Volver atrás</a>
+                        <P class="fecha__noticia">01 DE SEPTIEMBRE, 2021</P>
+                    </div>
+                </div>
             </article>
+        </div>
         </section>
     </main>
     <footer th:replace="/fragments/footer :: footer-fragment-formularios"></footer>
