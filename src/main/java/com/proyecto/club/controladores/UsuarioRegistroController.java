@@ -113,4 +113,31 @@ public class UsuarioRegistroController {
 
     }
 
+    @GetMapping("/asociarse")
+    public String asociarse(@RequestParam(required = true) String id, ModelMap model) {
+        try {
+            Usuario usuario = usuarioService.encontrarPorId(id);
+            model.addAttribute("perfil", usuario);
+        } catch (Exception e) {
+            model.addAttribute("error", e.getMessage());
+        }
+        return "socio-registro";
+    }
+
+    @PostMapping("/socioregistrado")
+    public String socioRegistrado(Model model, @RequestParam(required = false) MultipartFile imagen,
+            @RequestParam(required = true) String id, @RequestParam(required = true) Double valorCuota) throws Exception {
+                
+        Usuario user = usuarioService.encontrarPorId(id);
+        try {
+            usuarioService.cambioASocio(user, imagen, valorCuota);
+        } catch (Exception e) {
+            model.addAttribute("error", e.getMessage());
+            return "redirect:/asociarse";
+        }
+        /* url a la que redirecciono despues de registrar un usuario */
+        return "redirect:/registro-exitoso";
+
+    }
+
 }
