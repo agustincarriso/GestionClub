@@ -80,7 +80,7 @@ body {
     color: #fff;
 }
 
-/* nav items logout */
+/* NAV ITEM LOGOUT */
 .container-logout {
     display: flex;
     flex-direction: row;
@@ -99,18 +99,25 @@ body {
 
 .button-logout {
     display: inline-block;
-    margin-top: 5px;
     text-decoration: none;
     color: #fff;
+    
 }
 
 .button-logout p{
-    margin-top: 15px;
+    margin-top: 10px;
 }
 
 .logout-icon {
     margin-right: 10px;
 }
+
+.container-logout:hover {
+    box-shadow: 0 0 10px 0 #fff inset, 0 0 10px 4px #FFF;
+    color: #fff;
+}
+
+
 
 /* IMAGEN LOGO */
 
