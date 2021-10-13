@@ -3,6 +3,7 @@ import com.proyecto.club.entidades.Jugador;
 import com.proyecto.club.excepciones.WebException;
 import com.proyecto.club.servicios.JugadorServicio;
 import com.proyecto.club.servicios.PosicionServicio;
+import java.io.IOException;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
@@ -51,11 +53,12 @@ public class JugadorController {
         model.addAttribute("posiciones", posicionServicio.listAll());
         return "/html-administracion/jugador/jugador-form";
     }
+    
     @PreAuthorize("hasAnyRole('ROLE_ADMIN')")
     @PostMapping("/save")
-    public String guardarJugador(Model model,RedirectAttributes redirectAttributes,Jugador jugador) {
+    public String guardarJugador(Model model,RedirectAttributes redirectAttributes,@RequestParam(required = false) MultipartFile imagen,Jugador jugador) throws IOException {
         try {
-            jugadorServicio.save(jugador);
+            jugadorServicio.save(jugador,imagen);
             //redirectAttributes.addFlashAttribute("error", "Primer paso completado exitosamente");  
         } catch (WebException ex) {
             ex.printStackTrace();
