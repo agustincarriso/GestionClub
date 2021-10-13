@@ -27,7 +27,7 @@
             <div class="button-user">
                 <a href="/"><i class="fas fa-home button-icon"></i>Web Principal</a>
                 <a href="/login"><i class="fas fa-sign-in-alt button-icon"></i>Iniciar Sesión</a>
-                <a href="/socio/registro"><i class="fas fa-user-check button-icon"></i>hacerme Socio</a>
+                <a th:href="@{/usuario/asociarse(id=__${session.usuariosession.id}__)}"><i class="fas fa-user-check button-icon"></i>hacerme Socio</a>
 
             </div>
             <div class="card-registro">
@@ -43,7 +43,7 @@
                             club</p>
                         <p class="card__copy"><i class="fas fa-check"></i> Enterate antes que nadie como saldra nuestro
                             equipo a la cancha</p>
-                        <a href="/socio/registro" class="button-user-cta"> <i
+                        <a th:href="@{/usuario/asociarse(id=__${session.usuariosession.id}__)}" class="button-user-cta"> <i
                                 class="fas fa-user-check button-icon"></i>Hacerme Socio!</a>
                     </div>
                 </div>
