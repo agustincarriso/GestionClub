@@ -13,8 +13,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("")
 public class CanchaController {
 
-	@GetMapping("/cancha")
+	@GetMapping("/equipo")
 	public String login() {
-		return "cancha.html";
+		return "equipo.html";
 	}
 }
