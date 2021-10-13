@@ -1,5 +1,4 @@
    <header th:fragment="nav-bar-sin-slider" class="hero__sin--slider">
-
        <nav class="nav">
            <div class="logo">
                <a href="/" class="logo">
@@ -21,8 +20,8 @@
                </div>
            </div>
            <a sec:authorize="!isAuthenticated()" href="/login" class="nav__items">Iniciar Sesión </a>
-           <div class="container-logout">
-            <a sec:authorize="isAuthenticated()" href="/logout" class="button-logout">
+           <div sec:authorize="isAuthenticated()" class="container-logout">
+            <a href="/logout" class="button-logout">
                <i class="fas fa-user logout-icon"></i>
                <span th:if="${session.usuariosession != null}"
                    th:text="${session.usuariosession.nombre +' '+ session.usuariosession.apellido}"></span>
