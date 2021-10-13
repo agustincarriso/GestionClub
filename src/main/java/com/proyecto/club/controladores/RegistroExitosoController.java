@@ -18,4 +18,9 @@ public class RegistroExitosoController {
 		return "registro-exitoso.html";
 	}
 	
+	@GetMapping("/bienvenidos")
+	public String bienvenidos() {
+		return "bienvenidos.html";
+	}
+	
 }
