@@ -153,3 +153,21 @@ body {
     box-shadow: 0 0 40px 40px #ffff inset;
     color: var(--black2);
 }
+
+
+/* estilos vista bienvenidos (login) */
+
+.logo-club-bienvenido{
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    top: 150px;
+    left: calc(50% - 50px);
+}
+
+.card-socio h3{
+    color: #FFFF;
+    line-height: 1.5;
+    font-size: 30px;
+    letter-spacing: 0.10em;
+}
