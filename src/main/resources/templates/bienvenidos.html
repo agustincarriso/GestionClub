@@ -23,11 +23,17 @@
             <div class="acciones-user">
                 <h2 sec:authorize="!hasRole('ROLE_SOCIO')">Bienvenid@ <span th:if="${session.usuariosession != null}"
                         th:text="${session.usuariosession.nombre +' '+ session.usuariosession.apellido}"></span></h2>
-                <h2 sec:authorize="!hasRole('ROLE_USER')">Bienvenid@ Socio <span th:if="${session.usuariosession != null}"
+                <h2 sec:authorize="!hasRole('ROLE_USER')">Bienvenid@ Socio <span
+                        th:if="${session.usuariosession != null}"
                         th:text="${session.usuariosession.nombre +' '+ session.usuariosession.apellido}"></span></h2>
-
+                <h2 sec:authorize="hasRole('ROLE_ADMIN')">Bienvenid@  <span
+                        th:if="${session.usuariosession != null}"
+                        th:text="${session.usuariosession.nombre +' '+ session.usuariosession.apellido}"></span></h2>
             </div>
             <div class="button-user">
+                <a sec:authorize="hasRole('ROLE_ADMIN')" href="/panel-admin"><i class="fas fa-user-cog button-icon" ></i>Panel Ctrol</a>
+                <!-- <a href="/panel-admin"><i class="fas fa-user-cog button-icon" sec:authorize="!hasRole('ROLE_SOCIO')"></i>Panel Ctrol</a>
+                <a href="/panel-admin"><i class="fas fa-user-cog button-icon" sec:authorize="!hasRole('ROLE_USER')"></i>Panel Ctrol</a> -->
                 <a href="/"><i class="fas fa-home button-icon"></i>Principal</a>
                 <a href="/noticias"><i class="fas fa-newspaper button-icon"></i>Noticias</a>
                 <a href="/tienda-indumentaria"><i class="fas fa-store button-icon"></i>La Tienda</a>
@@ -61,7 +67,7 @@
                         <p class="card__copy"><i class="fas fa-check"></i> Acceso exclusivo a las instalaciones del
                             club</p>
                         <p class="card__copy"><i class="fas fa-check"></i> Enterate antes que nadie como saldra nuestro
-</p>
+                        </p>
                     </div>
                 </div>
             </div>
