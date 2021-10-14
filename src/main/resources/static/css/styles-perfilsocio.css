@@ -18,6 +18,12 @@ body {
     /* background: linear-gradient(to right, #24243e, #1b2f62, #0f0c29); */
     /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
+    background-image: url(../assets/9bb2b89f9ebc960e856675f4424ba840.jpg);
+    width: 100%;
+    min-height: 100vh;
+    background-position: center;
+    background-size: cover;
+    
 }
 
 .hero__sin--slider {
