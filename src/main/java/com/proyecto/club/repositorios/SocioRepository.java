@@ -27,5 +27,5 @@ public interface SocioRepository extends JpaRepository<Socio, String>{
         + "p.valorCuota LIKE :query or "
         + "p.fechaInicio LIKE :query or "
         + "p.fechaBaja LIKE :query")
-    List<Socio> findByQuery(@Param("query") String query); 
+    List<Socio> findAllByQ(@Param("query") String query); 
 }

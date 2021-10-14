@@ -1,14 +1,17 @@
 package com.proyecto.club.servicios;
+import com.proyecto.club.entidades.Foto;
 import com.proyecto.club.entidades.Jugador;
 import com.proyecto.club.entidades.Posicion;
 import com.proyecto.club.excepciones.WebException;
 import com.proyecto.club.repositorios.JugadorRepositorio;
+import java.io.IOException;
 import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
 @Service
 public class JugadorServicio {
@@ -19,8 +22,11 @@ public class JugadorServicio {
     @Autowired
     private PosicionServicio posicionServicio;
     
+    @Autowired
+    public FotoService fotoService;
     
-    public Jugador save(Jugador jugador) throws WebException{
+    
+    public Jugador save(Jugador jugador, MultipartFile archivo) throws WebException, IOException{
         if (jugador.getNacionalidad() == null) {
              throw new WebException("Debe ingresar la nacionalidad");
         }
@@ -48,6 +54,9 @@ public class JugadorServicio {
             throw new WebException("El nombre no puede estar vacio");
         }
        
+        Foto img = fotoService.guardarFoto(archivo);
+        jugador.setFoto(img);
+        
         return jugadorRepositorio.save(jugador);
     }
     
@@ -68,16 +77,15 @@ public class JugadorServicio {
         List<Jugador> lista = jugadorRepositorio.findAll();
         return lista;
     }
-    
+    //dejar este servicio
+	 public List<Jugador> listallByQ(String query){
+        List<Jugador> lista = jugadorRepositorio.findAllByQ("%"+query+"%");
+        return lista;
+    }
     public List<Jugador> listallByPosicion(String nombre){
         return jugadorRepositorio.findAllByPosicion(nombre);
     }
-    
-    public List<Jugador> listallByQ(String q){
-        return jugadorRepositorio.findAllByQ("%"+q+"%");
-    }
-    
-    
+          
     public Optional<Jugador> findById(String id){
         return jugadorRepositorio.findById(id);
     }

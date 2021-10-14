@@ -14,11 +14,29 @@
 </head>
 
 <body>
+    <header th:replace="/fragments/nav-bar :: nav-bar-sin-slider"></header>
     <main>
-        <section>
-            <article>
-                <h2>esta es una noticia</h2>
+        <section class="section__noticias">
+            <div class="container-noticias">
+            <article class="noticia-ampliada">
+                <div class="card-ampliada">
+                    <img src="/assets/img-noticias/matadoras.jpeg" class="card__img-noticia">
+                    <div class="cards_text">
+                        <p class="card_list">Fútbol Femenino: Amistoso & y convocatoria</p>
+                        <p class="card__copy">
+
+                            El Club Talleres informa que se realizarán pruebas de jugadoras de
+                            Fútbol Femenino para divisiones inferiores para niñas nacidas entre el año 2005 a 2008
+                            inclusive.
+                            El Fútbol Femenino de Talleres se medirá en un cotejo amistoso con su similar de Camioneros. El partido tendrá lugar en el Predio Deportivo Amadeo Nuccetelli este jueves 16 de septiembre desde las 17.45 horas.
+                            El compromiso se disputará en dos tiempos de 35 minutos y, por cuestiones sanitarias, no contará con la presencia de público.
+                             </p><br>
+                        <a href="/noticias" class="card__button">Volver atrás</a>
+                        <P class="fecha__noticia">25 DE AGOSTO, 2021</P>
+                    </div>
+                </div>
             </article>
+        </div>
         </section>
     </main>
     <footer th:replace="/fragments/footer :: footer-fragment-formularios"></footer>

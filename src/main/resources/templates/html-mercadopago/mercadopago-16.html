@@ -1,16 +1,8 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>Finalizá tu pago</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="css/indexmp.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="https://sdk.mercadopago.com/js/v2"></script>
-    <script type="text/javascript" src="js/index.js" defer></script>
-  </head>
+<html lang="es-AR" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head th:replace="/fragments/mp-fragments :: mp-head"></head>
   <body>
+    
     <main>
       <!-- Shopping Cart -->
       <section class="shopping-cart dark">
@@ -40,7 +32,12 @@
                                 <option value="1">1</option>
                                 <option value="2">2</option>
                               </select><br>
-                              <b>Precio:</b> $ <span id="unit-price">999</span>
+                              <div sec:authorize="!hasRole('ROLE_SOCIO')">
+                                <b>Precio:</b> $ <span id="unit-price">3500</span>
+                              </div>
+                              <div sec:authorize="hasRole('ROLE_SOCIO')">
+                                <b>Precio:</b> $ <span id="unit-price">1000</span>
+                              </div>
                               </p>
 
                             </div>

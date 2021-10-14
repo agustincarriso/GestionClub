@@ -8,6 +8,7 @@ import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import org.hibernate.annotations.GenericGenerator;
@@ -34,6 +35,23 @@ public class Jugador implements Serializable {
     
     private Double peso;
     private Double altura;
+    
+    @OneToOne
+    private Foto foto;
+
+    public Jugador(String id, String nacionalidad, String nombreCompleto, Posicion posicion, Date fechaNacimiento, Double peso, Double altura, Foto foto) {
+        this.id = id;
+        this.nacionalidad = nacionalidad;
+        this.nombreCompleto = nombreCompleto;
+        this.posicion = posicion;
+        this.fechaNacimiento = fechaNacimiento;
+        this.peso = peso;
+        this.altura = altura;
+        this.foto = foto;
+    }
+
+    public Jugador() {
+    }
 
     
     public String getId() {
@@ -90,6 +108,14 @@ public class Jugador implements Serializable {
 
     public void setAltura(Double altura) {
         this.altura = altura;
+    }
+
+    public Foto getFoto() {
+        return foto;
+    }
+
+    public void setFoto(Foto foto) {
+        this.foto = foto;
     }
 
 

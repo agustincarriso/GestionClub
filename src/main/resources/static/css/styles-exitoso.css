@@ -20,7 +20,7 @@ body {
     background-image: url(../assets/background_talleres/fondo-tribuna.jpg);
     background-size: cover;
     width: 100%;
-    min-height: 150vh;
+    min-height: 100vh;
 
 }
 
