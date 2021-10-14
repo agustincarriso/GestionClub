@@ -11,9 +11,7 @@
            <a href="/noticias" class="nav__items--cta"><i class="far fa-newspaper" style="margin-right: 5px;"></i>Noticias</a>
            <a sec:authorize="!isAuthenticated()" href="/usuario/registro" class="nav__items--cta"><i class="fas fa-user-check" style="margin-right: 5px;"></i>Registrarse</a>
            <div sec:authorize="isAuthenticated()">
-            <a sec:authorize="hasRole('ROLE_SOCIO')"
-                th:href="@{/socio/carnet(id=__${session.usuariosession.id}__)}"
-                class="nav__items--cta">
+            <a sec:authorize="hasRole('ROLE_SOCIO')">
                 <a sec:authorize="!hasRole('ROLE_ADMIN')"
                 th:href="@{/socio/carnet(id=__${session.usuariosession.id}__)}"
                 class="nav__items--cta"><i class="fas fa-id-card" style="margin-right: 5px;"></i>Carnet Digital</a>
