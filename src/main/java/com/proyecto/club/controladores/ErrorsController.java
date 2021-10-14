@@ -25,7 +25,7 @@ public class ErrorsController implements ErrorController {
                 mensajeError = "No tiene permiso para acceder al recurso";
                 break;
             case 404:
-                mensajeError = "El recurso solicitado no se ha encontrado";
+                mensajeError = "Se rompio todo Cul#@%!!!";
                 break;
             case 500:
                 mensajeError = "El servidor no pudo realizar la peticion exitosamente";
@@ -34,6 +34,6 @@ public class ErrorsController implements ErrorController {
         }
         model.addAttribute("codigo", codigoError);
         model.addAttribute("mensaje", mensajeError);
-        return "error";
+        return "error.html";
     }
 }
