@@ -77,16 +77,15 @@ public class JugadorServicio {
         List<Jugador> lista = jugadorRepositorio.findAll();
         return lista;
     }
-    
+    //dejar este servicio
+	 public List<Jugador> listallByQ(String query){
+        List<Jugador> lista = jugadorRepositorio.findAllByQ("%"+query+"%");
+        return lista;
+    }
     public List<Jugador> listallByPosicion(String nombre){
         return jugadorRepositorio.findAllByPosicion(nombre);
     }
-    
-    public List<Jugador> listallByQ(String q){
-        return jugadorRepositorio.findAllByQ("%"+q+"%");
-    }
-    
-    
+          
     public Optional<Jugador> findById(String id){
         return jugadorRepositorio.findById(id);
     }

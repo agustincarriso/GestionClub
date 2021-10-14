@@ -29,14 +29,16 @@ public class JugadorController {
 
     @PreAuthorize("hasAnyRole('ROLE_ADMIN')")
     @GetMapping("/list")
-    public String listarJugadors(Model model,@RequestParam(required = false) String q) {
-        if (q != null) {
-            model.addAttribute("jugadores", jugadorServicio.listallByQ(q));
+    public String lista(Model model, @RequestParam(required = false) String query) {
+        if (query != null) {
+            model.addAttribute("jugadores", jugadorServicio.listallByQ(query));
         }else{
             model.addAttribute("jugadores", jugadorServicio.listall());
         }
         return "/html-administracion/jugador/jugador-list";
     }
+	
+	
     @PreAuthorize("hasAnyRole('ROLE_ADMIN')")
     @GetMapping("/form")
     public String crearJugador(Model model, @RequestParam(required = false) String id) {

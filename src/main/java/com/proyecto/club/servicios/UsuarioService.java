@@ -122,13 +122,13 @@ public class UsuarioService implements UserDetailsService {
         List<Usuario> lista = usuarioRepository.findAll();
         return lista;
     }
-    
-    public List<Usuario> findByQuery(String query) {
-        List<Usuario> lista = usuarioRepository.findByQuery(query);
+	//cree este servicio (jonathan)
+	 public List<Usuario> listAllByQ(String query) {
+        List<Usuario> lista = usuarioRepository.findAllByQ("%"+query+"%");
         return lista;
     }
     
-    
+
     public Optional<Usuario> findById(String id) {
                 
         return  usuarioRepository.findById(id);

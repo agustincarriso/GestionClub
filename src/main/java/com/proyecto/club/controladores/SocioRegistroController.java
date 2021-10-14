@@ -53,8 +53,12 @@ public class SocioRegistroController {
 
     @PreAuthorize("hasAnyRole('ROLE_ADMIN')")
     @GetMapping("/list")
-    public String lista(Model model) {
-        model.addAttribute("socio", socioService.listAll());
+     public String lista(Model model, @RequestParam(required = false) String query){
+		 if (query != null) {
+			 model.addAttribute("socio", socioService.listAllByQ(query));
+		}else{
+			 model.addAttribute("socio", socioService.listAll());
+		 }
         return "/html-administracion/socio/socio-list.html";
     }
 
