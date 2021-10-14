@@ -16,7 +16,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 public class Security extends WebSecurityConfigurerAdapter {
     
     @Autowired
-    private UsuarioService usuarioServicio;
+    public UsuarioService usuarioServicio;
     
     @Autowired
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception{
