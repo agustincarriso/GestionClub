@@ -26,7 +26,7 @@ public class FotoController {
     @Autowired
     public UsuarioService usuarioService;
     
-    @GetMapping("/usuario")
+    @GetMapping("/socio")
     public ResponseEntity<byte[]> fotoUsuario(@RequestParam String id) throws WebException{
         try {
             Usuario usuario = usuarioService.encontrarPorId(id);
