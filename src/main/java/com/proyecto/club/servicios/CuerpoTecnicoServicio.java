@@ -88,4 +88,7 @@ public class CuerpoTecnicoServicio {
 
     }
 
+    public CuerpoTecnico encontrarPorId(String id) {   
+        return  cuerpotecnicoRepositorio.encontrarPorId(id);}
+
 }
