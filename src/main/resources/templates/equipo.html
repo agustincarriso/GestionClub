@@ -36,6 +36,23 @@
             </div>
           </div>
         </article>
+        <article class="seccion__categoria">
+          <p class="tienda__title-categoria">Cuerpo Técnico</p>
+          <div class="galery__port" style="display: flex; flex-wrap: wrap">
+
+            <div class="producto__tienda" style="margin-bottom: 10px;" th:each="c : ${cuerpoTecnico}">
+              <div class="galery__port--img">
+                <a class="galery__port--hover">
+                  <img class="imagen__tienda" th:src="${'/foto/cuerpo?id='}+${c.id}" alt="camiseta talleres"></a>
+                <div class="descripcion">
+                  <p class="descripcion__producname" th:text="${c.nombreCompleto}">GUIDO HERRERA</p>
+                  <p class="descripcion__produc" th:text="'Nacionalidad:' + ${c.nacionalidad}">Posición: Arquero</p>
+                  <p class="descripcion__produc" th:text="'Edad:' + ${c.edad}">Edad: 28</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
         </div>
     </section>
   </main>
