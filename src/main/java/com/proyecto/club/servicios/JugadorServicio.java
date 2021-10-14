@@ -111,6 +111,11 @@ public class JugadorServicio {
             jugadorRepositorio.delete(optional.get());
         }
     }
+
+    public Jugador encontrarPorId(String id) {   
+        return  jugadorRepositorio.encontrarPorId(id);
+    }
+
     
     
 }
