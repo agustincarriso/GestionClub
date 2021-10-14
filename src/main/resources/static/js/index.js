@@ -12,7 +12,7 @@ function loadCardForm() {
             id: "form-checkout",
             cardholderName: {
                 id: "form-checkout__cardholderName",
-                placeholder: "Holder name",
+                placeholder: "Titular de la Tarjeta",
             },
             cardholderEmail: {
                 id: "form-checkout__cardholderEmail",
@@ -20,7 +20,7 @@ function loadCardForm() {
             },
             cardNumber: {
                 id: "form-checkout__cardNumber",
-                placeholder: "Card number",
+                placeholder: "Número de la tarjeta",
             },
             cardExpirationMonth: {
                 id: "form-checkout__cardExpirationMonth",
@@ -28,22 +28,22 @@ function loadCardForm() {
             },
             cardExpirationYear: {
                 id: "form-checkout__cardExpirationYear",
-                placeholder: "YY",
+                placeholder: "AA",
             },
             securityCode: {
                 id: "form-checkout__securityCode",
-                placeholder: "Security code",
+                placeholder: "Código de Seguridad",
             },
             installments: {
                 id: "form-checkout__installments",
-                placeholder: "Installments",
+                placeholder: "Cuotas",
             },
             identificationType: {
                 id: "form-checkout__identificationType",
             },
             identificationNumber: {
                 id: "form-checkout__identificationNumber",
-                placeholder: "Identification number",
+                placeholder: "DNI",
             },
             issuer: {
                 id: "form-checkout__issuer",
