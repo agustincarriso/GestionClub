@@ -14,11 +14,34 @@
 </head>
 
 <body>
+    
+    <header th:replace="/fragments/nav-bar :: nav-bar-sin-slider"></header>
     <main>
-        <section>
-            <article>
-                <h2>esta es una noticia</h2>
+        <section class="section__noticias">
+            <div class="container-noticias">
+            <article class="noticia-ampliada">
+                <div class="card-ampliada">
+                    <img src="/assets/img-noticias/img-8.jpeg" class="card__img-noticia">
+                    <div class="cards_text">
+                        <p class="card_list">Árbitros y TV confirmados para Unión – Talleres</p>
+                        <p class="card__copy">
+                            
+                            
+
+                            
+                            La Liga Profesional de Fútbol confirmó las autoridades para dirigir los partidos de la séptima fecha del Torneo LPF 2021. Talleres visitará a Unión en Santa Fe el próximo domingo a las 13.30 horas en el Estadio 15 de Abril.
+                            Los árbitros del partido serán:
+                            Árbitro: Nazareno ArasaÁrbitro asistente 1: Gabriel ChadeÁrbitra asistente 2: Gisela BossoCuarto árbitro: Darío Sandoval
+                            TV: TNT Sports
+                            
+
+                        </p><br>
+                        <a href="/noticias" class="card__button">Volver atrás</a>
+                        <P class="fecha__noticia">12 DE AGOSTO, 2021</P>
+                    </div>
+                </div>
             </article>
+            </div>
         </section>
     </main>
     <footer th:replace="/fragments/footer :: footer-fragment-formularios"></footer>

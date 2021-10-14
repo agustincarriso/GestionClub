@@ -106,8 +106,13 @@ public class SocioService {
         return lista;
     }
 
-    public List<Socio> findByQuery(String query) {
-        List<Socio> lista = socioRepository.findByQuery(query);
+//    public List<Socio> findByQuery(String query) {
+//        List<Socio> lista = socioRepository.findByQuery("%"+query+"%");
+//        return lista;
+//    }
+//	
+	 public List<Socio> listAllByQ(String query) {
+        List<Socio> lista = socioRepository.findAllByQ("%"+query+"%");
         return lista;
     }
 

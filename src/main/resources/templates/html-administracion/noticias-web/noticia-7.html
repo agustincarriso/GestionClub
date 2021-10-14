@@ -14,11 +14,31 @@
 </head>
 
 <body>
+    <header th:replace="/fragments/nav-bar :: nav-bar-sin-slider"></header>
     <main>
-        <section>
-            <article>
-                <h2>esta es una noticia</h2>
+        <section class="section__noticias">
+            <div class="container-noticias">
+            <article class="noticia-ampliada">
+                <div class="card-ampliada">
+                    <img src="/assets/img-noticias/img-7.jpeg" class="card__img-noticia">
+                    <div class="cards_text">
+                        <p class="card_list">Liga Cordobesa: Triunfo ante la Academia</p>
+                        <p class="card__copy">
+                            
+                            
+                            Este sábado el albiazul disputó una nueva jornada del Torneo de la LCF.
+                            Talleres visitó a Racing de Nueva Italia por la 13° fecha del Certamen 2021.
+                            En Primera el albiazul se impuso por 3 a 1. Nahuel Vaca, Adrián Carbonell y Leonel Arriola marcaron los goles de la T.
+                            El partido fue arbitrado por Cristián Rivadera.
+                            En la próxima Fecha Talleres será local ante General Paz Juniors.
+
+                        </p><br>
+                        <a href="/noticias" class="card__button">Volver atrás</a>
+                        <P class="fecha__noticia">20 DE AGOSTO, 2021</P>
+                    </div>
+                </div>
             </article>
+            </div>
         </section>
     </main>
     <footer th:replace="/fragments/footer :: footer-fragment-formularios"></footer>

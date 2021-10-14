@@ -28,6 +28,15 @@
                 </div>
             </div>
         </div>
+        <form class="row-filtro" th:action="@{/usuario/list}" method="GET" style="width: 50%; margin: 0 auto;">
+            <div class="col-auto">
+                <input type="text" name="query" class="form-control" placeholder="Filtrar">
+            </div>
+            <div class="col-auto">
+                <button type="submit" class="btn-buscar mb-3" style="margin-top: 10px;">Buscar</button>
+                <a th:href="@{/usuario/list}" class="button4" >Limpiar filtro</a>
+            </div>
+        </form>
         <section class="mt-5">
             <table class="table table-success table-striped table-hover">
                 <thead>
@@ -64,9 +73,9 @@
                                 <button class="btn btn-outline-dark">Editar</button>
                             </a>
 
-                            <a th:href="@{/usuario/usuarioSeleccionado}+'?id='+${usuario.id}">
+                            <!-- <a th:href="@{/usuario/usuarioSeleccionado}+'?id='+${usuario.id}">
                                 <button class="btn btn-outline-dark">Inspeccionar</button>
-                            </a>
+                            </a> -->
                         </td>
 
 

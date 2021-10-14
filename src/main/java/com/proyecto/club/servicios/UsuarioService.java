@@ -41,6 +41,9 @@ public class UsuarioService implements UserDetailsService {
     
     @Autowired
     private FotoService fotoService;
+    
+    @Autowired
+    public MailService mailService;
 
     @Transactional
     public Usuario save(Usuario usuario, MultipartFile archivo) throws WebException, IOException {
@@ -114,21 +117,22 @@ public class UsuarioService implements UserDetailsService {
             
             usuario.setRol(Role.USER);
             
-            return usuarioRepository.save(usuario);
-
+          
+        mailService.enviarMail("Bienvenido al Club!", "Club Talleres", usuario.getEmail());
+        return usuarioRepository.save(usuario);
     }
 
     public List<Usuario> listAll() {
         List<Usuario> lista = usuarioRepository.findAll();
         return lista;
     }
-    
-    public List<Usuario> findByQuery(String query) {
-        List<Usuario> lista = usuarioRepository.findByQuery(query);
+	//cree este servicio (jonathan)
+	 public List<Usuario> listAllByQ(String query) {
+        List<Usuario> lista = usuarioRepository.findAllByQ("%"+query+"%");
         return lista;
     }
     
-    
+
     public Optional<Usuario> findById(String id) {
                 
         return  usuarioRepository.findById(id);

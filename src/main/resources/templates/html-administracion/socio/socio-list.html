@@ -24,9 +24,17 @@
                         <p class="sector-admin">Lista de Socios</p>
                     </div>
                 </div>
-
             </div>
         </div>
+        <form class="row-filtro" th:action="@{/socio/list}" method="GET" style="width: 50%; margin: 0 auto;">
+            <div class="col-auto">
+                <input type="text" name="query" class="form-control" placeholder="Filtrar">
+            </div>
+            <div class="col-auto">
+                <button type="submit" class="btn-buscar mb-3" style="margin-top: 10px;">Buscar</button>
+                <a th:href="@{/socio/list}" class="button4" >Limpiar filtro</a>
+            </div>
+        </form>
 
         <section class="mt-5">
             <table class="table table-success table-striped table-hover">
@@ -36,7 +44,7 @@
                         <th>Nombre</th>
                         <th>Apellido</th>
                         <th>Domicilio</th>
-                        <th>Password</th>
+                        <!-- <th>Password</th> -->
                         <th>DNI</th>
                         <th>Teléfono</th>
                         <th>NúmeroSocio</th>
@@ -53,7 +61,7 @@
                         <td th:text="${socio.nombre}"></td>
                         <td th:text="${socio.apellido}"></td>
                         <td th:text="${socio.domicilio}"></td>
-                        <td th:text="${socio.password}"></td>
+                        <!-- <td th:text="${socio.password}"></td> -->
                         <td th:text="${socio.dni}"></td>
                         <td th:text="${socio.telefono}"></td>
                         <td th:text="${socio.numeroSocio}"></td>
@@ -70,9 +78,9 @@
                                 <button class="btn btn-outline-dark" >Editar</button>
                             </a>
                             
-                              <a th:href="@{/socio/socioSeleccionado}+'?id='+${socio.id}">
+                              <!-- <a th:href="@{/socio/socioSeleccionado}+'?id='+${socio.id}">
                                 <button class="btn btn-outline-dark" >Inspeccionar</button>
-                            </a>
+                            </a> -->
                         </td>
                     </tr>
                 </tbody>
