@@ -89,19 +89,6 @@ public class SocioService {
 
         socio.setRol(Role.SOCIO);
 
-        if (socio.getValorCuota()==500) {
-            socio.setAcceso("Popular");
-        }
-        if (socio.getValorCuota()==1000) {
-            socio.setAcceso("Platea descubierta");
-        }
-        if (socio.getValorCuota()==1500) {
-            socio.setAcceso("Platea cubierta");
-        }
-        if (socio.getValorCuota()==2000) {
-            socio.setAcceso("Palco");
-        }
-
         Foto img = fotoService.guardarFoto(archivo);
         socio.setFoto(img);
 
