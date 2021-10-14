@@ -24,19 +24,19 @@
                 <input type="text" hidden th:field="*{id}">
                 <div class="form">
                     <img class="logo__club" src="/assets/escudo.png" alt="logo de talleres">
-                    <h1 class="socio-title">Hazte Socio <span>con estos simples pasos</span></h1>
+                    <h1 class="socio-title">Hazte socio <span>con estos simples pasos</span></h1>
                     <ul class="requisitos-list">
-                        <li><i class="fas fa-camera-retro"></i> Selecciona una foto para el carnet Digital (rostro completo
+                        <li><i class="fas fa-camera-retro"></i> Selecciona una foto para el carnet digital (rostro completo
                             y de frente)</li>
-                        <li><i class="fas fa-list-ul"></i> Eleji el plan mas conveniente para ti</li>
-                        <li><i class="far fa-hand-point-right"></i> Presiona el Boton <span>Hacerme socio!</span></li>
+                        <li><i class="fas fa-list-ul"></i> Elegí el plan más conveniente para ti</li>
+                        <li><i class="far fa-hand-point-right"></i> Presiona el boton <span>"Hacerme socio!"</span></li>
                     </ul>
                     <h2 class="socio-subtitle">Listo!<i class="far fa-thumbs-up"></i></h2>
-                    <p class="socio-p">Ahora podras disfrutar de todos los beneficios 
+                    <p class="socio-p">Podrás disfrutar de todos los beneficios 
                         exclusivos que tenemos para ti!</p>
 
                     <div class="grupo">
-                        <label class="label" for="">Foto para el Carnet de Socio</label>
+                        <label class="label" for="">Foto para el carnet de socio</label>
                         <br>
                         <input class="input" type="file" id="imagen" name="imagen" required><span class="barra"></span>
                     </div>
@@ -44,10 +44,12 @@
                         <label class="label" for="">Selecciona tu plan</label>
                         <br>
                         <select id="valorCuota" name="valorCuota" th:value="${valorCuota}" required class="socio-plan">
-                            <option value="500">Paquete Bronce - cuota mensual $500</option>
-                            <option value="1000">Paquete Plata - cuota mensual $1000</option>
-                            <option value="1500">Paquete Oro - cuota mensual $1500</option>
-                            <option value="2000">Paquete Diamante - cuota mensual $2000</option>
+
+                            <option value="500">Socio Popular - Cuota Mensual $500</option>
+                            <option value="1000">Socio Platea Descubierta - Cuota Mensual $1000</option>
+                            <option value="1500">Socio Platea Cubierta - Cuota Mensual $1500</option>
+                            <option value="2000">Socio Palco - Cuota Mensual $2000</option>
+
                         </select>
                     </div>
                     <button class="button" type="submit">Hacerme Socio!</button>
