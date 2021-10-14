@@ -285,9 +285,7 @@ ul.slider li:target {
 /* SECCION NOTICIAS */
 .noticias {
     height: 160vh;
-    background-image:
-        /*var(--background),*/
-        url(../assets/9bb2b89f9ebc960e856675f4424ba840.jpg);
+    background-image: var(--background), url(../assets/9bb2b89f9ebc960e856675f4424ba840.jpg);
     background-repeat: no-repeat;
     /* para que abarque el 100% del contenedor el background */
     background-size: cover;
@@ -326,7 +324,7 @@ ul.slider li:target {
 .noticias__title {
     font-size: 42px;
     margin-top: 50px;
-    color: var(--black1);
+    color: black;
 }
 
 .noticias__subtitle {
