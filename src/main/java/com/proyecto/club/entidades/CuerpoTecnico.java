@@ -9,6 +9,7 @@ import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import org.hibernate.annotations.GenericGenerator;
@@ -31,6 +32,9 @@ public class CuerpoTecnico implements Serializable {
     
     @ManyToOne
     private PuestoCT puesto;
+
+    @OneToOne
+    private Foto foto;
     
     public String getId() {
         return id;
@@ -38,6 +42,14 @@ public class CuerpoTecnico implements Serializable {
 
     public void setId(String id) {
         this.id = id;
+    }
+
+    public Foto getFoto() {
+        return foto;
+    }
+
+    public void setId(Foto foto) {
+        this.foto = foto;
     }
 
     public String getNombreCompleto() {

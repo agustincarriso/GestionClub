@@ -16,4 +16,7 @@ public interface CuerpoTecnicoRepositorio extends JpaRepository<CuerpoTecnico, S
     @Query("select c from CuerpoTecnico c where c.puesto.nombre = :q")
     List<CuerpoTecnico> findAllByPuesto(@Param("q") String q);
 
+    @Query("select c from CuerpoTecnico c where c.id = :id")
+	CuerpoTecnico encontrarPorId(@Param("id") String id);
+
 }
