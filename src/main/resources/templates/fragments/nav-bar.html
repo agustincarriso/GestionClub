@@ -10,12 +10,10 @@
            <a href="/equipo" class="nav__items--cta"><i class="fas fa-users" style="margin-right: 5px;"></i>Equipo</a>
            <a href="/noticias" class="nav__items--cta"><i class="far fa-newspaper" style="margin-right: 5px;"></i>Noticias</a>
            <a sec:authorize="!isAuthenticated()" href="/usuario/registro" class="nav__items--cta"><i class="fas fa-user-check" style="margin-right: 5px;"></i>Registrarse</a>
-           <div sec:authorize="hasRole('ROLE_USER')">
-               <div sec:authorize="!hasRole('ROLE_SOCIO')">
-                   <a sec:authorize="isAuthenticated()"
+           <div sec:authorize="isAuthenticated()">
+                   <a sec:authorize="!hasRole('ROLE_SOCIO')"
                        th:href="@{/usuario/asociarse(id=__${session.usuariosession.id}__)}"
                        class="nav__items--cta"><i class="fas fa-user-check" style="margin-right: 5px;"></i>Asociarse</a>
-               </div>
            </div>
            <a sec:authorize="!isAuthenticated()" href="/login" class="nav__items"><i class="fas fa-sign-in-alt" style="margin-right: 5px;"></i>Iniciar Sesión </a>
            <div sec:authorize="isAuthenticated()" class="container-logout">
