@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es-AR" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Hammersmith+One&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="/assets/escudo.png" type="image/x-icon">
+    <link rel="stylesheet" href="/css/normalize.css">
+    <link rel="stylesheet" href="/css/styles-exitoso.css">
+    <link rel="stylesheet" href="/css/styles.css">
+    <title>Bienvenidos</title>
+</head>
+
+<body>
+    <header th:replace="/fragments/nav-bar :: nav-bar-sin-slider"></header>
+    <main>
+
+        <section class="bienvenido-user">
+
+            <img class="logo-club-bienvenido" src="/assets/escudo.png" alt="logo de talleres">
+            <div class="acciones-user">
+                <h2 sec:authorize="!hasRole('ROLE_SOCIO')">Bienvenid@ <span th:if="${session.usuariosession != null}"
+                        th:text="${session.usuariosession.nombre +' '+ session.usuariosession.apellido}"></span></h2>
+                <h2 sec:authorize="!hasRole('ROLE_USER')">Bienvenid@ Socio <span
+                        th:if="${session.usuariosession != null}"
+                        th:text="${session.usuariosession.nombre +' '+ session.usuariosession.apellido}"></span></h2>
+                <h2 sec:authorize="hasRole('ROLE_ADMIN')">Bienvenid@ <span th:if="${session.usuariosession != null}"
+                        th:text="${session.usuariosession.nombre +' '+ session.usuariosession.apellido}"></span></h2>
+            </div>
+            <div class="button-user">
+                <a sec:authorize="hasRole('ROLE_ADMIN')" href="/panel-admin"><i
+                        class="fas fa-user-cog button-icon"></i>Panel Ctrol</a>
+                <!-- <a href="/panel-admin"><i class="fas fa-user-cog button-icon" sec:authorize="!hasRole('ROLE_SOCIO')"></i>Panel Ctrol</a>
+                <a href="/panel-admin"><i class="fas fa-user-cog button-icon" sec:authorize="!hasRole('ROLE_USER')"></i>Panel Ctrol</a> -->
+                <a href="/"><i class="fas fa-home button-icon"></i>Principal</a>
+                <a href="/noticias"><i class="fas fa-newspaper button-icon"></i>Noticias</a>
+                <a href="/tienda-indumentaria"><i class="fas fa-store button-icon"></i>La Tienda</a>
+            </div>
+            <div sec:authorize="!hasRole('ROLE_SOCIO')" class="card-registro">
+                <div class="card-socio">
+                    <h3> </i>Hacete Socio <i class="far fa-thumbs-up"></i></h3>
+                    <h2>Beneficios</h2>
+                    <div class="box-card__copy">
+                        <p class="card__copy"><i class="fas fa-check"></i> Accede a descuentos en entradas a partidos
+                        </p>
+                        <p class="card__copy"><i class="fas fa-check"></i> Descuentos en compras y cuotas sin interes en
+                            la tienda online</p>
+                        <p class="card__copy"><i class="fas fa-check"></i> Acceseso exclusivo a las instalaciones del
+                            club</p>
+                        <p class="card__copy"><i class="fas fa-check"></i> Enterate antes que nadie como saldra nuestro
+                            equipo a la cancha</p>
+                        <a th:href="@{/usuario/asociarse(id=__${session.usuariosession.id}__)}" class="button-user-cta">
+                            <i class="fas fa-user-check button-icon"></i>Hacerme Socio!</a>
+                    </div>
+                </div>
+            </div>
+            <div class="card-registro" sec:authorize="!hasRole('ROLE_USER')">
+                <div class="card-socio">
+                    <h2>Tus beneficios</h2>
+                    <div class="box-card__copy">
+                        <p class="card__copy"><i class="fas fa-check"></i> Acceso a descuentos en entradas a partidos
+                        </p>
+                        <p class="card__copy"><i class="fas fa-check"></i> Descuentos y cuotas sin interes en la tienda
+                            online</p>
+                        <p class="card__copy"><i class="fas fa-check"></i> Acceso exclusivo a las instalaciones del club
+                        </p>
+                        <p class="card__copy"><i class="fas fa-check"></i> Enterate antes que nadie como saldra nuestro
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <script src="/main.js"></script>
+    <footer th:replace="/fragments/footer :: footer-fragment-formularios"></footer>
+    <script src="https://kit.fontawesome.com/5208273844.js" crossorigin="anonymous"></script>
+
+</body>
+
+</html>

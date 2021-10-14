@@ -14,11 +14,30 @@
 </head>
 
 <body>
+    <header th:replace="/fragments/nav-bar :: nav-bar-sin-slider"></header>
     <main>
-        <section>
-            <article>
-                <h2>esta es una noticia</h2>
+        <section class="section__noticias">
+            <div class="container-noticias">
+            <article class="noticia-ampliada">
+                <div class="card-ampliada">
+                    <img src="/assets/img-noticias/img-5.jpeg" class= "card__img-noticia">
+                    <div class="cards_text">
+                        <p class="card_list">La Reserva de Talleres visita este jueves a Argentinos Juniors</p>
+                        <p class="card__copy">
+                            
+                            La Reserva de Talleres visita este jueves a Argentinos Juniors
+                            La Reserva Albiazul visitará este jueves a partir de las 10 horas a Argentinos Juniors por la octava fecha del Torneo de la Liga Profesional 2021. El encuentro se disputará en el Centro de Fútbol Profesional – CEFFA.
+                            La LPF informó que los árbitros serán:
+                            Árbitro: Julián JerezÁrbitro asistente 1: Giuliano GrilloÁrbitro asistente 2: Cristian Petulla
+                            Además, el partido podrá verse a través de ESPN, TNT Sports y en nuestro Canal Oficial de Youtube.
+                            
+                        </p><br>
+                        <a href="/noticias" class="card__button">Volver atrás</a>
+                        <P class="fecha__noticia">25 DE AGOSTO, 2021</P>
+                    </div>
+                </div>
             </article>
+            </div>
         </section>
     </main>
     <footer th:replace="/fragments/footer :: footer-fragment-formularios"></footer>

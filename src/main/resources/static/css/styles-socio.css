@@ -21,11 +21,13 @@ body {
 }
 
 .form-register {
-    height: 840px;
+    width: 650px;
+    height: 900px;
     display: flex;
     justify-content: center;
     align-items: center;
     color: var(--black2);
+    margin: auto;
   
 }
 
@@ -37,10 +39,35 @@ body {
     left: calc(50% - 50px);
 }
 
-.form-title {
+.socio-title {
     text-align: center;
     font-weight: bold;
 }
+
+.requisitos-list{
+    border: 2px solid var(--color-secondary);
+    text-align: left;
+    padding: 10px;
+    margin: 40px 0 20px;
+      
+}
+
+.socio-subtitle{
+    text-align: center;
+    font-weight: 400;
+    font-size: 40px;
+}
+
+.socio-p{
+    text-align: center;
+    font-size: 20px;
+    padding: 0 75px;
+}
+
+.socio-plan{
+    width: 100%;
+}
+
 
 .form {
     background: #ffff;
@@ -147,8 +174,3 @@ input:valid~label {
     margin: 10px auto;
 }
 
-.box1 {
-    margin: 100px auto;
-    width: 300px;
-    height: 50px;
-}
