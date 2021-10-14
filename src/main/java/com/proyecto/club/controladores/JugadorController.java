@@ -36,8 +36,7 @@ public class JugadorController {
             model.addAttribute("jugadores", jugadorServicio.listall());
         }
         return "/html-administracion/jugador/jugador-list";
-    }
-	
+    }	
 	
     @PreAuthorize("hasAnyRole('ROLE_ADMIN')")
     @GetMapping("/form")
