@@ -115,7 +115,7 @@ public class UsuarioService implements UserDetailsService {
 
 		usuario.setRol(Role.USER);
 
-		mailService.enviarMail("Bienvenido al Club!", "Club Talleres", usuario.getEmail());
+		//mailService.enviarMail("Bienvenido al Club!", "Club Talleres", usuario.getEmail());
 		return usuarioRepository.save(usuario);
 	}
 
