@@ -139,7 +139,7 @@ public class UsuarioRegistroController {
 			return "redirect:/asociarse";
 		}
 		/* url a la que redirecciono despues de registrar un usuario */
-		return "redirect:/registro-exitoso";
+		return "redirect:/bienvenidos";
 
 	}
 
