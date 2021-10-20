@@ -47,7 +47,12 @@
                     <select class="form-select" th:field="*{puesto.id}" >
                         <option th:each="p : ${#lists.sort(puestos)}" th:text="${p.nombre}" th:value="${p.id}"></option>
                     </select><br>
-                    
+                    <div class="grupo">
+                        <label class="label" style="color: #FFF" for="">Foto </label>
+                        <br>
+                        <input class="input" type="file" id="imagen" name="imagen" required style="color: #FFF;"><span class="barra"></span>
+                    </div>
+                    <br>
                     <input type="submit" class="form-control" id="enviar">
                 </form>
             </div>
