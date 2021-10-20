@@ -48,7 +48,7 @@ public class CuerpoTecnico implements Serializable {
         return foto;
     }
 
-    public void setId(Foto foto) {
+    public void setFoto(Foto foto) {
         this.foto = foto;
     }
 
