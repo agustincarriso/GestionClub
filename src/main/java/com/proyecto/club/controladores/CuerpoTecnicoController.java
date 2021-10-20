@@ -3,6 +3,8 @@ import com.proyecto.club.entidades.CuerpoTecnico;
 import com.proyecto.club.excepciones.WebException;
 import com.proyecto.club.servicios.CuerpoTecnicoServicio;
 import com.proyecto.club.servicios.PuestoCTServicio;
+
+import java.io.IOException;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -13,6 +15,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+import org.springframework.web.multipart.MultipartFile;
 
 @Controller
 @RequestMapping("/cuerpotecnico")
@@ -54,10 +57,10 @@ public class CuerpoTecnicoController {
 
     @PreAuthorize("hasAnyRole('ROLE_ADMIN')")
     @PostMapping("/save")
-    public String guardarCuerpoTecnico(Model model,RedirectAttributes redirectAttributes,CuerpoTecnico cuerpotecnico) {
+    public String guardarCuerpoTecnico(Model model,RedirectAttributes redirectAttributes,CuerpoTecnico cuerpotecnico, MultipartFile archivo) throws IOException {
        
         try {
-            cuerpotecnicoServicio.save2(cuerpotecnico);
+            cuerpotecnicoServicio.save2(cuerpotecnico,archivo);
             //redirectAttributes.addFlashAttribute("error", "Primer paso completado exitosamente");  
         } catch (WebException ex) {
             ex.printStackTrace();

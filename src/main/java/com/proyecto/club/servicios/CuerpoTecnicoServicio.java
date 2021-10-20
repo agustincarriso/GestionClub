@@ -3,12 +3,16 @@ import com.proyecto.club.excepciones.WebException;
 import com.proyecto.club.entidades.CuerpoTecnico;
 import com.proyecto.club.entidades.PuestoCT;
 import com.proyecto.club.repositorios.CuerpoTecnicoRepositorio;
+import com.proyecto.club.entidades.Foto;
+
+import java.io.IOException;
 import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
 @Service
 public class CuerpoTecnicoServicio {
@@ -17,8 +21,11 @@ public class CuerpoTecnicoServicio {
     @Autowired
     private CuerpoTecnicoRepositorio cuerpotecnicoRepositorio;
 
+    @Autowired
+    public FotoService fotoService;
 
-    public CuerpoTecnico save(String nombreCompleto, String nacionalidad,Date edad, PuestoCT puesto ) {
+
+    public CuerpoTecnico save(String nombreCompleto, String nacionalidad,Date edad, PuestoCT puesto, MultipartFile archivo ) throws IOException {
         CuerpoTecnico cuerpoTecnico = new CuerpoTecnico();
         
         cuerpoTecnico.setNombreCompleto(nombreCompleto);
@@ -26,10 +33,13 @@ public class CuerpoTecnicoServicio {
         cuerpoTecnico.setEdad(edad);
         cuerpoTecnico.setPuesto(puesto);
         
+        Foto img = fotoService.guardarFoto(archivo);
+        cuerpoTecnico.setFoto(img);
+        
         return cuerpotecnicoRepositorio.save(cuerpoTecnico);
     }
 
-    public CuerpoTecnico save2(CuerpoTecnico cuerpotecnico) throws WebException {
+    public CuerpoTecnico save2(CuerpoTecnico cuerpotecnico, MultipartFile archivo) throws WebException, IOException {
         if (cuerpotecnico.getNombreCompleto().isEmpty() || cuerpotecnico.getNombreCompleto()== null) {
             throw new WebException("Debe ingresar un nombre");
         }
@@ -39,6 +49,9 @@ public class CuerpoTecnicoServicio {
         if (cuerpotecnico.getEdad() == null) {
             throw new WebException("Ingrese el dia de nacimiento");
         }
+        
+        Foto img = fotoService.guardarFoto(archivo);
+        cuerpotecnico.setFoto(img);
         return cuerpotecnicoRepositorio.save(cuerpotecnico);
     }
 
