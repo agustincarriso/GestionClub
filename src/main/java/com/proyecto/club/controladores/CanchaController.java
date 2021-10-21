@@ -1,6 +1,7 @@
 
 package com.proyecto.club.controladores;
 
+import com.proyecto.club.servicios.CuerpoTecnicoServicio;
 import com.proyecto.club.servicios.JugadorServicio;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,10 +20,13 @@ public class CanchaController {
 
 	@Autowired
 	private JugadorServicio jugadorServicio;
+    @Autowired
+    private CuerpoTecnicoServicio cuerpoTecnicoServicio;
 
 	@GetMapping("/equipo")
     public String lista(Model model) {
             model.addAttribute("jugadores", jugadorServicio.listall());
+            model.addAttribute("cuerpotecnicolista", cuerpoTecnicoServicio.listAll());
         return "equipo";
     }
 }
