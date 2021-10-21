@@ -124,8 +124,9 @@ body {
 .logo {
     display: flex;
     align-items: center;
-    width: 30%;
+    width: 50%;
     text-decoration: none;
+    margin-right: 40px;
 }
 
 .imagen__logo {
